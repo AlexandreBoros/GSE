@@ -1,4 +1,4 @@
-@extends('layouts.Admin')
+@extends('layouts.Clinica')
 
 @section('titulo', 'GSE')
 
@@ -13,10 +13,10 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800 text-uppercase">{{Auth::user()->name}}</h1>
-    <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="#" data-toggle="modal" data-target="#convenioModal">
-        <i class="fas fa-download fa-sm text-white-50"></i> Novo Processo
-    </a>
+    <h1 class="h3 mb-0 text-gray-800 text-uppercase">{{$clinicas->nome_clinica}}</h1>
+    {{--<a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="#" data-toggle="modal" data-target="#convenioModal">
+        <i class="fas fa-download fa-sm text-white-50"></i> Novo Convenio
+    </a>--}}
 </div>
 
 {{--
@@ -114,7 +114,6 @@
         <table id="table_alunos" class="table" style="width:100%">    
             <thead>
                 <tr>
-                    <th>CLINICA</th>
                     <th>NOME PACIENTE</th>
                     <th>CONVENIO</th>
                     <th>PLANO</th>
@@ -125,27 +124,17 @@
             <tbody>               
                 @if (count($convenios)>0)
                     @foreach ($convenios as $convenio)
-                    @if($convenio->status_situacao == 1)
-                        <?php $classe = 'analise' ?>
-                    @elseif($convenio->status_situacao == 2)
-                        <?php $classe = 'pendente' ?>                        
-                    @endif 
-                <tr class="{{$classe}}">  
-                            <td>{{$convenio->nome_clinica}}</td>
-                            <td>{{$convenio->nome_paciente}}</td>
-                            <td>{{$convenio->tipo_convenio}}</td>
-                            <td>{{$convenio->tipo_plano}}</td>
-                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
-                            <td>
-                                <a href="#" class="alterar_status_processo" data-toggle="modal" data-target="#alterar_status_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Situação do Convenio" title="Alterar Situação do Convenio">
-                                    <i class="fas fa-toggle-on"></i>
-                                </a>
-                                @if($convenio->status_situacao == 2)
-                                    <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">
-                                        <i class="fas fa-clipboard-list"></i>
-                                    </a>
-                                @endif
-                            </td>
+                        @if($convenio->status_situacao == 1)
+                            <?php $classe = 'analise' ?>
+                        @elseif($convenio->status_situacao == 2)
+                            <?php $classe = 'pendente' ?>                        
+                        @endif 
+                        <tr class="{{$classe}}">
+                        <td>{{$convenio->nome_paciente}}</td>
+                        <td>{{$convenio->tipo_convenio}}</td>
+                        <td>{{$convenio->tipo_plano}}</td>
+                        <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                        <td></td>
                         </tr>  
                     @endforeach
                 @else

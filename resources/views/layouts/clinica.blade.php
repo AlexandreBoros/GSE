@@ -18,7 +18,7 @@
         <script src="{{asset('sbadmin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
         <script src="{{asset('sbadmin/js/sb-admin-2.min.js')}}"></script>
         <script src="{{asset('js/libs/sweetalert2.all.js')}}?v={{time()}}"></script>
-        <script src="{{asset('js/app/jquery.funcoes.admin.js')}}?v={{time()}}"></script>
+        <script src="{{asset('js/app/jquery.funcoes.clinica.js')}}?v={{time()}}"></script>
         <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
         <script type="application/javascript">
             var URL_BASE = '{{URL::to("/")}}/';
@@ -63,7 +63,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{--route('app.admin.principal')--}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Dashboard {{$clinicas->nome_clinica}}</span></a>
       </li>
 
       <!-- Divider -->
@@ -124,7 +124,7 @@
         </div>
       </li>-->
 
-      <!-- Divider -->
+      <!-- Divider 
       <hr class="sidebar-divider">
 
       <li class="nav-item">
@@ -138,7 +138,7 @@
             <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Todos</a>
           </div>
         </div>
-      </li>
+      </li>-->
 
 
     </ul>
@@ -363,7 +363,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Novo Processo</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Novo Convenio</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -373,9 +373,10 @@
                             <div class="form-group row">
                                 <div class="col">
                                   <select class="form-control" id="clinica">
-                                    @foreach ($clinicas as $clinica)
+                                    <option value="">SELECIONE A CLINICA</option>
+                                      {{--@foreach ($clinicas as $clinica)
                                          <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
-                                      @endforeach
+                                      @endforeach--}}
                                   </select>
                                 </div>
                             </div>
@@ -449,44 +450,76 @@
         </div>
 
          <!--Novo Categoria Bares Modal-->
-         <div class="modal fade" id="alterar_status_processo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+         <div class="modal fade" id="baresModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Alterar o status do Processo</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nova Categoria</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                      
-                    </div>
-                    <div class="modal-footer">
+                    <div id="nova_categoria">
+                        <div class="modal-body">
+                            <form class="user" name="form-nova-categoria">
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <input type="text" class="form-control form-control-user" id="nome_categoria" placeholder="Nome">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
-                            <button class="btn btn-primary alterar-status">Enviar</button>
-                     </div>
+                            <button class="btn btn-primary enviar-categoria" onclick="enviar_categoria()">Enviar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!--Novo Cliente Modal-->
-        <div class="modal fade" id="adicionar_pendecia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Adicionar Pendencias</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Novo Cliente</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                            
+                    <div id="novo_cliente">
+                        <div class="modal-body">
+                            <form class="user" name="form-nova-cliente">
+                                <form class="user">
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="text" class="form-control form-control-user" id="cliente_nome" placeholder="Nome">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="email" class="form-control form-control-user" id="cliente_email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="password" class="form-control form-control-user" id="cliente_senha" placeholder="Senha">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input type="password" class="form-control form-control-user" id="cliente_senha_comfirmar" placeholder="Comfirmar Senha">
+                                        </div>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
+                            <button class="btn btn-primary" onclick="enviar_cliente()">Enviar</button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
-                      <button class="btn btn-primary salvar_pendencia">Enviar</button>
-                    </div>
-                   
                 </div>
             </div>
         </div>

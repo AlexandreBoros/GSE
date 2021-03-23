@@ -3,10 +3,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class convenio extends Model {
+class processo_status extends Model {
 
-    protected $table = 'gse.convenios';
-    protected $primaryKey = 'id_convenio';
+    protected $table = 'gse.processo_status';
+    protected $primaryKey = 'id_processo_status';
     public $timestamps = false;
     protected $guarded  = array();
 
