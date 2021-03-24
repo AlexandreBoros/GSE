@@ -144,6 +144,12 @@
                                     <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">
                                         <i class="fas fa-clipboard-list"></i>
                                     </a>
+                                    <a href="#" class="upload" data-toggle="modal" data-target="#upload" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Upload" title="Upload">
+                                        <i class="fas fa-upload"></i>
+                                    </a>
+                                    <a href="#" class="lista_upload" data-toggle="modal" data-target="#lista_upload" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Arquivos Upload" title="Arquivos Upload">
+                                        <i class="fas fa-file-import"></i>
+                                    </a>
                                 @endif
                             </td>
                         </tr>  

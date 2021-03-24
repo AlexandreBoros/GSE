@@ -106,7 +106,7 @@
 
 
 <div class="card shadow mb-4"><div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Convenios</h6>
+    <h6 class="m-0 font-weight-bold text-primary">Processos</h6>
 </div>
 <div class="card-body">
     <div class="table-responsive">
@@ -130,11 +130,20 @@
                             <?php $classe = 'pendente' ?>                        
                         @endif 
                         <tr class="{{$classe}}">
-                        <td>{{$convenio->nome_paciente}}</td>
-                        <td>{{$convenio->tipo_convenio}}</td>
-                        <td>{{$convenio->tipo_plano}}</td>
-                        <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
-                        <td></td>
+                            <td>{{$convenio->nome_paciente}}</td>
+                            <td>{{$convenio->tipo_convenio}}</td>
+                            <td>{{$convenio->tipo_plano}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td>
+                                @if($convenio->status_situacao == 2)
+                                        <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">
+                                            <i class="fas fa-clipboard-list"></i>
+                                        </a>
+                                        <a href="#" class="lista_upload" data-toggle="modal" data-target="#lista_upload" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Arquivos Upload" title="Arquivos Upload">
+                                            <i class="fas fa-file-import"></i>
+                                        </a>
+                                    @endif
+                            </td>
                         </tr>  
                     @endforeach
                 @else
@@ -143,7 +152,7 @@
                             <div class="alert alert-danger">
                                 <i class="glyphicon glyphicon-remove"></i>
                                 <div class="mensagem">
-                                    Nenhum convenio foi encontrado.
+                                    Nenhum Processo foi encontrado.
                                 </div>
                             </div>
                         </td>

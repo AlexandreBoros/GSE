@@ -84,7 +84,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Manter:</h6>
             {{--<a class="collapse-item" href="{{route('app.admin.principal')}}">Home</a>--}}
-            <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Convenios</a>
+            <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Processos</a>
             {{--<a class="collapse-item" href="{{route('app.admin.cliente')}}">Clientes</a>
             <a class="collapse-item" href="{{route('app.admin.plano')}}">Planos</a>
             <a class="collapse-item" href="{{route('app.admin.bares_categoria')}}">Categorias dos Bares</a>--}}
@@ -356,6 +356,41 @@
             </div>
         </footer>
         <!-- End of Footer -->
+
+
+
+        <div class="modal fade" id="adicionar_pendecia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Pendencias</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                          
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="modal fade" id="lista_upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Arquivos</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        
+                </div>
+            </div>
+        </div>
+      </div>
 
 
         <!--Novo Admin Modal-->

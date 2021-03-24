@@ -491,6 +491,43 @@
             </div>
         </div>
 
+        <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Upload Arquivo</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                          
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
+                    <button class="btn btn-primary upload-arquivo" onClick="document.getElementById('form_upload').submit();">Enviar</button>
+                  </div>
+                  
+              </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="lista_upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Arquivos</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                          
+                  </div>
+              </div>
+          </div>
+        </div>
+
         <!--Novo Plano Modal-->
         <div class="modal fade" id="novoPlanoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
             <div class="modal-dialog" role="document">
