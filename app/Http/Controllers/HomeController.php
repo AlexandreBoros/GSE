@@ -96,14 +96,14 @@ class HomeController extends Controller
                     break;    
                 
                 default:
-                    # code...
+                    return view('app.sair');
                     break;
             }
             
 
         }else{
 
-            return view('home');
+            return view('app.sair');
             
         }
 
