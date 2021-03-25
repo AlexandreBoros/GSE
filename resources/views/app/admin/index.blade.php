@@ -102,7 +102,7 @@
     .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
     .pendente { background-color: #ff1d0d; text-align: left; color: white}
     .pago { background-color: #1cf082; text-align: left; color: white}
-    .baixado { background-color: #f5ef3d; text-align: left; color: white}
+    .baixado { background-color: #f5ef3d; text-align: left; color: rgb(110, 54, 230)}
 </style>
 
 
