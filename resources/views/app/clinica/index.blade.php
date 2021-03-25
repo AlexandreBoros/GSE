@@ -1,4 +1,4 @@
-@extends('layouts.Clinica')
+@extends('layouts.clinica')
 
 @section('titulo', 'GSE')
 
