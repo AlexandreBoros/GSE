@@ -99,8 +99,10 @@
 </div>--}}
 
 <style>
-    .analise { background-color: goldenrod; text-align: left; color: white}
-    .pendente { background-color: #e74a3b; text-align: left; color: white}
+    .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
+    .pendente { background-color: #ff1d0d; text-align: left; color: white}
+    .pago { background-color: #1cf082; text-align: left; color: white}
+    .baixado { background-color: #f5ef3d; text-align: left; color: white}
 </style>
 
 
@@ -128,7 +130,11 @@
                         @if($convenio->status_situacao == 1)
                             <?php $classe = 'analise' ?>
                         @elseif($convenio->status_situacao == 2)
-                            <?php $classe = 'pendente' ?>                        
+                            <?php $classe = 'pendente' ?> 
+                        @elseif($convenio->status_situacao == 3)
+                            <?php $classe = 'baixado' ?>     
+                        @elseif($convenio->status_situacao == 4)
+                            <?php $classe = 'pago' ?>                                       
                         @endif 
                         <tr class="{{$classe}}">
                             <td>{{$convenio->nome_paciente}}</td>
