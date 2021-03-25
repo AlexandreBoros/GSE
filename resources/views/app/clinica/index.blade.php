@@ -123,6 +123,7 @@
             </thead>
             <tbody>               
                 @if (count($convenios)>0)
+                    <?php $classe = "" ?>
                     @foreach ($convenios as $convenio)
                         @if($convenio->status_situacao == 1)
                             <?php $classe = 'analise' ?>
