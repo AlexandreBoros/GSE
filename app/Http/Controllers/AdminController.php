@@ -40,6 +40,11 @@ class AdminController extends Controller {
                 $convenio->numero_carterinha = $request->numero_carterinha;
                 $convenio->cpf = $request->cpf;
                 $convenio->dt_cadastro = Carbon::now();
+                $convenio->protocolo = $request->protocolo;
+                $convenio->valor_nf = $request->valor_nf;
+                $convenio->valor_pago = $request->valor_pago;
+                $convenio->dt_pagamento = $request->dt_pagamento;
+                $convenio->porcentagem_gse = $request->porcentagem_gse;
 
                 if (!$convenio->save()) {
                     throw new Exception('Erro ao salvar novo convenio.');

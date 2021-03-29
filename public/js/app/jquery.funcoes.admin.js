@@ -17,8 +17,11 @@ $(document).ready(function() {
         var convenio = $('#convenio').val();
         var plano = $('#plano').val();
         var numero_carterinha = $('#numero_carterinha').val();
-        var cpf = $('#cpf').val();
-
+        var protocolo = $('#protocolo').val();
+        var valor_nf = $('#valor_nf').val();
+        var valor_pago = $('#valor_pago').val();
+        var dt_pagqamento = $('#dt_pagqamento').val();
+        var porcentagem_gse = $('#porcentagem_gse').val();
 
         var data_args = {
             'clinica' : clinica,
@@ -26,7 +29,11 @@ $(document).ready(function() {
             'convenio' : convenio,
             'plano' : plano,
             'numero_carterinha' : numero_carterinha,
-            'cpf' : cpf
+            'protocolo' : protocolo,
+            'valor_nf' : valor_nf,
+            'valor_pago' : valor_pago,
+            'dt_pagqamento' : dt_pagqamento,
+            'porcentagem_gse' : porcentagem_gse
         };
 
 

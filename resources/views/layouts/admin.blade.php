@@ -438,6 +438,22 @@
                                   <input type="text" class="form-control" id="valor_nf" placeholder="VALOR NF">
                               </div>
                             </div>
+
+                            <div class="form-group row">
+                              <div class="col">
+                                  <input type="text" class="form-control" id="valor_pago" placeholder="VALOR PAGO">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col">
+                                  <input type="text" class="form-control" id="dt_pagqamento" placeholder="DATA PAGAMENTO">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col">
+                                  <input type="text" class="form-control" id="porcentagem_gse" placeholder="% GSE">
+                              </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
