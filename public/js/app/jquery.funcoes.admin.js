@@ -308,4 +308,78 @@ $(document).ready(function() {
     });
 
 
+    $("div#alterar_processo").on('click', 'button.alterar_processo', function(e) {
+
+        e.preventDefault();
+
+        var id_propcesso =  $('#id_propcesso').val();
+
+        var clinica = $('#clinica').val();
+        var nome_paciente = $('#nome_paciente').val();
+        var convenio = $('#convenio').val();
+        var plano = $('#plano').val();
+        var numero_carterinha = $('#numero_carterinha').val();
+        var protocolo = $('#protocolo').val();
+        var valor_nf = $('#valor_nf').val();
+        var valor_pago = $('#valor_pago').val();
+        var dt_pagqamento = $('#dt_pagqamento').val();
+        var porcentagem_gse = $('#porcentagem_gse').val();
+        var senha = $('#senha').val();
+        var cpf = $('#cpf').val();
+        var tipo_envio = $('#tipo_envio').val();
+
+
+        var data_args = {
+            'clinica' : clinica,
+            'nome_paciente' : nome_paciente,
+            'convenio' : convenio,
+            'plano' : plano,
+            'numero_carterinha' : numero_carterinha,
+            'protocolo' : protocolo,
+            'valor_nf' : valor_nf,
+            'valor_pago' : valor_pago,
+            'dt_pagqamento' : dt_pagqamento,
+            'porcentagem_gse' : porcentagem_gse,
+            'senha' : senha,
+            'cpf' : cpf,
+            'tipo_envio' : tipo_envio,
+            'id_propcesso' : id_propcesso
+        };
+
+
+        $.ajax({
+            type: "POST",
+            url: URL_BASE+'app/admin/atualizar_processo',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                switch (retorno.status){
+                    case 'erro':
+                        var alerta = swal("Erro!",retorno.msg,"error");
+                        break;
+                    case 'sucesso':
+                        var alerta = swal("Sucesso!",retorno.msg,"success");
+                        break;
+                }
+                alerta.then(function () {
+                    if (retorno.recarrega == 'true') {
+                        window.location = URL_BASE+'home/';
+                    }
+                });
+            },
+            error: function(ev, xhr, settings, error) {
+
+                console.log("erro " +ev);
+
+            }
+        });
+         
+        //alert('oiiii');
+
+    });
+
+
 });

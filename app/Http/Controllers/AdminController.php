@@ -320,5 +320,55 @@ class AdminController extends Controller {
 
     }
 
+    public function atualizar_processo(Request $request, convenio $convenio){
+
+        if(Auth::check()){
+
+            DB::beginTransaction();
+            try{ 
+              
+                $convenio->where("id_convenio", $request->id_propcesso)
+                          ->update([
+                                    'id_clinica'          => $request->clinica, 
+                                    'tipo_convenio'       => $request->convenio,
+                                    'tipo_plano'          => $request->plano,
+                                    'numero_carterinha'   => $request->numero_carterinha,
+                                    'cpf'                 => $request->cpf,
+                                    'nome_paciente'       => $request->nome_paciente,
+                                    'protocolo'           => $request->protocolo,
+                                    'valor_nf'            => $request->valor_nf,
+                                    'dt_pagamento'        => $request->dt_pagqamento,
+                                    'valor_pago'          => $request->valor_pago,
+                                    'porcentagem_gse'     => $request->porcentagem_gse,
+                                    'senha'               => $request->senha,
+                                    'tipo_envio'          => $request->tipo_envio
+                                  ]);
+
+
+                if (!$convenio->save()) {
+                    throw new Exception('Erro ao alterar processo.');
+                }
+
+            
+                DB::commit();
+                return response()->json([
+                    'status' => 'sucesso',
+                    'recarrega' => 'true',
+                    'msg' => 'Processo atualizado com sucesso.',
+                ]);
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+                         
+        }    
+
+    }
+
 
 }
