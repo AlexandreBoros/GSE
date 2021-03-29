@@ -160,7 +160,7 @@
                             <td class="text-uppercase">{{$convenio->valor_nf}}</td>
                             <td class="text-uppercase">{{$convenio->valor_pago}}</td>
                             <td class="text-uppercase">{{$convenio->dt_pagamento}}</td>
-                            <td class="text-uppercase">{{$convenio->porcentagem_gse}}</td>
+                            {{--<td class="text-uppercase">{{$convenio->porcentagem_gse}}</td>--}}
                             <td>
                                 <a href="#" class="alterar_status_processo" data-toggle="modal" data-target="#alterar_status_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Situação do Convenio" title="Alterar Situação do Convenio">
                                     <i class="fas fa-toggle-on"></i>
