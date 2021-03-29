@@ -43,7 +43,7 @@ class AdminController extends Controller {
                 $convenio->protocolo = $request->protocolo;
                 $convenio->valor_nf = $request->valor_nf;
                 $convenio->valor_pago = $request->valor_pago;
-                $convenio->dt_pagamento = $request->dt_pagamento;
+                $convenio->dt_pagqamento = $request->dt_pagqamento;
                 $convenio->porcentagem_gse = $request->porcentagem_gse;
                 $convenio->senha = $request->senha;
 
