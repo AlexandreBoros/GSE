@@ -297,5 +297,26 @@ class AdminController extends Controller {
 
     }
 
+    public function dados_processo(Request $request, convenio $convenio){
+
+        if(Auth::check()){
+       
+            $convenio = $convenio->where("id_convenio", $request->id_propcesso)->first();
+
+            $clinicas = $clinicas->get(); 
+
+            $compact_args = [
+                'request' => $request,
+                'class' => $this,
+                'convenio' => $convenio,
+                'clinicas' => $clinicas
+            ];
+    
+            return view('app.admin.dados_processo', $compact_args);
+                         
+        }    
+
+    }
+
 
 }

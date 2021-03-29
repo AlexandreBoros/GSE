@@ -43,6 +43,7 @@ Route::prefix('app')->group(function ()
             Route::post('salvar_upload','AdminController@salvar_upload')->name('app.admin.salvar_upload');
             Route::post('lista_upload','AdminController@lista_upload')->name('app.admin.lista_upload');
             Route::match(['get', 'post'], 'download/{id_processo_arquivo}','AdminController@download')->name('app.admin.download');
+            Route::post('dados_processo', 'AdminController@dados_processo')->name('app.admin.dados_processo');
 
         });
 

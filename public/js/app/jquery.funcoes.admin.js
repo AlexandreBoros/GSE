@@ -278,4 +278,32 @@ $(document).ready(function() {
     });
 
 
+    $("div#alterar_processo").on('show.bs.modal', function(e) {
+
+        var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
+
+        var data_args = {
+            'id_propcesso' : id_propcesso,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: URL_BASE+'app/admin/dados_processo',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                $(this).find('.modal-body').html(retorno);
+            },
+            error: function(ev, xhr, settings, error) {
+
+            }
+        });
+         
+
+    });
+
+
 });
