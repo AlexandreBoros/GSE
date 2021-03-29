@@ -428,7 +428,7 @@
                                 </select>
                               </div>
                             </div>
-                            <!--<div class="form-group row">
+                            <div class="form-group row">
                               <div class="col">
                                   <input type="text" class="form-control" id="protocolo" placeholder="PROTOCOLO">
                               </div>
@@ -437,7 +437,7 @@
                               <div class="col">
                                   <input type="text" class="form-control" id="valor_nf" placeholder="VALOR NF">
                               </div>
-                            </div>-->
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
