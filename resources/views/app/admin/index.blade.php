@@ -119,16 +119,17 @@
                     <th>CLINICA</th>
                     <th>NOME</th>
                     <th>CONVENIO</th>
-                    <th>PLANO</th>
+                    {{--<th>PLANO</th>--}}
                     <th>SITUAÇÃO</th>
-                    <th>Nº CARTEIRINHA</th>
+                    {{--<th>Nº CARTEIRINHA</th>--}}
                     <th>CPF</th>
+                    <th>SENHA</th>
                     <th>DATA</th>
                     <th>PROTOCOLO</th>
                     <th>VALOR NF</th>
                     <th>VALOR PAGO</th>
                     <th>DATA PAGAMENTO</th>
-                    <th>% GSE</th>
+                    {{--<th>% GSE</th>--}}
                     <th>AÇÕES</th>
                 </tr>
             </thead>
@@ -149,10 +150,11 @@
                             <td>{{$convenio->nome_clinica}}</td>
                             <td>{{$convenio->nome_paciente}}</td>
                             <td>{{$convenio->tipo_convenio}}</td>
-                            <td>{{$convenio->tipo_plano}}</td>
+                            {{--<td>{{$convenio->tipo_plano}}</td>--}}
                             <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
-                            <td class="text-uppercase">{{$convenio->numero_carterinha}}</td>
+                            {{--<td class="text-uppercase">{{$convenio->numero_carterinha}}</td>--}}
                             <td class="text-uppercase">{{$convenio->cpf}}</td>
+                            <td class="text-uppercase">{{$convenio->senha}}</td>
                             <td class="text-uppercase">{{$convenio->dt_cadastro}}</td>
                             <td class="text-uppercase">{{$convenio->protocolo}}</td>
                             <td class="text-uppercase">{{$convenio->valor_nf}}</td>

@@ -22,6 +22,7 @@ $(document).ready(function() {
         var valor_pago = $('#valor_pago').val();
         var dt_pagqamento = $('#dt_pagqamento').val();
         var porcentagem_gse = $('#porcentagem_gse').val();
+        var senha = $('#senha').val();
 
         var data_args = {
             'clinica' : clinica,
@@ -33,7 +34,8 @@ $(document).ready(function() {
             'valor_nf' : valor_nf,
             'valor_pago' : valor_pago,
             'dt_pagqamento' : dt_pagqamento,
-            'porcentagem_gse' : porcentagem_gse
+            'porcentagem_gse' : porcentagem_gse,
+            'senha' : senha
         };
 
 

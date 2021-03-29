@@ -420,6 +420,11 @@
                             </div>
                             <div class="form-group row">
                               <div class="col">
+                                  <input type="text" class="form-control" id="senha" placeholder="SENHA">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col">
                                 <select class="form-control" id="tipo_envio">
                                   <option>SELECIONE O TIPO DE ENVIO</option>
                                   <option value="REEMBOLSO">REEMBOLSO</option>
