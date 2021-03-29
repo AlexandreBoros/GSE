@@ -17,6 +17,7 @@ use App\Models\convenio;
 use App\Models\processo_status;
 use App\Models\processo_pendencia;
 use App\Models\processo_arquivos;
+use App\Models\clinica;
 
 
 class AdminController extends Controller {
