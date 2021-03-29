@@ -17,7 +17,7 @@
     <div class="form-group row">
       <div class="col">
         <select class="form-control" id="convenio">
-          <option>SELECIONE O CONVENIO</option>
+          <option value="{{$convenio->tipo_convenio}}">{{$convenio->tipo_convenio}}</option>
           <option value="AMIL">AMIL</option>
           <option value="BRADESCO">BRADESCO</option>
           <option value="MEDSERVICE">MEDSERVICE</option>
@@ -29,7 +29,7 @@
     <div class="form-group row">
       <div class="col">
         <select class="form-control" id="plano">
-          <option>SELECIONE O PLANO</option>
+          <option value="{{$convenio->tipo_plano}}">{{$convenio->tipo_plano}}</option>
           <option value="A PARTIR DE 500">A PARTIR DE 500</option>
           <option value="BASICO">BASICO</option>
           <option value="ESPECIAL 100">ESPECIAL 100</option>
