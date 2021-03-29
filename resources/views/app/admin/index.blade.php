@@ -117,10 +117,18 @@
             <thead>
                 <tr>
                     <th>CLINICA</th>
-                    <th>NOME PACIENTE</th>
+                    <th>NOME</th>
                     <th>CONVENIO</th>
                     <th>PLANO</th>
                     <th>SITUAÇÃO</th>
+                    <th>Nº CARTEIRINHA</th>
+                    <th>CPF</th>
+                    <th>TIPO ENVIO</th>
+                    <th>DATA</th>
+                    <th>VALOR NF</th>
+                    <th>VALOR PAGO</th>
+                    <th>DATA PAGAMENTO</th>
+                    <th>% GSE</th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
@@ -142,6 +150,14 @@
                             <td>{{$convenio->nome_paciente}}</td>
                             <td>{{$convenio->tipo_convenio}}</td>
                             <td>{{$convenio->tipo_plano}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
+                            <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
                             <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
                             <td>
                                 <a href="#" class="alterar_status_processo" data-toggle="modal" data-target="#alterar_status_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Situação do Convenio" title="Alterar Situação do Convenio">
