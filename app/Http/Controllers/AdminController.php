@@ -47,6 +47,7 @@ class AdminController extends Controller {
                 $convenio->dt_pagamento = $request->dt_pagqamento;
                 $convenio->porcentagem_gse = $request->porcentagem_gse;
                 $convenio->senha = $request->senha;
+                $convenio->tipo_envio = $request->tipo_envio;
 
                 if (!$convenio->save()) {
                     throw new Exception('Erro ao salvar novo convenio.');

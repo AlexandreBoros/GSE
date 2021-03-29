@@ -24,6 +24,7 @@ $(document).ready(function() {
         var porcentagem_gse = $('#porcentagem_gse').val();
         var senha = $('#senha').val();
         var cpf = $('#cpf').val();
+        var tipo_envio = $('#tipo_envio').val();
 
 
         var data_args = {
@@ -38,7 +39,8 @@ $(document).ready(function() {
             'dt_pagqamento' : dt_pagqamento,
             'porcentagem_gse' : porcentagem_gse,
             'senha' : senha,
-            'cpf' : cpf
+            'cpf' : cpf,
+            'tipo_envio' : tipo_envio
         };
 
 
