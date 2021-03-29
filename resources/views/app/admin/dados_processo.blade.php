@@ -4,14 +4,14 @@
         <div class="col">
           <select class="form-control" id="clinica">
             @foreach ($clinicas as $clinica)
-                 <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
+                 <option value="{{$clinica->id_clinica}}" @if($clinica->id_clinica == $convenio->id_clinica) selected="selected" @endif>{{$clinica->nome_clinica}}</option>
               @endforeach
           </select>
         </div>
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="nome_paciente" placeholder="NOME PACIENTE">
+          <input type="text" class="form-control" id="nome_paciente" placeholder="NOME PACIENTE" value="{{$convenio->nome_paciente}}">
       </div>
     </div>
     <div class="form-group row">
