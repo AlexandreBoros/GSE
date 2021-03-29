@@ -162,8 +162,11 @@
                             <td class="text-uppercase">{{$convenio->dt_pagamento}}</td>
                             {{--<td class="text-uppercase">{{$convenio->porcentagem_gse}}</td>--}}
                             <td>
-                                <a href="#" class="alterar_status_processo" data-toggle="modal" data-target="#alterar_status_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Situação do Convenio" title="Alterar Situação do Convenio">
+                                <a href="#" class="alterar_status_processo" data-toggle="modal" data-target="#alterar_status_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Situação do Processo" title="Alterar Situação do Processo">
                                     <i class="fas fa-toggle-on"></i>
+                                </a>
+                                <a href="#" class="alterar_processo" data-toggle="modal" data-target="#alterar_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Processo" title="Alterar Processo">
+                                    <i class="fas fa-pen-square"></i>
                                 </a>
                                 @if($convenio->status_situacao == 2)
                                     <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">

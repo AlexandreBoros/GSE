@@ -550,42 +550,20 @@
         </div>
 
         <!--Novo Plano Modal-->
-        <div class="modal fade" id="novoPlanoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+        <div class="modal fade" id="alterar_processo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Novo Plano</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Atualizar Processo</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="user" name="form-nova-plano">
-                            <div class="form-group row">
-                                <div class="col">
-                                    <input type="text" class="form-control form-control-user" id="plano_nome" placeholder="Nome do Plano">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col">
-                                    <input type="text" class="form-control form-control-user" id="plano_qtd_anuncio" placeholder="Quantidade Anuncios">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col">
-                                    <input type="text" class="form-control form-control-user" id="plano_qtd_meses" placeholder="Quantidade Meses">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col">
-                                    <input type="text" class="form-control form-control-user" id="valor_plano" placeholder="R$ ">
-                                </div>
-                            </div>
-                        </form>
+                        
                     </div>
                     <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
-                            <button class="btn btn-primary" onclick="salvar_plano()">Enviar</button>
+                      <button class="btn btn-primary alterar_processo">Atualizar Processo</button>
                     </div>
                     </div>
                 </div>
