@@ -297,7 +297,7 @@ class AdminController extends Controller {
 
     }
 
-    public function dados_processo(Request $request, convenio $convenio){
+    public function dados_processo(Request $request, convenio $convenio, clinica $clinicas){
 
         if(Auth::check()){
        
