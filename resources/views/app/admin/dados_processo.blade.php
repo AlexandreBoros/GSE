@@ -1,4 +1,4 @@
-<form class="user">
+<form class="user" name="form-alterar-processo">
     <input type="hidden" value="{{$request->id_propcesso}}" id="id_propcesso">
     <div class="form-group row">
         <div class="col">

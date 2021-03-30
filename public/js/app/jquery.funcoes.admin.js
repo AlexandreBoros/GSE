@@ -312,6 +312,8 @@ $(document).ready(function() {
 
         e.preventDefault();
 
+        var form = $('form[name=form-alterar-processo]');
+
         var id_propcesso =  $('#id_propcesso').val();
 
         var clinica = $('#clinica').val();
@@ -346,7 +348,7 @@ $(document).ready(function() {
             'id_propcesso' : id_propcesso
         };
 
-        alert(JSON.stringify(data_args));
+        alert(JSON.stringify(form.serialize()));
 
 
         $.ajax({
