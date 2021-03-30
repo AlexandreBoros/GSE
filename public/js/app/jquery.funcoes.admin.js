@@ -320,21 +320,18 @@ $(document).ready(function() {
        
 
         var clinica = $('#id_clinica_processo').val();
-        var nome_paciente = $('#nome_paciente').val();
-        var convenio = $('#convenio').val();
-        var plano = $('#plano').val();
-        var numero_carterinha = $('#numero_carterinha').val();
-        var protocolo = $('#protocolo').val();
-        var valor_nf = $('#valor_nf').val();
-        var valor_pago = $('#valor_pago').val();
-        var dt_pagqamento = $('#dt_pagqamento').val();
-        var porcentagem_gse = $('#porcentagem_gse').val();
-        var senha = $('#senha').val();
-        var cpf = $('#cpf').val();
-        var tipo_envio = $('#tipo_envio').val();
-
-
-        alert(clinica);
+        var nome_paciente = $('#nome_paciente_processo').val();
+        var convenio = $('#convenio_processo').val();
+        var plano = $('#plano_processo').val();
+        var numero_carterinha = $('#numero_carterinha_processo').val();
+        var protocolo = $('#protocolo_processo').val();
+        var valor_nf = $('#valor_nf_processo').val();
+        var valor_pago = $('#valor_pago_processo').val();
+        var dt_pagqamento = $('#dt_pagqamento_processo').val();
+        var porcentagem_gse = $('#porcentagem_gse_processo').val();
+        var senha = $('#senha_processo').val();
+        var cpf = $('#cpf_processo').val();
+        var tipo_envio = $('#tipo_envio_processo').val();
 
 
         var data_args = {
@@ -354,7 +351,7 @@ $(document).ready(function() {
             'id_propcesso' : id_propcesso
         };
 
-        alert(JSON.stringify(data_args));
+       //alert(JSON.stringify(data_args));
 
 
         $.ajax({

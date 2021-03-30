@@ -11,12 +11,12 @@
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="nome_paciente" placeholder="NOME PACIENTE" value="{{$convenio->nome_paciente}}">
+          <input type="text" class="form-control" id="nome_paciente_processo" placeholder="NOME PACIENTE" value="{{$convenio->nome_paciente}}">
       </div>
     </div>
     <div class="form-group row">
       <div class="col">
-        <select class="form-control" id="convenio">
+        <select class="form-control" id="convenio_processo">
           <option value="{{$convenio->tipo_convenio}}">{{$convenio->tipo_convenio}}</option>
           <option value="AMIL">AMIL</option>
           <option value="BRADESCO">BRADESCO</option>
@@ -28,7 +28,7 @@
     </div>
     <div class="form-group row">
       <div class="col">
-        <select class="form-control" id="plano">
+        <select class="form-control" id="plano_processo">
           <option value="{{$convenio->tipo_plano}}">{{$convenio->tipo_plano}}</option>
           <option value="A PARTIR DE 500">A PARTIR DE 500</option>
           <option value="BASICO">BASICO</option>
@@ -40,22 +40,22 @@
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="numero_carterinha" placeholder="Nº CARTEIRINHA" value="{{$convenio->numero_carterinha}}">
+          <input type="text" class="form-control" id="numero_carterinha_processo" placeholder="Nº CARTEIRINHA" value="{{$convenio->numero_carterinha}}">
       </div>
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="cpf" placeholder="CPF" value="{{$convenio->cpf}}">
+          <input type="text" class="form-control" id="cpf_processo" placeholder="CPF" value="{{$convenio->cpf}}">
       </div>
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="senha" placeholder="SENHA" value="{{$convenio->senha}}">
+          <input type="text" class="form-control" id="senha_processo" placeholder="SENHA" value="{{$convenio->senha}}">
       </div>
     </div>
     <div class="form-group row">
       <div class="col">
-        <select class="form-control" id="tipo_envio">
+        <select class="form-control" id="tipo_envio_processo">
           <option value="{{$convenio->tipo_envio}}">{{$convenio->tipo_envio}}</option>
           <option value="REEMBOLSO">REEMBOLSO</option>
           <option value="CIRURGIA">CIRURGIA</option>
@@ -65,28 +65,28 @@
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="protocolo" placeholder="PROTOCOLO"  value="{{$convenio->protocolo}}">
+          <input type="text" class="form-control" id="protocolo_processo" placeholder="PROTOCOLO"  value="{{$convenio->protocolo}}">
       </div>
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="valor_nf" placeholder="VALOR NF" value="{{$convenio->valor_nf}}">
+          <input type="text" class="form-control" id="valor_nf_processo" placeholder="VALOR NF" value="{{$convenio->valor_nf}}">
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="valor_pago" placeholder="VALOR PAGO" value="{{$convenio->valor_pago}}">
+          <input type="text" class="form-control" id="valor_pago_processo" placeholder="VALOR PAGO" value="{{$convenio->valor_pago}}">
       </div>
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="dt_pagqamento" placeholder="DATA PAGAMENTO" value="{{$convenio->dt_pagamento}}">
+          <input type="text" class="form-control" id="dt_pagqamento_processo" placeholder="DATA PAGAMENTO" value="{{$convenio->dt_pagamento}}">
       </div>
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="porcentagem_gse" placeholder="% GSE" value="{{$convenio->porcentagem_gse}}">
+          <input type="text" class="form-control" id="porcentagem_gse_processo" placeholder="% GSE" value="{{$convenio->porcentagem_gse}}">
       </div>
     </div>
 </form>
