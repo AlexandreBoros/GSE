@@ -317,7 +317,7 @@ $(document).ready(function() {
         var id_propcesso =  $('#id_propcesso').val();
 
 
-        alert(id_propcesso);
+       
 
         var clinica = $('#clinica').val();
         var nome_paciente = $('#nome_paciente').val();
@@ -332,6 +332,9 @@ $(document).ready(function() {
         var senha = $('#senha').val();
         var cpf = $('#cpf').val();
         var tipo_envio = $('#tipo_envio').val();
+
+
+        alert(clinica);
 
 
         var data_args = {
