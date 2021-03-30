@@ -319,7 +319,7 @@ $(document).ready(function() {
 
        
 
-        var clinica = $('#clinica').val();
+        var clinica = $('#id_clinica_processo').val();
         var nome_paciente = $('#nome_paciente').val();
         var convenio = $('#convenio').val();
         var plano = $('#plano').val();

@@ -2,7 +2,7 @@
     <input type="hidden" value="{{$request->id_propcesso}}" id="id_propcesso">
     <div class="form-group row">
         <div class="col">
-          <select class="form-control" id="clinica">
+          <select class="form-control" id="id_clinica_processo">
             @foreach ($clinicas as $clinica)
                  <option value="{{$clinica->id_clinica}}" @if($clinica->id_clinica == $convenio->id_clinica) selected="selected" @endif>{{$clinica->nome_clinica}}</option>
               @endforeach
