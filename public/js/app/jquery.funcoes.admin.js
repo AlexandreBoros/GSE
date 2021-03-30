@@ -346,7 +346,7 @@ $(document).ready(function() {
             'id_propcesso' : id_propcesso
         };
 
-        alert(data_args);
+        alert(JSON.stringify(data_args));
 
 
         $.ajax({
