@@ -324,6 +324,9 @@ class AdminController extends Controller {
 
         if(Auth::check()){
 
+
+           dd($request);
+
             DB::beginTransaction();
             try{ 
               
