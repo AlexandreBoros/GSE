@@ -346,6 +346,8 @@ $(document).ready(function() {
             'id_propcesso' : id_propcesso
         };
 
+        alert(data_args);
+
 
         $.ajax({
             type: "POST",
