@@ -310,7 +310,7 @@ $(document).ready(function() {
 
     $("div#alterar_processo").on('click', 'button.alterar_processo', function(e) {
 
-        e.preventDefault();
+        //e.preventDefault();
 
         var form = $('form[name=form-alterar-processo]');
 
@@ -348,7 +348,7 @@ $(document).ready(function() {
             'id_propcesso' : id_propcesso
         };
 
-        alert(JSON.stringify(form.serialize()));
+        alert(JSON.stringify(data_args));
 
 
         $.ajax({
