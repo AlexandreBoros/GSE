@@ -47,7 +47,7 @@
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pendentes</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-primary btn-sm">
+                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-danger btn-sm">
                     {{$procesos_pedente->count()}}
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Baixados</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-danger btn-sm">
+                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-warning btn-sm">
                     {{$procesos_baixado->count()}}
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pagos</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-primary btn-sm">
+                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-success btn-sm">
                     {{$procesos_pago->count()}}
                 </div>
             </div>
