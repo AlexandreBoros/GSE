@@ -228,7 +228,7 @@
                   </div>
                   <div class="font-weight-bold">
                     <div class="text-truncate">Sejá bem-vindo ao GSE</div>
-                    <div class="small text-gray-500">{{{{Auth::user()->name}}}}</div>
+                    <div class="small text-gray-500">{{Auth::user()->name}}</div>
                   </div>
                 </a>
               </div>
