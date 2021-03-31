@@ -33,7 +33,7 @@
                             {{$procesos_analise->count()}}
                         </div>
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto" style="margin-top: 10px">
                         <a href="#" class="relatorio_data_analise" data-toggle="modal" data-target="#relatorio_data_analise" href="javascript:void(0);" alt="Relatorio por Data dos processos em Analise" title="Relatorio por Data dos processos em Analise">
                             <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-secondary btn-sm">
                                 Relatório
