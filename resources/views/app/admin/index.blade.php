@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-auto">
                         <a href="#" class="relatorio_data_analise" data-toggle="modal" data-target="#relatorio_data_analise" href="javascript:void(0);" alt="Relatorio por Data dos processos em Analise" title="Relatorio por Data dos processos em Analise">
-                            <i class="fas fa-comments fa-2x text-gray-300">Relatório</i>
+                            <button class="btn btn-primary bt-sm">Relatório</button>
                         </a>
                         {{--<a href="{{route("app.generate-pdf")}}">
                             <button class="btn btn-primary upload-arquivo">Relatorio</button>
