@@ -391,15 +391,15 @@ $(document).ready(function() {
 
     $("table#table_alunos").on('click', 'a.excluir_processo', function(e) { 
 
-        e.preventDefault();
+        //e.preventDefault();
 
         var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
 
-        alert(JSON.stringify(id_propcesso));
+        //alert(JSON.stringify(id_propcesso));
        
         swal({
             title: 'Desativar Processo',
-            text: 'Tem certeza que deseja desativar o Processo ?' + id_propcesso,
+            text: 'Tem certeza que deseja desativar o Processo ?',
             type: 'warning',
             showCancelButton: true,
             cancelButtonText: 'Não',
