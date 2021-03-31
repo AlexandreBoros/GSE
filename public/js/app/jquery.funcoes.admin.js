@@ -392,6 +392,24 @@ $(document).ready(function() {
  
 });
 
+function iniciar_datepicker() {
+    $(".data_inicial").datepicker({
+      language: "pt-BR",
+      format: "dd/mm/yyyy",
+      endDate: "today",
+      autoclose: true,
+      zIndexOffset: 15,
+    });
+
+    $(".data_final").datepicker({
+        language: "pt-BR",
+        format: "dd/mm/yyyy",
+        endDate: "today",
+        autoclose: true,
+        zIndexOffset: 15,
+      });
+  }
+
 
 function excluir_processo(id_processo,protocolo){
 

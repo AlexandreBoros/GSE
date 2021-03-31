@@ -20,6 +20,7 @@
         <script src="{{asset('js/libs/sweetalert2.all.js')}}?v={{time()}}"></script>
         <script src="{{asset('js/app/jquery.funcoes.admin.js')}}?v={{time()}}"></script>
         <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="{{asset('js/libs/bootstrap-datepicker.min.js')}}?v={{time()}}"></script>
         <script type="application/javascript">
             var URL_BASE = '{{URL::to("/")}}/';
             var URL_ATUAL = '{{Request::url()}}/';
@@ -515,13 +516,24 @@
                           <span aria-hidden="true">×</span>
                       </button>
                   </div>
-                  <div class="modal-body">
-                    
-                  </div>
-                  <div class="modal-footer">
-                          <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
-                          <button class="btn btn-primary alterar-status">Enviar</button>
-                   </div>
+                  <form class="user">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                          <div class="col">
+                              <input type="text" class="form-control data_inicial" id="nome_paciente" placeholder="DATA INICIAL">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col">
+                              <input type="text" class="form-control data_final" id="nome_paciente" placeholder="DATA FINAL">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
+                      <button class="btn btn-primary alterar-status">Enviar</button>
+                    </div>
+                  </form>
               </div>
           </div>
       </div>
