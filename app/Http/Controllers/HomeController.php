@@ -44,7 +44,7 @@ class HomeController extends Controller
                     //Listar todos os convenios ordenados por data
                     $convenios = $convenios->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                            ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-                                           ->where("ativo", 1)
+                                           ->where("convenio.ativo", 1)
                                            ->orderBy('dt_cadastro','desc')
                                            ->paginate(10,['*'],'todos_convenios_pag');
 
@@ -78,7 +78,7 @@ class HomeController extends Controller
                     //Listar todos os convenios ordenados por data
                     $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                            ->where("id_clinica",'=', $users_clinicas->id_clinica)
-                                           ->where("ativo", 1)
+                                           ->where("convenio.ativo", 1)
                                            ->orderBy('dt_cadastro','desc')
                                            ->paginate(10,['*'],'todos_convenios_pag');
 
