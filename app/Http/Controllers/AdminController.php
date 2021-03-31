@@ -382,7 +382,7 @@ class AdminController extends Controller {
             DB::beginTransaction();
             try{ 
               
-                $convenio = $convenio->where("id_convenio", $request->id_propcesso)
+                $convenio = $convenio->where("id_convenio", $request->id_processo)
                                       ->update([     
                                                    'ativo' =>  0
                                                ]);
