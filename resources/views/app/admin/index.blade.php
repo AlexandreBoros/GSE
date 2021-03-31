@@ -6,9 +6,10 @@
 
 
 <style>
-    .azul { background-color: #4e73df; text-align: left; color: white}
-    .vermelho { background-color: #e74a3b; text-align: left; color: white}
-
+    .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
+    .pendente { background-color: #ff1d0d; text-align: left; color: white}
+    .pago { background-color: #1cf082; text-align: left; color: white}
+    .baixado { background-color: #f5ef3d; text-align: left; color: rgb(110, 54, 230)}
 </style>
 
 <!-- Page Heading -->
@@ -23,7 +24,7 @@
 <!-- Pending Requests Card Example -->
 <div class="row">
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card border-left-ligth shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
@@ -41,7 +42,7 @@
     </div>
 
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card border-left-danger shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
@@ -59,7 +60,7 @@
     </div>
 
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-danger shadow h-100 py-2">
+        <div class="card border-left-warning shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
@@ -77,7 +78,7 @@
     </div>
 
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-danger shadow h-100 py-2">
+        <div class="card border-left-success shadow h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
@@ -94,15 +95,6 @@
         </div>
     </div>
 </div>
-
-<style>
-    .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
-    .pendente { background-color: #ff1d0d; text-align: left; color: white}
-    .pago { background-color: #1cf082; text-align: left; color: white}
-    .baixado { background-color: #f5ef3d; text-align: left; color: rgb(110, 54, 230)}
-</style>
-
-
 
 <div class="card shadow mb-4"><div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Processos</h6>
@@ -166,7 +158,7 @@
                                     <i class="fas fa-pen-square"></i>
                                 </a>
                                 <a href="#" class="excluir_processo" data-toggle="modal" data-target="#excluir_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Excluir Processo" title="Excluir Processo">
-                                    <i class="fas fa-pen-square"></i>
+                                    <i class="fas fa-trash"></i>
                                 </a>
                                 @if($convenio->status_situacao >= 2)
                                     <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">
