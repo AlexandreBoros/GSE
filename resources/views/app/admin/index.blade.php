@@ -188,7 +188,7 @@
                             <div class="alert alert-danger">
                                 <i class="glyphicon glyphicon-remove"></i>
                                 <div class="mensagem">
-                                    Nenhum convenio foi encontrado.
+                                    Nenhum Processo foi encontrado.
                                 </div>
                             </div>
                         </td>
