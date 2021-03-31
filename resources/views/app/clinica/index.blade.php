@@ -146,14 +146,14 @@
                             <td>{{$convenio->valor_nf}}</td>
                             <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
                             <td>
-                                @if($convenio->status_situacao == 2)
-                                        <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">
-                                            <i class="fas fa-clipboard-list"></i>
-                                        </a>
-                                        <a href="#" class="lista_upload" data-toggle="modal" data-target="#lista_upload" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Arquivos Upload" title="Arquivos Upload">
+                                @if($convenio->status_situacao >= 2)
+                                    <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">
+                                        <i class="fas fa-clipboard-list"></i>
+                                    </a>
+                                    <a href="#" class="lista_upload" data-toggle="modal" data-target="#lista_upload" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Arquivos Upload" title="Arquivos Upload">
                                             <i class="fas fa-file-import"></i>
-                                        </a>
-                                    @endif
+                                    </a>
+                                @endif
                             </td>
                         </tr>  
                     @endforeach
