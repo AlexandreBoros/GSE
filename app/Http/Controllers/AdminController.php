@@ -379,21 +379,35 @@ class AdminController extends Controller {
         
         if(Auth::check()){
 
+            DB::beginTransaction();
+            try{ 
+              
+                $convenio = $convenio->where("id_convenio", $request->id_propcesso)
+                                      ->update([     
+                                                   'ativo' =>  0
+                                               ]);
 
-            dd($request->id_processo);
 
-            //$processo_status = $processo_status->get();
+                if (!$convenio) {
+                    throw new Exception('Erro ao alterar processo.');
+                }
 
-            //dd($processo_status);
+            
+                DB::commit();
+                return response()->json([
+                    'status' => 'sucesso',
+                    'recarrega' => 'true',
+                    'msg' => 'Processo desativado com sucesso.',
+                ]);
 
-           /* $compact_args = [
-                'request' => $request,
-                'class' => $this,
-                'processo_status' => $processo_status
-            ];
-    
-    
-            return view('app.admin.status_processo', $compact_args);*/
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
 
         }
         
