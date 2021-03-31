@@ -520,12 +520,12 @@
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">
-                              <input type="text" class="form-control data_inicial" id="data_inicial" placeholder="DATA INICIAL">
+                              <input type="text" class="form-control" id="data_inicial" placeholder="DATA INICIAL">
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="col">
-                              <input type="text" class="form-control data_final" id="data_final" placeholder="DATA FINAL">
+                              <input type="text" class="form-control" id="data_final" placeholder="DATA FINAL">
                           </div>
                         </div>
                     </div>
