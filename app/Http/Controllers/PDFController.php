@@ -21,7 +21,7 @@ use App\Models\processo_arquivos;
 use App\Models\clinica;
 
 
-class AdminController extends Controller {
+class PDFController extends Controller {
 
     public function __construct() {
 
