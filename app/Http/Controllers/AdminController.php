@@ -380,7 +380,7 @@ class AdminController extends Controller {
         if(Auth::check()){
 
 
-            dd($request->id_propcesso);
+            dd($request->id_processo);
 
             //$processo_status = $processo_status->get();
 

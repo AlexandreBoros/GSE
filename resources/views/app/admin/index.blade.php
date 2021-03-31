@@ -157,7 +157,7 @@
                                 <a href="#" class="alterar_processo" data-toggle="modal" data-target="#alterar_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Processo" title="Alterar Processo">
                                     <i class="fas fa-pen-square"></i>
                                 </a>
-                                <a href="#" class="excluir_processo" data-toggle="modal" data-target="#excluir_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Excluir Processo" title="Excluir Processo">
+                                <a href="#" class="excluir_processo" data-toggle="modal" data-target="#excluir_processo" href="javascript:void(0);"  onclick="excluir_processo({{$convenio->id_convenio}},{{$convenio->protocolo}})"  alt="Excluir Processo" title="Excluir Processo">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                 @if($convenio->status_situacao >= 2)

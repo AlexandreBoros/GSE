@@ -389,65 +389,66 @@ $(document).ready(function() {
     });
 
 
-    $("table#table_alunos").on('click', 'a.excluir_processo', function(e) { 
-
-        //e.preventDefault();
-
-        var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
-
-        //alert(JSON.stringify(id_propcesso));
-       
-        swal({
-            title: 'Desativar Processo',
-            text: 'Tem certeza que deseja desativar o Processo ?',
-            type: 'warning',
-            showCancelButton: true,
-            cancelButtonText: 'Não',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim',
-            showLoaderOnConfirm: true,
-        }).then(function(retorno) {
-            if (retorno.value == true ) {
-                $.ajax({
-                    type: "POST",
-                    url: URL_BASE+'app/admin/excluir_processo',
-                    data: 'id_propcesso='+id_propcesso,
-                    context: this,
-                    beforeSend: function () {
-
-                    },
-                    success: function (retorno) {
-                        switch (retorno.status) {
-                            case 'erro':
-                                var alerta = swal("Erro!",retorno.message,"error");
-                                break;
-                            case 'sucesso':
-                                var alerta = swal("Sucesso!",retorno.message,"success");
-                                break;
-                            case 'alerta':
-                                var alerta = swal("Ops!",retorno.message,"warning");
-                                break;
-                            default:
-                                var alerta = swal("Ops!", 'O servidor não retornou um status.', "warning");
-                                break;
-                        }
-                        alerta.then(function(){
-                            if (retorno.recarrega=='true') {
-                                location.reload();
-                            }
-                        });
-
-                    },
-                    error: function(ev, xhr, settings, error) {
-
-                    }
-                });
-            }
-        });
-
-    });
-
-
  
 });
+
+
+function excluir_processo(id_processo,protocolo){
+
+
+    swal({
+        title: 'Desativar Processo',
+        text: 'Tem certeza que deseja desativar o Processo com Protocolo ' + protocolo + " ? ",
+        type: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Não',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim',
+        showLoaderOnConfirm: true,
+    }).then(function(retorno) {
+        if (retorno.value == true ) {
+            $.ajax({
+                type: "POST",
+                url: URL_BASE+'app/admin/excluir_processo',
+                data: 'id_processo='+id_processo,
+                context: this,
+                beforeSend: function () {
+
+                },
+                success: function (retorno) {
+                    switch (retorno.status) {
+                        case 'erro':
+                            var alerta = swal("Erro!",retorno.message,"error");
+                            break;
+                        case 'sucesso':
+                            var alerta = swal("Sucesso!",retorno.message,"success");
+                            break;
+                        case 'alerta':
+                            var alerta = swal("Ops!",retorno.message,"warning");
+                            break;
+                        default:
+                            var alerta = swal("Ops!", 'O servidor não retornou um status.', "warning");
+                            break;
+                    }
+                    alerta.then(function(){
+                        if (retorno.recarrega=='true') {
+                            location.reload();
+                        }
+                    });
+
+                },
+                error: function(ev, xhr, settings, error) {
+
+                }
+            });
+        }
+    });
+
+});
+
+
+
+
+}
+
