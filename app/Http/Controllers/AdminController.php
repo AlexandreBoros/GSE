@@ -413,5 +413,14 @@ class AdminController extends Controller {
         
     }
 
+    public function myPDF(Request $request, convenio $convenio){
+
+
+
+        return view('app.admin.myPDF');
+
+
+    }
+
 
 }

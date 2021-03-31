@@ -30,6 +30,9 @@ Route::prefix('app')->group(function ()
     // Rotas que só podem ser acessadas se o usuário estiver autenticado
     Route::group(['middleware' => ['auth']], function ()
     {
+
+        Route::get('generate-pdf','PDFController@generatePDF')->name('app.generate-pdf');
+        
         
         Route::prefix('admin')->group(function ()
         { 
@@ -46,6 +49,8 @@ Route::prefix('app')->group(function ()
             Route::post('dados_processo', 'AdminController@dados_processo')->name('app.admin.dados_processo');
             Route::post('atualizar_processo', 'AdminController@atualizar_processo')->name('app.admin.atualizar_processo');
             Route::post('excluir_processo', 'AdminController@excluir_processo')->name('app.admin.excluir_processo');
+
+            Route::match(['get', 'post'], 'myPDF', 'AdminController@myPDF')->name('app.admin.myPDF');
 
 
         });
