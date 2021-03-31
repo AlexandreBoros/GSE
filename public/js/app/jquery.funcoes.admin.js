@@ -391,6 +391,8 @@ $(document).ready(function() {
 
     $("table#table_alunos").on('click', 'a.excluir_processo', function(e) { 
 
+        e.preventDefault();
+
         var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
 
         alert(JSON.stringify(id_propcesso));
