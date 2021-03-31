@@ -118,7 +118,9 @@
                 <tr>
                     <th>NOME PACIENTE</th>
                     <th>CONVENIO</th>
-                    <th>PLANO</th>
+                    <th>TIPO ENVIO</th>
+                    <th>DATA DO ENVIO</th>
+                    <th>VALOR NF</th>
                     <th>SITUAÇÃO</th>
                     <th>AÇÕES</th>
                 </tr>
@@ -139,7 +141,9 @@
                         <tr class="{{$classe}}">
                             <td>{{$convenio->nome_paciente}}</td>
                             <td>{{$convenio->tipo_convenio}}</td>
-                            <td>{{$convenio->tipo_plano}}</td>
+                            <td>{{$convenio->tipo_envio}}</td>
+                            <td>{{$convenio->dt_cadastro}}</td>
+                            <td>{{$convenio->valor_nf}}</td>
                             <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
                             <td>
                                 @if($convenio->status_situacao == 2)
