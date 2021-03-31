@@ -507,6 +507,26 @@
             </div>
         </div>
 
+        <style>
+
+            [type="date"] {
+              background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+            }
+            [type="date"]::-webkit-inner-spin-button {
+              display: none;
+            }
+            [type="date"]::-webkit-calendar-picker-indicator {
+              opacity: 0;
+            }
+
+            /* custom styles */
+            label {
+              display: block;
+            }
+
+
+        </style>
+
         <div class="modal fade" id="relatorio_data_analise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -520,7 +540,8 @@
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">
-                              <input type="text" class="form-control" id="data_inicial" placeholder="DATA INICIAL">
+                            <label for="dateofbirth">Date Of Birth</label>
+                            <input type="date" name="dateofbirth" id="dateofbirth">
                           </div>
                         </div>
                         <div class="form-group row">
