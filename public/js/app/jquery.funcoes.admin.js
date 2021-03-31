@@ -444,11 +444,5 @@ function excluir_processo(id_processo,protocolo){
             });
         }
     });
-
-});
-
-
-
-
 }
 
