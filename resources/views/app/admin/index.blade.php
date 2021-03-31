@@ -83,7 +83,7 @@
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pagos</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-primary btn-sm">
-                    {{$procesos_pago->count()}}%
+                    {{$procesos_pago->count()}}
                 </div>
             </div>
             <div class="col-auto">
