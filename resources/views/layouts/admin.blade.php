@@ -540,13 +540,14 @@
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">
-                            <label for="dateofbirth">Date Of Birth</label>
-                            <input type="date" name="dateofbirth" id="dateofbirth">
+                            <label for="data_inicial">Data Inicial</label>
+                            <input type="date" name="data_inicial" id="data_inicial">
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="col">
-                              <input type="text" class="form-control" id="data_final" placeholder="DATA FINAL">
+                            <label for="data_final">Data Final</label>
+                            <input type="date" name="data_final" id="data_final">
                           </div>
                         </div>
                     </div>
