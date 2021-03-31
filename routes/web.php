@@ -45,6 +45,7 @@ Route::prefix('app')->group(function ()
             Route::match(['get', 'post'], 'download/{id_processo_arquivo}','AdminController@download')->name('app.admin.download');
             Route::post('dados_processo', 'AdminController@dados_processo')->name('app.admin.dados_processo');
             Route::post('atualizar_processo', 'AdminController@atualizar_processo')->name('app.admin.atualizar_processo');
+            Route::post('excluir_processo', 'AdminController@excluir_processo')->name('app.admin.excluir_processo');
 
 
         });

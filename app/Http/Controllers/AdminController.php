@@ -374,4 +374,27 @@ class AdminController extends Controller {
     }
 
 
+    public function excluir_processo(Request $request, convenio $convenio){
+
+        
+        if(Auth::check()){
+
+            //$processo_status = $processo_status->get();
+
+            //dd($processo_status);
+
+           /* $compact_args = [
+                'request' => $request,
+                'class' => $this,
+                'processo_status' => $processo_status
+            ];
+    
+    
+            return view('app.admin.status_processo', $compact_args);*/
+
+        }
+        
+    }
+
+
 }
