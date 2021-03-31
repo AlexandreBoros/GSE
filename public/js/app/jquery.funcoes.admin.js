@@ -389,4 +389,14 @@ $(document).ready(function() {
     });
 
 
+    $("table#table_alunos").on('click', 'a.excluir_processo', function(e) { 
+
+
+       alert("oiiiiiii");
+
+
+    });
+ 
+
+
 });
