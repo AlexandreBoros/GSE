@@ -184,7 +184,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="5">
+                        <td colspan="12">
                             <div class="alert alert-danger">
                                 <i class="glyphicon glyphicon-remove"></i>
                                 <div class="mensagem">
