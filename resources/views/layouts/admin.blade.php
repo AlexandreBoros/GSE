@@ -536,7 +536,7 @@
                           <span aria-hidden="true">×</span>
                       </button>
                   </div>
-                  <form class="user">
+                  <form class="user" method="POST" action="{{route("app.generate-pdf-analise")}}">
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">

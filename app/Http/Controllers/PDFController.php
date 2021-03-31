@@ -28,12 +28,11 @@ class PDFController extends Controller {
 
     }
 
-    public function generatePDF(){
+    public function generate_pdf_analise(Request $request){
 
-        $data = ['title' => 'Welcome to ItSolutionStuff.com'];
-        $pdf = PDF::loadView('app.admin.myPDF', $data);
+        $pdf = PDF::loadView('app.admin.analise_pdf',  $request);
 
-        return $pdf->download('teste.pdf');
+        return $pdf->download('processo_analise.pdf');
 
     }
 
