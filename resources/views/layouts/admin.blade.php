@@ -520,17 +520,16 @@
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">
-                              <input type="text" class="form-control data_inicial" id="nome_paciente" placeholder="DATA INICIAL">
+                              <input type="text" class="form-control data_inicial" id="data_inicial" placeholder="DATA INICIAL">
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="col">
-                              <input type="text" class="form-control data_final" id="nome_paciente" placeholder="DATA FINAL">
+                              <input type="text" class="form-control data_final" id="data_final" placeholder="DATA FINAL">
                           </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                      <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
                       <button class="btn btn-primary alterar-status">Enviar</button>
                     </div>
                   </form>

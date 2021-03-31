@@ -8,6 +8,24 @@ $(document).ready(function() {
 
     $(".loader").delay(1500).fadeOut("slow");
 
+
+    $("#data_inicial").datepicker({
+        language: "pt-BR",
+        format: "dd/mm/yyyy",
+        endDate: "today",
+        autoclose: true,
+        zIndexOffset: 15,
+      });
+  
+    $("#data_final").datepicker({
+        language: "pt-BR",
+        format: "dd/mm/yyyy",
+        endDate: "today",
+        autoclose: true,
+        zIndexOffset: 15,
+    });
+
+
     $("div#convenioModal").on('click', 'button.enviar-convenio', function(e) {
 
         e.preventDefault();
@@ -392,23 +410,6 @@ $(document).ready(function() {
  
 });
 
-function iniciar_datepicker() {
-    $(".data_inicial").datepicker({
-      language: "pt-BR",
-      format: "dd/mm/yyyy",
-      endDate: "today",
-      autoclose: true,
-      zIndexOffset: 15,
-    });
-
-    $(".data_final").datepicker({
-        language: "pt-BR",
-        format: "dd/mm/yyyy",
-        endDate: "today",
-        autoclose: true,
-        zIndexOffset: 15,
-      });
-  }
 
 
 function excluir_processo(id_processo,protocolo){
