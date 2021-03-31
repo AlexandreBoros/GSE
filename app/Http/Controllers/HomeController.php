@@ -41,6 +41,23 @@ class HomeController extends Controller
             switch ($user->id_perfil) {
                 case 1:
                     # Admin
+
+
+                    $procesos_analise = $convenios->where("convenios.ativo", 1)
+                                                  ->where("status_situacao", "1");
+
+                    $procesos_pedente = $convenios->where("convenios.ativo", 1)
+                                                  ->where("status_situacao", "2");
+
+
+                    $procesos_baixado = $convenios->where("convenios.ativo", 1)
+                                                  ->where("status_situacao", "3");
+
+
+                    $procesos_pago = $convenios->where("convenios.ativo", 1)
+                                                ->where("status_situacao", "4");
+
+
                     //Listar todos os convenios ordenados por data
                     $convenios = $convenios->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                            ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
@@ -56,7 +73,11 @@ class HomeController extends Controller
                     $compact_args = [
                         'class' => $this,
                         'clinicas' => $clinicas,
-                        'convenios' => $convenios
+                        'convenios' => $convenios,
+                        'procesos_analise' => $procesos_analise,
+                        'procesos_pedente' => $procesos_pedente,
+                        'procesos_baixado' => $procesos_baixado,
+                        'procesos_pago' => $procesos_pago,
 
                     ];
 

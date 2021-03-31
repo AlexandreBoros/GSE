@@ -19,7 +19,7 @@
     </a>
 </div>
 
-{{--
+
 <!-- Pending Requests Card Example -->
 <div class="row">
     <div class="col-xl-3 col-md-6 mb-4">
@@ -27,9 +27,9 @@
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Questões</div>
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Analise</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-success btn-sm">
-                    {{$respostas->count()}}
+                    {{$procesos_analise->count()}}
                 </div>
             </div>
             <div class="col-auto">
@@ -45,9 +45,9 @@
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Acertos</div>
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pendentes</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-primary btn-sm">
-                    {{$respostas_certas}}
+                    {{$procesos_pedente->count()}}
                 </div>
             </div>
             <div class="col-auto">
@@ -63,9 +63,9 @@
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Erros</div>
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Baixados</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-danger btn-sm">
-                    {{$respostas_erradas}}
+                    {{$procesos_baixado->count()}}
                 </div>
             </div>
             <div class="col-auto">
@@ -81,12 +81,9 @@
         <div class="card-body">
             <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">%</div>
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pagos</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-primary btn-sm">
-                    {{$porcetagem_certas}}%
-                </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-danger btn-sm">
-                    {{$porcetagem_erradas}}%
+                    {{$procesos_pago->count()}}%
                 </div>
             </div>
             <div class="col-auto">
@@ -96,7 +93,7 @@
         </div>
         </div>
     </div>
-</div>--}}
+</div>
 
 <style>
     .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
@@ -166,6 +163,9 @@
                                     <i class="fas fa-toggle-on"></i>
                                 </a>
                                 <a href="#" class="alterar_processo" data-toggle="modal" data-target="#alterar_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Processo" title="Alterar Processo">
+                                    <i class="fas fa-pen-square"></i>
+                                </a>
+                                <a href="#" class="excluir_processo" data-toggle="modal" data-target="#excluir_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Excluir Processo" title="Excluir Processo">
                                     <i class="fas fa-pen-square"></i>
                                 </a>
                                 @if($convenio->status_situacao >= 2)
