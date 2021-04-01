@@ -32,22 +32,11 @@ class PDFController extends Controller {
     public function generate_pdf_analise(Request $request, convenio $convenio, clinica $clinicas, user_clinica $users_clinicas){
 
         if(Auth::check()){
-
-            $user = Auth::user();
-
-            dd($user);
-
-            //Pegar a clinica 
-            $users_clinicas = $users_clinicas->where("id_user", $user->id)->first();
-
-            dd($users_clinicas);
-
             
             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                   ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                   ->where("convenios.ativo", 1)
                                   ->where("status_situacao", "1")
-                                  ->where("convenios.id_clinica",'=', $users_clinicas->id_clinica)
                                   ->orderBy('dt_cadastro','desc')
                                   ->get();
         
