@@ -420,6 +420,8 @@ class AdminController extends Controller {
 
             $convenio = $convenio->where('status_situacao' , 1)->get();
 
+            dd($convenio);
+
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
