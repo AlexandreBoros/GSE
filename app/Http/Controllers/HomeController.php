@@ -63,7 +63,7 @@ class HomeController extends Controller
                                            ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                            ->where("convenios.ativo", 1)
                                            ->orderBy('dt_cadastro','desc')
-                                           ->paginate(10,['*'],'todos_convenios_pag');
+                                           ->paginate(50,['*'],'todos_convenios_pag');
 
                     $convenios->appends(Request::capture()->except('_token'))->render();
 
@@ -101,7 +101,7 @@ class HomeController extends Controller
                                            ->where("id_clinica",'=', $users_clinicas->id_clinica)
                                            ->where("convenios.ativo", 1)
                                            ->orderBy('dt_cadastro','desc')
-                                           ->paginate(10,['*'],'todos_convenios_pag');
+                                           ->paginate(50,['*'],'todos_convenios_pag');
 
                     $convenios->appends(Request::capture()->except('_token'))->render();
     
