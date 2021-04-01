@@ -56,7 +56,7 @@
             </table>
         </div>
         <h3 align="center">DADOS DOS PROCESSOS EM ANALISES</h3>
-        <table class="table" cellpadding="0" cellspacing="0">
+        <table class="table01" cellpadding="0" cellspacing="0">
             <tr>
                 <th>CLINICA</th>
                 <th>NOME</th>
