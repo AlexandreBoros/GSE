@@ -627,9 +627,10 @@
                   </form>
               </div>
           </div>  
+        </div>    
 
 
-          <div class="modal fade" id="relatorio_data_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal fade" id="relatorio_data_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -660,11 +661,9 @@
                       </div>
                     </form>
                 </div>
-            </div>  
-
-
-    </div>
-
+            </div>
+          </div>    
+            
 
     </body>
 </html>
