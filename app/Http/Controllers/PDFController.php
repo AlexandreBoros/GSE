@@ -32,9 +32,11 @@ class PDFController extends Controller {
 
         $convenios = $convenio->where('status_situacao' , 1)->get();
 
-        dd($convenios);
+        $data = [
+                   'convenios' => $convenios
+        ];
 
-        $pdf = PDF::loadView('app.admin.analise_pdf',  $convenios);
+        $pdf = PDF::loadView('app.admin.analise_pdf',  $data);
 
         return $pdf->download('processo_analise.pdf');
 

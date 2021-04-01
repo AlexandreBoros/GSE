@@ -4,7 +4,8 @@
     <title>Hi</title>
 </head>
 <body>
-    <div class="table-responsive">
+    teste
+    {{--<div class="table-responsive">
         <!--<table id="table_admin" class="display" style="width:100%">-->
         <table id="table_alunos" class="table" style="width:100%">    
             <thead>
@@ -64,6 +65,6 @@
                 @endif
             </tbody>
         </table>
-    </div>
+    </div>--}}
 </body>
 </html>
