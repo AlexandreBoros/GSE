@@ -61,24 +61,27 @@
                 <th>CLINICA</th>
                 <th>NOME</th>
                 <th>CONVENIO</th>
-                <th>SITUAÇÃO</th>
                 <th>CPF</th>
                 <th>SENHA</th>
                 <th>DATA</th>
+                <th>PROTOCOLO</th>
+                <th>VALOR NF</th>
+                <th>VALOR PAGO</th>
+                <th>DATA PAGAMENTO</th>
             </tr>
             @if (count($convenios)>0)
                 @foreach ($convenios as $convenio)
-                    <tr>  
-                        <td>{{$convenio->nome_clinica}}</td>
-                        <td>{{$convenio->nome_paciente}}</td>
-                        <td>{{$convenio->nome_processo_status}}</td>
+                    <tr> 
                         <td>{{$convenio->nome_clinica}}</td>
                         <td>{{$convenio->nome_paciente}}</td>
                         <td>{{$convenio->tipo_convenio}}</td>
-                        <td>{{$convenio->nome_processo_status}}</td>
                         <td>{{$convenio->cpf}}</td>
                         <td>{{$convenio->senha}}</td>
                         <td>{{$convenio->dt_cadastro}}</td>
+                        <td>{{$convenio->protocolo}}</td>
+                        <td>{{$convenio->valor_nf}}</td>
+                        <td>{{$convenio->valor_pago}}</td>
+                        <td>{{$convenio->dt_pagamento}}</td>
                     </tr>  
                 @endforeach
             @else
