@@ -28,9 +28,11 @@ class PDFController extends Controller {
 
     }
 
-    public function generate_pdf_analise(Request $request){
+    public function generate_pdf_analise(Request $request, convenio $convenio){
 
-        $pdf = PDF::loadView('app.admin.analise_pdf',  $request);
+        $convenios = $convenio->where('status_situacao' , 1)->get();
+
+        $pdf = PDF::loadView('app.admin.analise_pdf',  $convenios);
 
         return $pdf->download('processo_analise.pdf');
 

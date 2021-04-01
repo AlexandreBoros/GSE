@@ -413,24 +413,9 @@ class AdminController extends Controller {
         
     }
 
-    public function analise_pdf(Request $request, convenio $convenio){
+    public function analise_pdf(Request $request){
 
-
-        if(Auth::check()){
-
-            $convenio = $convenio->where('status_situacao' , 1)->get();
-
-            dd($convenio);
-
-            $compact_args = [
-                'request' => $request,
-                'class' => $this,
-                'convenios' => $convenio
-            ];
-    
-            return view('app.admin.analise_pdf', $compact_args);
-
-        }
+        return view('app.admin.analise_pdf');
 
     }
 
