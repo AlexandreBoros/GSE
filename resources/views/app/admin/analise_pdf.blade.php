@@ -57,28 +57,39 @@
         </div>
         <h3 align="center">DADOS DOS PROCESSOS EM ANALISES</h3>
         <table class="table" cellpadding="0" cellspacing="0">
-            <tr>
-                <th style="width: 300px;">CLINICA</th>
-                <th style="width: 300px;">NOME</th>
-            </tr>
-            <tr>
-                <td>
-                    {{$convenio->nome_clinica}}
-                </td>
-                <td>
-                    {{$convenio->nome_paciente}}
-                </td>
-            </tr>
-            <tr>
-                <th style="width: 300px;">CONVENIO</th>
-                <th style="width: 300px;">SITUAÇÃO</th>
-                <th style="width: 300px;">CPF</th>
-            </tr>
-            <tr>
-                <td>{{$convenio->tipo_convenio}}</td>
-                <td>{{$convenio->nome_processo_status}}</td>
-                <th>{{$convenio->cpf}}</th>
-            </tr>
+            @if (count($convenios)>0)
+                @foreach ($convenios as $convenio)
+                    <tr>
+                        <th style="width: 300px;">CLINICA</th>
+                        <th style="width: 300px;">NOME</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{$convenio->nome_clinica}}
+                        </td>
+                        <td>
+                            {{$convenio->nome_paciente}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 300px;">CONVENIO</th>
+                        <th style="width: 300px;">SITUAÇÃO</th>
+                        <th style="width: 300px;">CPF</th>
+                    </tr>
+                    <tr>
+                        <td>{{$convenio->tipo_convenio}}</td>
+                        <td>{{$convenio->nome_processo_status}}</td>
+                        <th>{{$convenio->cpf}}</th>
+                    </tr>
+                @endforeach
+            @else
+                <div class="alert alert-danger">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    <div class="mensagem">
+                        Nenhum Processo foi encontrado.
+                    </div>
+                </div>
+            @endif    
         </table>
 
         {{--<table class="table" cellpadding="0" cellspacing="0">
