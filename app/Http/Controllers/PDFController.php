@@ -35,6 +35,8 @@ class PDFController extends Controller {
 
             $user = Auth::user();
 
+            dd($user);
+
             //Pegar a clinica 
             $users_clinicas = $users_clinicas->where("id_user", $user->id)->first();
 
