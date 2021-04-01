@@ -413,9 +413,9 @@ class AdminController extends Controller {
         
     }
 
-    public function analise_pdf(Request $request){
+    public function processo_pdf(Request $request){
 
-        return view('app.admin.analise_pdf');
+        return view('app.admin.processo_pdf');
 
     }
 

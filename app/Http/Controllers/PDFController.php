@@ -29,45 +29,93 @@ class PDFController extends Controller {
 
     }
 
-    public function generate_pdf_analise(Request $request, convenio $convenio, clinica $clinicas, user_clinica $users_clinicas){
+    public function generate_pdf(Request $request, convenio $convenio, clinica $clinicas, user_clinica $users_clinicas){
 
         if(Auth::check()){
 
             $dt_inicial = $request->data_inicial; 
             $dt_final   = $request->data_final; 
-             
-            if(empty($dt_inicial) || empty($dt_final)){
 
-                $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
-                                        ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-                                        ->where("convenios.ativo", 1)
-                                        ->where("status_situacao", "1")
-                                        ->orderBy('dt_cadastro','desc')
-                                        ->get();
+            switch ($request->tipo) {
+                case 1:
+                    if(empty($dt_inicial) || empty($dt_final)){
 
-            }else{
+                        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                ->where("convenios.ativo", 1)
+                                                ->where("status_situacao", "1")
+                                                ->orderBy('dt_cadastro','desc')
+                                                ->get();
+        
+                    }else{
+                    
+                        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                ->where("convenios.ativo", 1)
+                                                ->where("status_situacao", "1")
+                                                ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
+                                                ->orderBy('dt_cadastro','desc')
+                                                ->get();
+                    
+                    }
+
+                    $data = [
+                        'convenios' => $convenios
+                    ];
+        
+                    $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
+        
+                    return $pdf->download('processo_analise.pdf');
+
+                    break;
+
+                
+                case 2:
+                        if(empty($dt_inicial) || empty($dt_final)){
+    
+                            $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                    ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                    ->where("convenios.ativo", 2)
+                                                    ->where("status_situacao", "1")
+                                                    ->orderBy('dt_cadastro','desc')
+                                                    ->get();
             
-                $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
-                                        ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-                                        ->where("convenios.ativo", 1)
-                                        ->where("status_situacao", "1")
-                                        ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
-                                        ->orderBy('dt_cadastro','desc')
-                                        ->get();
+                        }else{
+                        
+                            $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                    ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                    ->where("convenios.ativo", 2)
+                                                    ->where("status_situacao", "1")
+                                                    ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
+                                                    ->orderBy('dt_cadastro','desc')
+                                                    ->get();
+                        
+                        }
+    
+                        $data = [
+                            'convenios' => $convenios
+                        ];
             
+                        $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
+            
+                        return $pdf->download('processo_pendente.pdf');
+    
+                        break;    
+                
+                default:
+                    # code...
+                    break;
             }
+
+            
+             
+            
 
             
            
 
 
-            $data = [
-                'convenios' => $convenios
-            ];
-
-            $pdf = PDF::loadView('app.admin.analise_pdf',  $data);
-
-            return $pdf->download('processo_analise.pdf');
+            
 
         }
 

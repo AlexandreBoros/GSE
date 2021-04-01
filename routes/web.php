@@ -31,7 +31,7 @@ Route::prefix('app')->group(function ()
     Route::group(['middleware' => ['auth']], function ()
     {
 
-        Route::post('generate-pdf-analise','PDFController@generate_pdf_analise')->name('app.generate-pdf-analise');
+        Route::post('generate-pdf','PDFController@generate_pdf')->name('app.generate-pdf');
         
         
         Route::prefix('admin')->group(function ()
@@ -50,7 +50,7 @@ Route::prefix('app')->group(function ()
             Route::post('atualizar_processo', 'AdminController@atualizar_processo')->name('app.admin.atualizar_processo');
             Route::post('excluir_processo', 'AdminController@excluir_processo')->name('app.admin.excluir_processo');
 
-            Route::match(['get', 'post'], 'analise_pdf', 'AdminController@analise_pdf')->name('app.admin.analise_pdf');
+            Route::match(['get', 'post'], 'processo_pdf', 'AdminController@processo_pdf')->name('app.admin.processo_pdf');
 
 
         });
