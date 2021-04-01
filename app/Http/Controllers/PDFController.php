@@ -28,17 +28,20 @@ class PDFController extends Controller {
 
     }
 
-    public function generate_pdf_analise(Request $request, convenio $convenio){
+    public function generate_pdf_analise(Request $request, convenio $convenio, clinica $clinicas){
 
         $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                ->where("convenios.ativo", 1)
                                ->where("status_situacao", "1")
                                ->get();
+        
+        $clinicas = $clinicas->get(); 
 
 
         $data = [
-                   'convenios' => $convenios
+                   'convenios' => $convenios,
+                   'clinicas' => $clinicas
         ];
 
         $pdf = PDF::loadView('app.admin.analise_pdf',  $data);
