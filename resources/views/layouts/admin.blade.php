@@ -537,6 +537,7 @@
                       </button>
                   </div>
                   <form class="user" method="POST" action="{{route("app.generate-pdf-analise")}}">
+                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">
