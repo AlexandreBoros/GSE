@@ -1,10 +1,6 @@
-@extends('layouts.admin')
 
-@section('titulo', 'GSE')
 
-@section('content')
-
-    <div class="table-responsive">
+<div class="table-responsive">
         <!--<table id="table_admin" class="display" style="width:100%">-->
         <table id="table_alunos" class="table" style="width:100%">    
             <thead>
@@ -63,6 +59,5 @@
                     </tr>
                 @endif
             </tbody>
-        </table>
-    </div>
-@stop
+    </table>
+</div>

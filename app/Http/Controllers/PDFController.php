@@ -35,8 +35,7 @@ class PDFController extends Controller {
                                ->where("convenios.ativo", 1)
                                ->where("status_situacao", "1")
                                ->get();
-        
-        $clinicas = $clinicas->get(); 
+    
 
 
         $data = [
