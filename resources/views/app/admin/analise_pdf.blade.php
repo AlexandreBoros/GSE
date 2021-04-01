@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hi</title>
-</head>
-<body>
+@extends('layouts.admin')
+
+@section('titulo', 'GSE')
+
+@section('content')
+
     <div class="table-responsive">
         <!--<table id="table_admin" class="display" style="width:100%">-->
         <table id="table_alunos" class="table" style="width:100%">    
@@ -65,5 +65,4 @@
             </tbody>
         </table>
     </div>
-</body>
-</html>
+@stop
