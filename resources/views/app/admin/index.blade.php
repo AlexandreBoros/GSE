@@ -106,7 +106,7 @@
             </div>
             <div class="col-auto">
                 <a href="#" class="relatorio_data_pago" data-toggle="modal" data-target="#relatorio_data_pago" href="javascript:void(0);" alt="Relatorio por Data dos processos Baixados" title="Relatorio por Data dos processos Baixados">
-                    <div class="btn btn-warning btn-sm"  style="margin-top: 22px">
+                    <div class="btn btn-success btn-sm"  style="margin-top: 22px">
                         Relatório
                     </div>
                 </a>
