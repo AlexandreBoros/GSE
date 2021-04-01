@@ -63,7 +63,7 @@
             </tr>
             @if (count($convenios)>0)
                 @foreach ($convenios as $convenio)
-                    <tr class="{{$classe}}">  
+                    <tr>  
                         <td>{{$convenio->nome_clinica}}</td>
                         <td>{{$convenio->nome_paciente}}</td>
                     </tr>  
