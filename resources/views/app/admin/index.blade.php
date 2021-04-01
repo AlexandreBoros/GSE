@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-auto">
                         <a href="#" class="relatorio_data_analise" data-toggle="modal" data-target="#relatorio_data_analise" href="javascript:void(0);" alt="Relatorio por Data dos processos em Analise" title="Relatorio por Data dos processos em Analise">
-                            <div class="btn btn-secondary btn-sm"  style="margin-top: 10px">
+                            <div class="btn btn-secondary btn-sm"  style="margin-top: 22px">
                                 Relatório
                             </div>
                         </a>

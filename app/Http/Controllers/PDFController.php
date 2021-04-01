@@ -30,7 +30,7 @@ class PDFController extends Controller {
 
     public function generate_pdf_analise(Request $request, convenio $convenio){
 
-        $convenios = $convenios->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                ->where("convenios.ativo", 1)
                                ->where("status_situacao", "1")
