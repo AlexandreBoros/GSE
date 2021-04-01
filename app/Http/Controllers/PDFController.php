@@ -60,12 +60,16 @@ class PDFController extends Controller {
                     }
 
                     $data = [
-                        'convenios' => $convenios
+                        'convenios' => $convenios,
+                        'titulo'    => 'Relatório Processo Analise',
+                        'titulo1'   => 'DADOS DOS PROCESSOS EM ANALISES'
                     ];
         
                     $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
-        
-                    return $pdf->download('processo_analise.pdf');
+
+                    $nome = "processo_analise".$dt_inicial.".pdf";
+            
+                    return $pdf->download($nome);
 
                     break;
 
@@ -93,12 +97,16 @@ class PDFController extends Controller {
                         }
     
                         $data = [
-                            'convenios' => $convenios
+                            'convenios' => $convenios,
+                            'titulo'    => 'Relatório Processos Pendentes',
+                            'titulo1'   => 'DADOS DOS PROCESSOS PENDENTES'
                         ];
             
                         $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
+
+                        $nome = "processo_pendente".$dt_inicial.".pdf";
             
-                        return $pdf->download('processo_pendente.pdf');
+                        return $pdf->download($nome);
     
                         break;    
                 

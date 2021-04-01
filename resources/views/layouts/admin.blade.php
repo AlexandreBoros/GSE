@@ -561,11 +561,11 @@
           </div>
       </div>
 
-      <div class="modal fade" id="relatorio_data_analise" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal fade" id="relatorio_data_pendente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Relatorio por Data dos processos em Analise</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Relatorio por Data dos processos Pendentes</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
