@@ -7,8 +7,8 @@
         <style>
             body {
                 font-family:sans-serif;
-                font-size:14px;
-                padding:50px;
+                font-size:9px;
+                padding:10px;
             }
             div#header {
                 margin-bottom:50px;
