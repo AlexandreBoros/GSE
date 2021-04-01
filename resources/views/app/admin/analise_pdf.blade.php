@@ -7,7 +7,7 @@
         <style>
             body {
                 font-family:sans-serif;
-                font-size:6px;
+                font-size:8px;
                 padding:10px;
             }
             div#header {
