@@ -83,7 +83,11 @@
                 </div>
             </div>
             <div class="col-auto">
-                <!--<i class="fas fa-comments fa-2x text-gray-300"></i>-->
+                <a href="#" class="relatorio_data_baixado" data-toggle="modal" data-target="#relatorio_data_baixado" href="javascript:void(0);" alt="Relatorio por Data dos processos Baixados" title="Relatorio por Data dos processos Baixados">
+                    <div class="btn btn-warning btn-sm"  style="margin-top: 22px">
+                        Relatório
+                    </div>
+                </a>
             </div>
             </div>
         </div>
@@ -101,7 +105,11 @@
                 </div>
             </div>
             <div class="col-auto">
-                <!--<i class="fas fa-comments fa-2x text-gray-300"></i>-->
+                <a href="#" class="relatorio_data_pago" data-toggle="modal" data-target="#relatorio_data_pago" href="javascript:void(0);" alt="Relatorio por Data dos processos Baixados" title="Relatorio por Data dos processos Baixados">
+                    <div class="btn btn-warning btn-sm"  style="margin-top: 22px">
+                        Relatório
+                    </div>
+                </a>
             </div>
             </div>
         </div>

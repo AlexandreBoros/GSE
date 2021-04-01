@@ -109,7 +109,80 @@ class PDFController extends Controller {
                         return $pdf->download($nome);
     
                         break;    
+
+
+                case 3:
+                    if(empty($dt_inicial) || empty($dt_final)){
+        
+                        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                        ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                        ->where("convenios.ativo", 3)
+                                                        ->where("status_situacao", "1")
+                                                        ->orderBy('dt_cadastro','desc')
+                                                        ->get();
                 
+                    }else{
+                            
+                        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                        ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                        ->where("convenios.ativo", 3)
+                                                        ->where("status_situacao", "1")
+                                                        ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
+                                                        ->orderBy('dt_cadastro','desc')
+                                                        ->get();
+                            
+                     }
+        
+                    $data = [
+                        'convenios' => $convenios,
+                        'titulo'    => 'Relatório Processos Baixados',
+                        'titulo1'   => 'DADOS DOS PROCESSOS BAIXADOS'
+                    ];
+                
+                    $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
+    
+                    $nome = "processo_baixados".$dt_inicial.".pdf";
+                
+                    return $pdf->download($nome);
+        
+                    break;      
+                    
+                case 4:
+                    if(empty($dt_inicial) || empty($dt_final)){
+            
+                        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                            ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                            ->where("convenios.ativo", 4)
+                                                            ->where("status_situacao", "1")
+                                                            ->orderBy('dt_cadastro','desc')
+                                                            ->get();
+                    
+                        }else{
+                                
+                            $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                                            ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                                            ->where("convenios.ativo", 4)
+                                                            ->where("status_situacao", "1")
+                                                            ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
+                                                            ->orderBy('dt_cadastro','desc')
+                                                            ->get();
+                                
+                        }
+            
+                        $data = [
+                            'convenios' => $convenios,
+                            'titulo'    => 'Relatório Processos Pagos',
+                            'titulo1'   => 'DADOS DOS PROCESSOS PAGOS'
+                        ];
+                    
+                        $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
+        
+                        $nome = "processo_pagos".$dt_inicial.".pdf";
+                    
+                        return $pdf->download($nome);
+            
+                        break;                 
+
                 default:
                     # code...
                     break;

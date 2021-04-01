@@ -538,7 +538,7 @@
                   </div>
                   <form class="user" method="POST" action="{{route("app.generate-pdf")}}">
                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="tipo" id="token" value="1">
+                    <input type="hidden" name="tipo"  value="1">
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">
@@ -572,7 +572,7 @@
                 </div>
                 <form class="user" method="POST" action="{{route("app.generate-pdf")}}">
                   <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                  <input type="hidden" name="tipo" id="token" value="2">
+                  <input type="hidden" name="tipo"  value="2">
                   <div class="modal-body">
                       <div class="form-group row">
                         <div class="col">
@@ -593,6 +593,76 @@
                 </form>
             </div>
         </div>
+
+
+        <div class="modal fade" id="relatorio_data_baixado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Relatorio por Data dos processos Baixados</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <form class="user" method="POST" action="{{route("app.generate-pdf")}}">
+                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="tipo"  value="3">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                          <div class="col">
+                            <label for="data_inicial">Data Inicial</label>
+                            <input type="date" name="data_inicial" id="data_inicial">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col">
+                            <label for="data_final">Data Final</label>
+                            <input type="date" name="data_final" id="data_final">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary alterar-status">Enviar</button>
+                    </div>
+                  </form>
+              </div>
+          </div>  
+
+
+          <div class="modal fade" id="relatorio_data_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Relatorio por Data dos processos Pagos</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form class="user" method="POST" action="{{route("app.generate-pdf")}}">
+                      <input type="hidden" name="_token"  value="{{ csrf_token() }}">
+                      <input type="hidden" name="tipo"  value="4">
+                      <div class="modal-body">
+                          <div class="form-group row">
+                            <div class="col">
+                              <label for="data_inicial">Data Inicial</label>
+                              <input type="date" name="data_inicial" id="data_inicial">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col">
+                              <label for="data_final">Data Final</label>
+                              <input type="date" name="data_final" id="data_final">
+                            </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-primary alterar-status">Enviar</button>
+                      </div>
+                    </form>
+                </div>
+            </div>  
+
+
     </div>
 
 
