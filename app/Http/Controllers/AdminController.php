@@ -423,7 +423,7 @@ class AdminController extends Controller {
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
-                'convenio' => $convenio
+                'convenios' => $convenio
             ];
     
             return view('app.admin.analise_pdf', $compact_args);
