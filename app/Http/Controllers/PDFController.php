@@ -38,6 +38,8 @@ class PDFController extends Controller {
             //Pegar a clinica 
             $users_clinicas = $users_clinicas->where("id_user", $user->id)->first();
 
+            dd($users_clinicas);
+
             
             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                   ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
