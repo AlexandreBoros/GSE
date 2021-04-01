@@ -19,6 +19,7 @@ use App\Models\processo_status;
 use App\Models\processo_pendencia;
 use App\Models\processo_arquivos;
 use App\Models\clinica;
+use App\Models\user_clinica;
 
 
 class PDFController extends Controller {
