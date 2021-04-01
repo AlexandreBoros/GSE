@@ -7,7 +7,7 @@
         <style>
             body {
                 font-family:sans-serif;
-                font-size:9px;
+                font-size:6px;
                 padding:10px;
             }
             div#header {
@@ -60,7 +60,11 @@
             <tr>
                 <th>CLINICA</th>
                 <th>NOME</th>
+                <th>CONVENIO</th>
                 <th>SITUAÇÃO</th>
+                <th>CPF</th>
+                <th>SENHA</th>
+                <th>DATA</th>
             </tr>
             @if (count($convenios)>0)
                 @foreach ($convenios as $convenio)
@@ -68,6 +72,13 @@
                         <td>{{$convenio->nome_clinica}}</td>
                         <td>{{$convenio->nome_paciente}}</td>
                         <td>{{$convenio->nome_processo_status}}</td>
+                        <td>{{$convenio->nome_clinica}}</td>
+                        <td>{{$convenio->nome_paciente}}</td>
+                        <td>{{$convenio->tipo_convenio}}</td>
+                        <td>{{$convenio->nome_processo_status}}</td>
+                        <td>{{$convenio->cpf}}</td>
+                        <td>{{$convenio->senha}}</td>
+                        <td>{{$convenio->dt_cadastro}}</td>
                     </tr>  
                 @endforeach
             @else
