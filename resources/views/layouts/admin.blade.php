@@ -543,13 +543,13 @@
                         <div class="form-group row">
                           <div class="col">
                             <label for="data_inicial">Data Inicial</label>
-                            <input type="date" name="data_inicial" id="data_inicial">
+                            <input type="date" name="data_inicial" class="form-control" id="data_inicial">
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="col">
                             <label for="data_final">Data Final</label>
-                            <input type="date" name="data_final" id="data_final">
+                            <input type="date" name="data_final" class="form-control" id="data_final">
                           </div>
                         </div>
                     </div>
@@ -577,13 +577,13 @@
                       <div class="form-group row">
                         <div class="col">
                           <label for="data_inicial">Data Inicial</label>
-                          <input type="date" name="data_inicial" id="data_inicial">
+                          <input type="date" class="form-control" name="data_inicial" id="data_inicial">
                         </div>
                       </div>
                       <div class="form-group row">
                         <div class="col">
                           <label for="data_final">Data Final</label>
-                          <input type="date" name="data_final" id="data_final">
+                          <input type="date" class="form-control" name="data_final" id="data_final">
                         </div>
                       </div>
                   </div>
