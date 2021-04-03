@@ -83,8 +83,8 @@
                 </div>
             </div>
             <div class="col-auto">
-                <a href="#" class="relatorio_data_pendente" data-toggle="modal" data-target="#relatorio_data_pendente" href="javascript:void(0);" alt="Relatorio por Data dos processos Pendentes" title="Relatorio por Data dos processos Pendentes">
-                    <div class="btn btn-danger btn-sm"  style="margin-top: 22px">
+                <a href="#" class="relatorio_data_baixado" data-toggle="modal" data-target="#relatorio_data_pendente" href="javascript:void(0);" alt="Relatorio por Data dos processos Pendentes" title="Relatorio por Data dos processos Pendentes">
+                    <div class="btn btn-warning btn-sm"  style="margin-top: 22px">
                         Relatório
                     </div>
                 </a>
@@ -115,7 +115,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 <div class="card shadow mb-4"><div class="card-header py-3">
