@@ -285,16 +285,6 @@ class PDFController extends Controller {
                     break;
             }
 
-            
-             
-            
-
-            
-           
-
-
-            
-
         }
 
     }

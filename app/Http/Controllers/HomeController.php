@@ -38,13 +38,30 @@ class HomeController extends Controller
 
             //dd($user->id_perfil);
 
+            
+
             switch ($user->id_perfil) {
                 case 1:
                     # Admin
 
+                    $valor_total_analise = 0;
+                    $valores_limpos_analise = [];
+
 
                     $procesos_analise = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "1");
+
+                    foreach ($convenios as $valor) {
+                        $valor_total_analise = str_replace("R$" , "" , $valor->valor_nf);   
+                        $valor_total_analise = str_replace("," , "" , $valor_total_analise);   
+                        $valor_total_analise = str_replace("." , "" , $valor_total_analise);   
+                        array_push($valores_limpos_analise , $valor_total_analise);
+                    }     
+                    
+                    $valor_analise = array_sum($valores_limpos_analise);
+                    $valor_analise = substr_replace($valor_analise, '.', -2, 0);
+                    $valor_analise = number_format($valor_analise,2,",",".");
+
 
                     $procesos_pedente = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "2");
@@ -75,6 +92,7 @@ class HomeController extends Controller
                         'clinicas' => $clinicas,
                         'convenios' => $convenios,
                         'procesos_analise' => $procesos_analise,
+                        'valor_analise' => $valor_analise,
                         'procesos_pedente' => $procesos_pedente,
                         'procesos_baixado' => $procesos_baixado,
                         'procesos_pago' => $procesos_pago,

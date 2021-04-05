@@ -39,10 +39,8 @@
                                 Relatório
                             </div>
                         </a>
-                        {{--<a href="{{route("app.generate-pdf")}}">
-                            <button class="btn btn-primary upload-arquivo">Relatorio</button>
                         </a>
-                        <i class="fas fa-comments fa-2x text-gray-300">Relatório</i>--}}
+                        <i class="fas fa-comments fa-2x text-gray-300">R$ {{$valor_analise}}</i>
                 </div>
             </div>
             </div>
