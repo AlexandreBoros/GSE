@@ -60,7 +60,7 @@ class PDFController extends Controller {
 
                         /*$valor_total_analise = $convenio->where("ativo", 1)
                                                         ->where("status_situacao", "1")
-                                                        ->sum('valor_nf');*/     *                     
+                                                        ->sum('valor_nf');*/                   
         
                     }else{
                     
