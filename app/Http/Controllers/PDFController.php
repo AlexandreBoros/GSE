@@ -36,7 +36,8 @@ class PDFController extends Controller {
             $dt_inicial = $request->data_inicial; 
             $dt_final   = $request->data_final; 
 
-            $valor_total_analise = 0;
+            $valor_total = 0;
+            $valores_limpos = [];
 
             switch ($request->tipo) {
                 case 1:
@@ -49,9 +50,17 @@ class PDFController extends Controller {
                                                 ->orderBy('dt_cadastro','desc')
                                                 ->get();
 
-                        $valor_total_analise = $convenio->where("ativo", 1)
+                        foreach ($convenios as $valor) {
+                            $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
+                            $valor_total = str_replace("," , "" , $valor_total);   
+                            array_push( $valores_limpos , $valor_total_analise);
+                        }                        
+
+                                            
+
+                        /*$valor_total_analise = $convenio->where("ativo", 1)
                                                         ->where("status_situacao", "1")
-                                                        ->sum('valor_nf');                           
+                                                        ->sum('valor_nf');*/     *                     
         
                     }else{
                     
@@ -78,7 +87,7 @@ class PDFController extends Controller {
                         'convenios' => $convenios,
                         'titulo'    => 'Relatório Processo Analise',
                         'titulo1'   => 'DADOS DOS PROCESSOS EM ANALISES',
-                        'valor_total_analise'   => $valor_total_analise
+                        'valor_total'   => array_sum($valores_limpos);
                     ];
         
                     $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
