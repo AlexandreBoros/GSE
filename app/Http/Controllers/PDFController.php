@@ -250,12 +250,12 @@ class PDFController extends Controller {
                                                             ->get();
 
 
-                                                            foreach ($convenios as $valor) {
-                                                                $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
-                                                                $valor_total = str_replace("," , "" , $valor_total);   
-                                                                $valor_total = str_replace("." , "" , $valor_total);   
-                                                                array_push( $valores_limpos , $valor_total);
-                                                            }                          
+                            foreach ($convenios as $valor) {
+                                $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
+                                $valor_total = str_replace("," , "" , $valor_total);   
+                                $valor_total = str_replace("." , "" , $valor_total);   
+                                array_push( $valores_limpos , $valor_total);
+                            }                          
                                 
                         }
 
