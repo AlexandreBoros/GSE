@@ -83,11 +83,13 @@ class PDFController extends Controller {
                     
                     }
 
+                    $valor = array_sum($valores_limpos);
+
                     $data = [
                         'convenios' => $convenios,
                         'titulo'    => 'Relatório Processo Analise',
                         'titulo1'   => 'DADOS DOS PROCESSOS EM ANALISES',
-                        'valor_total'   => array_sum($valores_limpos);
+                        'valor_total'   => $valor;
                     ];
         
                     $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
