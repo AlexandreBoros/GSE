@@ -36,6 +36,8 @@ class PDFController extends Controller {
             $dt_inicial = $request->data_inicial; 
             $dt_final   = $request->data_final; 
 
+            $valor_total_analise = 0;
+
             switch ($request->tipo) {
                 case 1:
                     if(empty($dt_inicial) || empty($dt_final)){
@@ -56,6 +58,15 @@ class PDFController extends Controller {
                                                 ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
                                                 ->orderBy('dt_cadastro','desc')
                                                 ->get();
+                        
+                        $valor_total_analise = $convenio->where("ativo", 1)
+                                                        ->where("status_situacao", "1")
+                                                        ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
+                                                        ->sum('valor_nf');   
+                                                        
+                        dd($valor_total_analise);                                
+
+                                                       
                     
                     }
 

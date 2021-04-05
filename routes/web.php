@@ -32,6 +32,7 @@ Route::prefix('app')->group(function ()
     {
 
         Route::post('generate-pdf','PDFController@generate_pdf')->name('app.generate-pdf');
+        Route::post('generate-pdf-clinica','PDFController@generate_pdf_clinica')->name('app.generate-pdf-clinica');
         
         
         Route::prefix('admin')->group(function ()
