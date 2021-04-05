@@ -51,7 +51,7 @@ class HomeController extends Controller
                     $procesos_analise = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "1");
 
-                    dd($procesos_analis);                              
+                    dd($procesos_analise);                              
 
                     foreach ($procesos_analise as $valor) {
                         $valor_total_analise = str_replace("R$" , "" , $valor->valor_nf);   
