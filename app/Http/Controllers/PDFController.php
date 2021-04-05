@@ -174,7 +174,7 @@ class PDFController extends Controller {
                                                         ->get();
                         
                     foreach ($convenios as $valor) {
-                        $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
+                        $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
                         $valor_total = str_replace("," , "" , $valor_total);   
                         $valor_total = str_replace("." , "" , $valor_total);   
                         array_push( $valores_limpos , $valor_total);
@@ -192,12 +192,12 @@ class PDFController extends Controller {
                                                         ->orderBy('dt_cadastro','desc')
                                                         ->get();
 
-                                                        foreach ($convenios as $valor) {
-                                                            $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
-                                                            $valor_total = str_replace("," , "" , $valor_total);   
-                                                            $valor_total = str_replace("." , "" , $valor_total);   
-                                                            array_push( $valores_limpos , $valor_total);
-                                                        }                      
+                        foreach ($convenios as $valor) {
+                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
+                            $valor_total = str_replace("," , "" , $valor_total);   
+                            $valor_total = str_replace("." , "" , $valor_total);   
+                            array_push( $valores_limpos , $valor_total);
+                        }                      
                             
                      }
 
@@ -232,14 +232,14 @@ class PDFController extends Controller {
                                                             ->orderBy('dt_cadastro','desc')
                                                             ->get();
 
-                                                            foreach ($convenios as $valor) {
-                                                                $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
-                                                                $valor_total = str_replace("," , "" , $valor_total);   
-                                                                $valor_total = str_replace("." , "" , $valor_total);   
-                                                                array_push( $valores_limpos , $valor_total);
-                                                            }                                              
+                        foreach ($convenios as $valor) {
+                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
+                            $valor_total = str_replace("," , "" , $valor_total);   
+                            $valor_total = str_replace("." , "" , $valor_total);   
+                            array_push( $valores_limpos , $valor_total);
+                        }                                              
                     
-                        }else{
+                    }else{
                                 
                             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                             ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
