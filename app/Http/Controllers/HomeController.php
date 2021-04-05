@@ -58,7 +58,7 @@ class HomeController extends Controller
                         array_push($valores_limpos_analise , $valor_total_analise);
                     }     
 
-                    dd($valores_limpos_analise);
+                    dd($valor_total_analise);
                     
                     $valor_analise = array_sum($valores_limpos_analise);
                     $valor_analise = substr_replace($valor_analise, '.', -2, 0);
