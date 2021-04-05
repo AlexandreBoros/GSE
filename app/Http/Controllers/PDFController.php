@@ -109,8 +109,8 @@ class PDFController extends Controller {
     
                             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                     ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-                                                    ->where("convenios.ativo", 2)
-                                                    ->where("status_situacao", "1")
+                                                    ->where("convenios.ativo", 1)
+                                                    ->where("status_situacao", "2")
                                                     ->orderBy('dt_cadastro','desc')
                                                     ->get();
 
@@ -125,8 +125,8 @@ class PDFController extends Controller {
                         
                             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                     ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-                                                    ->where("convenios.ativo", 2)
-                                                    ->where("status_situacao", "1")
+                                                    ->where("convenios.ativo", 1)
+                                                    ->where("status_situacao", "2")
                                                     ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
                                                     ->orderBy('dt_cadastro','desc')
                                                     ->get();
