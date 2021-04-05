@@ -43,7 +43,9 @@
                     </div>
                 </div>
                 <div class="row no-gutters align-items-center">
-                    <div class="btn btn-secondary btn-sm">R$ {{$valor_analise}}</div>
+                    <div class="col-auto">
+                      <div class="btn btn-secondary btn-sm">R$ {{$valor_analise}}</div>
+                    </div>  
                 </div>    
             </div>
         </div>
