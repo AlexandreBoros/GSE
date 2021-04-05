@@ -53,24 +53,28 @@
 
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-danger shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pendentes</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-danger btn-sm">
-                    {{$procesos_pedente->count()}}
-                </div>
-            </div>
-            <div class="col-auto">
-                <a href="#" class="relatorio_data_pendente" data-toggle="modal" data-target="#relatorio_data_pendente" href="javascript:void(0);" alt="Relatorio por Data dos processos Pendentes" title="Relatorio por Data dos processos Pendentes">
-                    <div class="btn btn-danger btn-sm"  style="margin-top: 22px">
-                        Relatório
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pendentes</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-danger btn-sm">
+                            {{$procesos_pedente->count()}}
+                        </div>
                     </div>
-                </a>
+                    <div class="col-auto">
+                        <a href="#" class="relatorio_data_pendente" data-toggle="modal" data-target="#relatorio_data_pendente" href="javascript:void(0);" alt="Relatorio por Data dos processos Pendentes" title="Relatorio por Data dos processos Pendentes">
+                            <div class="btn btn-danger btn-sm"  style="margin-top: 22px">
+                                Relatório
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-danger btn-sm">R$ {{$valor_pedente}}</div>
+                    </div>  
+                </div>    
             </div>
-            
-            </div>
-        </div>
         </div>
     </div>
 

@@ -43,15 +43,12 @@ class HomeController extends Controller
             switch ($user->id_perfil) {
                 case 1:
                     # Admin
+                    $procesos_analise = $convenios->where("convenios.ativo", 1)
+                                                  ->where("status_situacao", "1");
 
                     $valor_total_analise = 0;
                     $valores_limpos_analise = [];
 
-
-                    $procesos_analise = $convenios->where("convenios.ativo", 1)
-                                                  ->where("status_situacao", "1");
-
-                                     
 
                     foreach ($procesos_analise->get() as $valor) {
                         $valor_total_analise = str_replace("R$" , "" , $valor->valor_nf);   
@@ -69,6 +66,22 @@ class HomeController extends Controller
                     $procesos_pedente = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "2");
 
+                    
+                    $valor_total_pedente = 0;
+                    $valores_limpos_pedente = [];
+
+
+                    foreach ($procesos_pedente->get() as $valor) {
+                        $valor_total_pedente = str_replace("R$" , "" , $valor->valor_nf);   
+                        $valor_total_pedente = str_replace("," , "" , $valor_total_pedente);   
+                        $valor_total_pedente = str_replace("." , "" , $valor_total_pedente);   
+                        array_push($valores_limpos_pedente , $valor_total_pedente);
+                    }     
+
+                                                            
+                    $valor_pedente = array_sum($valores_limpos_pedente);
+                    $valor_pedente = substr_replace($valor_pedente, '.', -2, 0);
+                    $valor_pedente = number_format($valor_pedente,2,",",".");
 
                     $procesos_baixado = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "3");
@@ -97,6 +110,7 @@ class HomeController extends Controller
                         'procesos_analise' => $procesos_analise,
                         'valor_analise' => $valor_analise,
                         'procesos_pedente' => $procesos_pedente,
+                        'valor_pedente' => $valor_pedente,
                         'procesos_baixado' => $procesos_baixado,
                         'procesos_pago' => $procesos_pago,
 
