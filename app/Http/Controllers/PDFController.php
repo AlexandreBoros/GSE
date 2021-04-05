@@ -86,7 +86,7 @@ class PDFController extends Controller {
 
                     $valor = array_sum($valores_limpos);
 
-                    $valor = number_format($valor, 2, ',', '.');
+                    $valor = number_format($valor, 2, '', '.');
 
                     $data = [
                         'convenios' => $convenios,
