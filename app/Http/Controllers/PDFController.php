@@ -52,7 +52,7 @@ class PDFController extends Controller {
 
                         foreach ($convenios as $valor) {
                             $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
-                            $valor_total = str_replace("," , "" , $valor_total);   
+                            //$valor_total = str_replace("," , "" , $valor_total);   
                             array_push( $valores_limpos , $valor_total);
                         }                        
 
@@ -85,7 +85,7 @@ class PDFController extends Controller {
 
                     $valor = array_sum($valores_limpos);
 
-                    $valor = number_format($valor, 2, ',', '.');
+                    //$valor = number_format($valor, 2, ',', '.');
 
                     $data = [
                         'convenios' => $convenios,
