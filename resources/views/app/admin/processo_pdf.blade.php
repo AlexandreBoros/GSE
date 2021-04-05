@@ -56,6 +56,7 @@
             </table>
         </div>
         <h3 align="center">{{$titulo1}}</h3>
+        <h3 align="center">VALOR TOTAL EM ANALISE {{$valor_total_analise}}</h3>
         <table class="table01" cellpadding="0" cellspacing="0">
             <tr>
                 <th>CLINICA</th>

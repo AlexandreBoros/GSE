@@ -64,7 +64,7 @@ class PDFController extends Controller {
                                                         ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
                                                         ->sum('valor_nf');   
                                                         
-                        dd($valor_total_analise);                                
+                        //dd($valor_total_analise);                                
 
                                                        
                     
@@ -73,7 +73,8 @@ class PDFController extends Controller {
                     $data = [
                         'convenios' => $convenios,
                         'titulo'    => 'Relatório Processo Analise',
-                        'titulo1'   => 'DADOS DOS PROCESSOS EM ANALISES'
+                        'titulo1'   => 'DADOS DOS PROCESSOS EM ANALISES',
+                        'valor_total_analise'   => $valor_total_analise
                     ];
         
                     $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
