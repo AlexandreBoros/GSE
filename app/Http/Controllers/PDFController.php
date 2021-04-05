@@ -58,11 +58,6 @@ class PDFController extends Controller {
                         }                        
 
                                             
-
-                        /*$valor_total_analise = $convenio->where("ativo", 1)
-                                                        ->where("status_situacao", "1")
-                                                        ->sum('valor_nf');*/                   
-        
                     }else{
                     
                         $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
@@ -73,12 +68,15 @@ class PDFController extends Controller {
                                                 ->orderBy('dt_cadastro','desc')
                                                 ->get();
                         
-                        $valor_total_analise = $convenio->where("ativo", 1)
-                                                        ->where("status_situacao", "1")
-                                                        ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
-                                                        ->sum('valor_nf');   
+                        foreach ($convenios as $valor) {
+                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
+                                $valor_total = str_replace("," , "" , $valor_total);   
+                                $valor_total = str_replace("." , "" , $valor_total);   
+                                array_push( $valores_limpos , $valor_total);
+                        }             
+                          
                                                         
-                        //dd($valor_total_analise);                                
+                                                   
 
                                                        
                     
@@ -115,6 +113,13 @@ class PDFController extends Controller {
                                                     ->where("status_situacao", "1")
                                                     ->orderBy('dt_cadastro','desc')
                                                     ->get();
+
+                            foreach ($convenios as $valor) {
+                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
+                                $valor_total = str_replace("," , "" , $valor_total);   
+                                $valor_total = str_replace("." , "" , $valor_total);   
+                                array_push( $valores_limpos , $valor_total);
+                            }                                     
             
                         }else{
                         
@@ -125,13 +130,28 @@ class PDFController extends Controller {
                                                     ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
                                                     ->orderBy('dt_cadastro','desc')
                                                     ->get();
+
+                            foreach ($convenios as $valor) {
+                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
+                                $valor_total = str_replace("," , "" , $valor_total);   
+                                $valor_total = str_replace("." , "" , $valor_total);   
+                                array_push( $valores_limpos , $valor_total);
+                            }                          
                         
                         }
+
+                        
+                        $valor = array_sum($valores_limpos);
+
+                        $valor = substr_replace($valor, '.', -2, 0);
     
+                        $valor = number_format($valor,2,",",".");
+
                         $data = [
                             'convenios' => $convenios,
                             'titulo'    => 'Relatório Processos Pendentes',
-                            'titulo1'   => 'DADOS DOS PROCESSOS PENDENTES'
+                            'titulo1'   => 'DADOS DOS PROCESSOS PENDENTES',
+                            'valor_total'   => $valor
                         ];
             
                         $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
@@ -152,6 +172,15 @@ class PDFController extends Controller {
                                                         ->where("status_situacao", 3)
                                                         ->orderBy('dt_cadastro','desc')
                                                         ->get();
+                        
+                    foreach ($convenios as $valor) {
+                        $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
+                        $valor_total = str_replace("," , "" , $valor_total);   
+                        $valor_total = str_replace("." , "" , $valor_total);   
+                        array_push( $valores_limpos , $valor_total);
+                    }  
+
+
                 
                     }else{
                             
@@ -162,13 +191,27 @@ class PDFController extends Controller {
                                                         ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
                                                         ->orderBy('dt_cadastro','desc')
                                                         ->get();
+
+                                                        foreach ($convenios as $valor) {
+                                                            $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
+                                                            $valor_total = str_replace("," , "" , $valor_total);   
+                                                            $valor_total = str_replace("." , "" , $valor_total);   
+                                                            array_push( $valores_limpos , $valor_total);
+                                                        }                      
                             
                      }
+
+                    $valor = array_sum($valores_limpos);
+
+                    $valor = substr_replace($valor, '.', -2, 0);
+ 
+                    $valor = number_format($valor,2,",",".");
         
                     $data = [
                         'convenios' => $convenios,
                         'titulo'    => 'Relatório Processos Baixados',
-                        'titulo1'   => 'DADOS DOS PROCESSOS BAIXADOS'
+                        'titulo1'   => 'DADOS DOS PROCESSOS BAIXADOS',
+                        'valor_total'   => $valor
                     ];
                 
                     $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
@@ -188,6 +231,13 @@ class PDFController extends Controller {
                                                             ->where("status_situacao", 4)
                                                             ->orderBy('dt_cadastro','desc')
                                                             ->get();
+
+                                                            foreach ($convenios as $valor) {
+                                                                $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
+                                                                $valor_total = str_replace("," , "" , $valor_total);   
+                                                                $valor_total = str_replace("." , "" , $valor_total);   
+                                                                array_push( $valores_limpos , $valor_total);
+                                                            }                                              
                     
                         }else{
                                 
@@ -198,13 +248,28 @@ class PDFController extends Controller {
                                                             ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
                                                             ->orderBy('dt_cadastro','desc')
                                                             ->get();
+
+
+                                                            foreach ($convenios as $valor) {
+                                                                $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
+                                                                $valor_total = str_replace("," , "" , $valor_total);   
+                                                                $valor_total = str_replace("." , "" , $valor_total);   
+                                                                array_push( $valores_limpos , $valor_total);
+                                                            }                          
                                 
                         }
+
+                        $valor = array_sum($valores_limpos);
+
+                        $valor = substr_replace($valor, '.', -2, 0);
+ 
+                        $valor = number_format($valor,2,",",".");
             
                         $data = [
                             'convenios' => $convenios,
                             'titulo'    => 'Relatório Processos Pagos',
-                            'titulo1'   => 'DADOS DOS PROCESSOS PAGOS'
+                            'titulo1'   => 'DADOS DOS PROCESSOS PAGOS',
+                            'valor_total'   => $valor
                         ];
                     
                         $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
