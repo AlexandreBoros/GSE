@@ -179,6 +179,9 @@
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <select  name="seacrh_clinica" class="form-control bg-light border-0 small" required="true">
                   <option>Selecione</option>
+                  @foreach ($clinicas as $item)
+                     <option value="{{$item->id_clinica}}">{{$item->nome_clinica}}</option>
+                  @endforeach
                 </select>  
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
@@ -192,7 +195,12 @@
             <div class="input-group">
                 <label>Convenio:</label>
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                <input type="text" name="seacrh_nome" class="form-control bg-light border-0 small" placeholder="Pesquisar por nome..." aria-label="Search" aria-describedby="basic-addon2" required="true">
+                <select  name="seacrh_convenio" class="form-control bg-light border-0 small" required="true">
+                  <option>Selecione</option>
+                  @foreach ($convenios as $item)
+                     <option value="{{$item->id_convenio}}">{{$item->nome_convenio}}</option>
+                  @endforeach
+                </select>  
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
