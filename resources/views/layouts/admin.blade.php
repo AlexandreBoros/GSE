@@ -161,7 +161,7 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <form action="" method="POST" action="{{route("home")}}">
+              <form method="POST" action="{{route("home")}}">
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <input type="text" name="seacrh_nome" class="form-control bg-light border-0 small" placeholder="Pesquisar por nome..." aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
