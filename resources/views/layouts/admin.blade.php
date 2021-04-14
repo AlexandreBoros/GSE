@@ -212,18 +212,12 @@
           </form>
 
 
-          <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-1 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-                <div class="input-group-append">
-                  <button type="submit" class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm">Reset</i>
-                  </button>
-                </div>
-            </div>
-          </form>
+          
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
+
+            
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -246,18 +240,15 @@
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-default badge-counter">0</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alertas
-                </h6>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Sem Alertas</a>
-              </div>
+              <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-1 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm">Limpar Filtro</i>
+                      </button>
+                    </div>
+                </div>
+              </form>
             </li>
 
             <!-- Nav Item - Messages -->
