@@ -131,6 +131,7 @@ class HomeController extends Controller
                                            ->where("convenios.ativo", 1);
 
 
+                    dd($request->seacrh_nome);                       
 
                     if($request->seacrh_nome){
                         $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
