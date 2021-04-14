@@ -125,7 +125,7 @@
                 </div>
                 <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="btn btn-warning btn-sm">R$ {{$valor_pago}}</div>
+                      <div class="btn btn-success btn-sm">R$ {{$valor_pago}}</div>
                     </div>  
                 </div>    
             </div>
