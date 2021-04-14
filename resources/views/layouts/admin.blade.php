@@ -102,8 +102,9 @@
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="">Usuarios</a>
             <a class="collapse-item" href="">Clinicas</a>
-            <a class="collapse-item" href="">Usuarios - Clinica</a>
+            <a class="collapse-item" href="">Convenios</a>
           </div>
         </div>
       </li>
@@ -159,10 +160,10 @@
           </button>
 
           <!-- Topbar Search -->
-          <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-2 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                <label>Filtrar por nome:</label>
+                <label>Nome:</label>
                 <input type="text" name="seacrh_nome" class="form-control bg-light border-0 small" placeholder="Pesquisar por nome..." aria-label="Search" aria-describedby="basic-addon2" required="true">
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
@@ -172,9 +173,24 @@
             </div>
           </form>
 
-          <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-2 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <label>Filtrar Clínica:</label>
+                <label>Clínica:</label>
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                <select  name="seacrh_clinica" class="form-control bg-light border-0 small" required="true">
+                  <option>Selecione</option>
+                </select>  
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+            </div>
+          </form>
+
+          <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-2 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <label>Convenio:</label>
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <input type="text" name="seacrh_nome" class="form-control bg-light border-0 small" placeholder="Pesquisar por nome..." aria-label="Search" aria-describedby="basic-addon2" required="true">
                 <div class="input-group-append">
