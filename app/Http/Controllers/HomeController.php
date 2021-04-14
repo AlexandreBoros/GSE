@@ -134,8 +134,8 @@ class HomeController extends Controller
                                       
 
                     if($request->seacrh_nome){
-                        $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
-                        dd($request->seacrh_nome);
+                        $convenios = $convenios->orWhere('nome_paciente', $request->seacrh_nome);
+                        dd($convenios->get());
 
                     }                       
                          
