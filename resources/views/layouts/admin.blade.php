@@ -98,11 +98,10 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
           <i class="fas fa-fw fa-user"></i>
-          <span>Bares</span>
+          <span>Manter</span>
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manter:</h6>
             <a class="collapse-item" href="">Clinicas</a>
             <a class="collapse-item" href="">Usuarios - Clinica</a>
           </div>
