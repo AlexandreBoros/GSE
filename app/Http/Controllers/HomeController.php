@@ -133,7 +133,16 @@ class HomeController extends Controller
 
                     if ($request->filled('seacrh_nome')) {
                         $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
-                    }   
+                    } 
+                    
+                    
+                    if ($request->filled('seacrh_clinica')) {
+                        $convenios = $convenios->where('id_clinica', $request->seacrh_clinica);
+                    } 
+
+                    if ($request->filled('seacrh_convenio')) {
+                        $convenios = $convenios->where('tipo_convenio', 'like', '%'.$request->seacrh_convenio.'%');
+                    } 
 
                                         
                     $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag');

@@ -179,7 +179,7 @@
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <select  name="seacrh_clinica" class="form-control bg-light border-0 small" required="true">
                   <option>Selecione</option>
-                  @foreach ($clinicas as $item)
+                  @foreach ($clinicas->get() as $item)
                      <option value="{{$item->id_clinica}}">{{$item->nome_clinica}}</option>
                   @endforeach
                 </select>  
@@ -197,9 +197,11 @@
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <select  name="seacrh_convenio" class="form-control bg-light border-0 small" required="true">
                   <option>Selecione</option>
-                  @foreach ($convenios as $item)
-                     <option value="{{$item->id_convenio}}">{{$item->nome_convenio}}</option>
-                  @endforeach
+                  <option value="AMIL">AMIL</option>
+                  <option value="BRADESCO">BRADESCO</option>
+                  <option value="MEDSERVICE">MEDSERVICE</option>
+                  <option value="SEGURO UNIMED">SEGURO UNIMED</option>
+                  <option value="SULAMERICA">SULAMERICA</option>
                 </select>  
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
