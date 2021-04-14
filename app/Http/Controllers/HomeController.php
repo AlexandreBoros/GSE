@@ -29,7 +29,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(convenio $convenios, clinica $clinicas, user_clinica $users_clinicas)
+    public function index(Request $request, convenio $convenios, clinica $clinicas, user_clinica $users_clinicas)
     {
 
         if(Auth::check()){
