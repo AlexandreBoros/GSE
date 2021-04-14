@@ -112,7 +112,7 @@ class HomeController extends Controller
                     $valores_limpos_pago = [];
                                                           
                                                           
-                    foreach ($procesos_baixado->get() as $valor) {
+                    foreach ($procesos_pago->get() as $valor) {
                         $valor_total_pago = str_replace("R$" , "" , $valor->valor_pago);   
                         $valor_total_pago = str_replace("," , "" , $valor_total_pago);   
                         $valor_total_pago = str_replace("." , "" , $valor_total_pago);   
