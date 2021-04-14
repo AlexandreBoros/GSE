@@ -193,6 +193,7 @@
 
           <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-2 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
+              <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <label>Convenio:</label>
                 <select  name="seacrh_convenio" class="form-control bg-light border-0 small">
                   <option>Selecione</option>
