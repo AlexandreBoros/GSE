@@ -98,7 +98,7 @@
                 </div>
                 <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="btn btn-danger btn-sm">R$ {{$valor_baixado}}</div>
+                      <div class="btn btn-warning btn-sm">R$ {{$valor_baixado}}</div>
                     </div>  
                 </div>    
             </div>
@@ -123,6 +123,11 @@
                         </a>
                     </div>
                 </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-warning btn-sm">R$ {{$valor_pago}}</div>
+                    </div>  
+                </div>    
             </div>
         </div>
     </div>
