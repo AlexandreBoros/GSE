@@ -18,6 +18,16 @@
     <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="#" data-toggle="modal" data-target="#convenioModal">
         <i class="fas fa-download fa-sm text-white-50"></i> Novo Processo
     </a>
+    <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-2 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+          <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm">Reset</i>
+              </button>
+            </div>
+        </div>
+    </form>
 </div>
 
 
