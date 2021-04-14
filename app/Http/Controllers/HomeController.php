@@ -131,15 +131,10 @@ class HomeController extends Controller
                                            ->where("convenios.ativo", 1);
 
 
-                                      
+                    if ($request->filled('seacrh_nome')) {
+                        $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');    //
+                    }   
 
-                    if($request->seacrh_nome){
-                        $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
-                        //dd($convenios->get());
-
-                    }                       
-                       
-                    $request->seacrh_nome = "";
                                         
                     $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag');
                     $convenios->appends(Request::capture()->except('_token'))->render();
