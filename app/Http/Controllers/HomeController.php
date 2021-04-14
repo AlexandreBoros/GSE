@@ -137,7 +137,7 @@ class HomeController extends Controller
                     }                       
                          
                                         
-                    $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag')
+                    $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag');
                     $convenios->appends(Request::capture()->except('_token'))->render();
 
                     $clinicas = $clinicas->get(); 
