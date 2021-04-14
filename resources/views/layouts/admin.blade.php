@@ -79,13 +79,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user"></i>
-          <span>Principal</span>
+          <span>Relatorios</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manter:</h6>
             {{--<a class="collapse-item" href="{{route('app.admin.principal')}}">Home</a>--}}
-            <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Convenios</a>
+            <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Processos</a>
             {{--<a class="collapse-item" href="{{route('app.admin.cliente')}}">Clientes</a>
             <a class="collapse-item" href="{{route('app.admin.plano')}}">Planos</a>
             <a class="collapse-item" href="{{route('app.admin.bares_categoria')}}">Categorias dos Bares</a>--}}
@@ -94,7 +93,7 @@
       </li>
 
       <!-- Divider -->
-      {{--<hr class="sidebar-divider">
+      <hr class="sidebar-divider">
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
@@ -104,10 +103,11 @@
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Manter:</h6>
-            <a class="collapse-item" href="{{route('app.admin.bares_categoria')}}">Categorias</a>
+            <a class="collapse-item" href="">Clinicas</a>
+            <a class="collapse-item" href="">Usuarios - Clinica</a>
           </div>
         </div>
-      </li>--}}
+      </li>
 
       <!-- Divider -->
       <!--<hr class="sidebar-divider">
@@ -126,7 +126,7 @@
       </li>-->
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      {{--<hr class="sidebar-divider">
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
@@ -136,10 +136,10 @@
         <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Listar:</h6>
-            <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Todos</a>
+            <a class="collapse-item" href="{{--route('app.admin.lista_admin')">Todos</a>
           </div>
         </div>
-      </li>
+      </li>--}}
 
 
     </ul>
@@ -162,12 +162,15 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
+              <form action="" method="POST" action="{{route("home")}}">
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar por nome..." aria-label="Search" aria-describedby="basic-addon2" required="true">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+              </form>
             </div>
           </form>
 
