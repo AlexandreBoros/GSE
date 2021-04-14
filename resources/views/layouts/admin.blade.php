@@ -179,7 +179,7 @@
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <select  name="seacrh_clinica" class="form-control bg-light border-0 small" required="true">
                   <option>Selecione</option>
-                  @foreach ($clinicas->get() as $item)
+                  @foreach ($clinicas as $item)
                      <option value="{{$item->id_clinica}}">{{$item->nome_clinica}}</option>
                   @endforeach
                 </select>  
