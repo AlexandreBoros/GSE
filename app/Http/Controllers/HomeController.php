@@ -128,10 +128,16 @@ class HomeController extends Controller
                     //Listar todos os convenios ordenados por data
                     $convenios = $convenios->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                            ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-                                           ->where("convenios.ativo", 1)
-                                           ->orderBy('dt_cadastro','desc')
-                                           ->paginate(50,['*'],'todos_convenios_pag');
+                                           ->where("convenios.ativo", 1);
 
+
+
+                    if($request->seacrh_nome){
+                        $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome."%');
+                    }                       
+                         
+                                        
+                    $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag')
                     $convenios->appends(Request::capture()->except('_token'))->render();
 
                     $clinicas = $clinicas->get(); 

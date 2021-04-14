@@ -164,7 +164,7 @@
             <div class="input-group">
               <form action="" method="POST" action="{{route("home")}}">
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar por nome..." aria-label="Search" aria-describedby="basic-addon2" required="true">
+                <input type="text" name="seacrh_nome" class="form-control bg-light border-0 small" placeholder="Pesquisar por nome..." aria-label="Search" aria-describedby="basic-addon2" required="true">
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
