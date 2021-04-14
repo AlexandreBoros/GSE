@@ -137,7 +137,7 @@ class HomeController extends Controller
                     
                     
                     if ($request->filled('seacrh_clinica')) {
-                        $convenios = $convenios->where('id_clinica', $request->seacrh_clinica);
+                        $convenios = $convenios->where('clinicas.id_clinica', $request->seacrh_clinica);
                     } 
 
                     if ($request->filled('seacrh_convenio')) {
