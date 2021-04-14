@@ -86,6 +86,24 @@ class HomeController extends Controller
                     $procesos_baixado = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "3");
 
+                      
+                    $valor_total_baixado = 0;
+                    $valores_limpos_baixado = [];
+                              
+                              
+                    foreach ($procesos_baixado->get() as $valor) {
+                        $valor_total_baixado = str_replace("R$" , "" , $valor->valor_pago);   
+                        $valor_total_baixado = str_replace("," , "" , $valor_total_baixado);   
+                        $valor_total_baixado = str_replace("." , "" , $valor_total_baixado);   
+                        array_push($valores_limpos_baixado , $valor_total_baixado);
+                    }     
+                              
+                                                                                          
+                    $valor_baixado = array_sum($valores_limpos_baixado);
+                    $valor_baixado = substr_replace($valor_baixado, '.', -2, 0);
+                    $valor_baixado = number_format($valor_baixado,2,",",".");
+                                                            
+
 
                     $procesos_pago = $convenios->where("convenios.ativo", 1)
                                                 ->where("status_situacao", "4");
@@ -112,6 +130,7 @@ class HomeController extends Controller
                         'procesos_pedente' => $procesos_pedente,
                         'valor_pedente' => $valor_pedente,
                         'procesos_baixado' => $procesos_baixado,
+                        'valor_baixado' => $valor_baixado,
                         'procesos_pago' => $procesos_pago,
 
                     ];
