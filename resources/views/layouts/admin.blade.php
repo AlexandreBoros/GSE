@@ -337,6 +337,35 @@
         <!-- End of Footer -->
 
 
+
+        <div class="modal fade" id="salvar_clinica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Dados da Clinica</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                </div>
+                <form class="user" method="POST" action="javascript:void(0);" id="form_salvar_clinica">
+                    <input type="hidden" name="_token">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                          <div class="col">
+                            <label for="data_inicial">Nome da Clinica</label>
+                            <input class="form-control" type="text" id="salvar_nome_clinica">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary salvar-clinica">Salvar</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>   
+
+
         <!--Novo Admin Modal-->
         <div class="modal fade" id="convenioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -706,33 +735,7 @@
       </div>   
 
 
-      <div class="modal fade" id="salvar_clinica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Dados da Clinica</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-              </div>
-              <form class="user" method="POST" action="javascript:void(0);" id="form_salvar_clinica">
-                  <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                  <input type="hidden" name="tipo"  value="4">
-                  <div class="modal-body">
-                      <div class="form-group row">
-                        <div class="col">
-                          <label for="data_inicial">Nome da Clinica</label>
-                          <input class="form-control" type="text" id="salvar_nome_clinica">
-                        </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button class="btn btn-primary salvar-clinica">Salvar</button>
-                  </div>
-              </form>
-          </div>
-        </div>
-      </div>   
+      
         
    
 
