@@ -102,9 +102,8 @@
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Usuarios</a>
-            <a class="collapse-item" data-toggle="modal" data-target="#form_salvar_clinica" href="javascript:void(0);" alt="Nova Clinica" title="Nova Clinica">Clinicas</a>
-            <a class="collapse-item" href="">Convenios</a>
+            <a class="collapse-item"  data-toggle="modal" data-target="#usuario_clinica" href="javascript:void(0);" alt="Nova Usuario" title="Nova Usuario">Usuarios</a>
+            <a class="collapse-item" data-toggle="modal" data-target="#salvar_clinica" href="javascript:void(0);" alt="Nova Clinica" title="Nova Clinica">Clinicas</a>
           </div>
         </div>
       </li>
@@ -348,6 +347,33 @@
                       </button>
                 </div>
                 <form class="user" method="POST" action="javascript:void(0);" id="form_salvar_clinica">
+                    <input type="hidden" name="_token">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                          <div class="col">
+                            <label for="data_inicial">Nome da Clinica</label>
+                            <input class="form-control" type="text" id="salvar_nome_clinica">
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary salvar-clinica">Salvar</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>   
+
+        <div class="modal fade" id="usuario_clinica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Dados da Clinica</h5>
+                      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                </div>
+                <form class="user" method="POST" action="javascript:void(0);" id="form_usuario_clinica">
                     <input type="hidden" name="_token">
                     <div class="modal-body">
                         <div class="form-group row">
