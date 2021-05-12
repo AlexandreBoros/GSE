@@ -4,13 +4,6 @@
 
 @section('content')
 
-
-<style>
-    .azul { background-color: #4e73df; text-align: left; color: white}
-    .vermelho { background-color: #e74a3b; text-align: left; color: white}
-
-</style>
-
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800 text-uppercase">{{$clinicas->nome_clinica}}</h1>
@@ -98,13 +91,13 @@
     </div>
 </div>--}}
 
+
 <style>
     .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
     .pendente { background-color: #ff1d0d; text-align: left; color: white}
     .pago { background-color: #1cf082; text-align: left; color: white}
     .baixado { background-color: #f5ef3d; text-align: left; color: white}
 </style>
-
 
 
 <div class="card shadow mb-4"><div class="card-header py-3">
