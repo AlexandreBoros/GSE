@@ -93,6 +93,10 @@ class PDFController extends Controller {
                     
                     }
 
+                   
+                    dd($valores_limpos);
+                     
+
                     $valor = array_sum($valores_limpos);
 
                     $valor = substr_replace($valor, '.', -2, 0);
