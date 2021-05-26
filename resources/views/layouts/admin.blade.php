@@ -651,7 +651,7 @@
                         </div>
                         <div class="form-group row">
                           <div class="col">
-                            <label for="data_final">Clinica</label>
+                            <label for="id_clinica">Clinica</label>
                             <select class="form-control" id="id_clinica">
                               <option value="">Selecione</option>   
                               @foreach ($clinicas as $clinica)
@@ -662,7 +662,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                      <button class="btn btn-primary alterar-status">Enviar</button>
+                      <button class="btn btn-primary">Enviar</button>
                     </div>
                   </form>
               </div>
