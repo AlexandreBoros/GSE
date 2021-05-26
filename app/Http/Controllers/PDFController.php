@@ -35,6 +35,7 @@ class PDFController extends Controller {
 
             $dt_inicial = $request->data_inicial; 
             $dt_final   = $request->data_final; 
+            $id_clinica   = $request->id_clinica; 
 
             $valor_total = 0;
             $valores_limpos = [];
@@ -47,8 +48,14 @@ class PDFController extends Controller {
                                                 ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                 ->where("convenios.ativo", 1)
                                                 ->where("status_situacao", "1")
-                                                ->orderBy('dt_cadastro','desc')
-                                                ->get();
+                                                ->orderBy('dt_cadastro','desc');
+                                                
+
+                        if($id_clinica > 0){
+
+                            $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
+
+                        }                       
 
                         foreach ($convenios as $valor) {
                             $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
@@ -89,7 +96,7 @@ class PDFController extends Controller {
                     $valor = number_format($valor,2,",",".");
 
                     $data = [
-                        'convenios' => $convenios,
+                        'convenios' => $convenios->get(),
                         'titulo'    => 'Relatório Processo Analise',
                         'titulo1'   => 'DADOS DOS PROCESSOS EM ANALISES',
                         'valor_total'   => $valor
