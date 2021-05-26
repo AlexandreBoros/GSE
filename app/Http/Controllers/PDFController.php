@@ -37,8 +37,6 @@ class PDFController extends Controller {
             $dt_final   = $request->data_final; 
             $id_clinica = $request->id_clinica; 
 
-            dd($request);
-
             $valor_total = 0;
             $valores_limpos = [];
 
