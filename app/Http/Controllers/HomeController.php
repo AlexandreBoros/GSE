@@ -220,7 +220,6 @@ class HomeController extends Controller
 
     public function sair(){
 
-
         Auth::logout();
         
         return view('welcome');
