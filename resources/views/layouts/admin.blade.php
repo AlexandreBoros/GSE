@@ -399,6 +399,7 @@
             $("#fone1").mask("(00)00000-0000");
 
             $('#valor_nf').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+            $('#valor_pago').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
           });
         </script>
         <!--Novo Admin Modal-->
