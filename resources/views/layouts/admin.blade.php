@@ -694,6 +694,17 @@
                           <input type="date" class="form-control" name="data_final" id="data_final">
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <div class="col">
+                          <label for="id_clinica">Clinica</label>
+                          <select class="form-control" id="id_clinica">
+                            <option value="">Selecione</option>   
+                            @foreach ($clinicas as $clinica)
+                              <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-primary alterar-status">Enviar</button>
@@ -726,6 +737,17 @@
                         <div class="col">
                           <label for="data_final">Data Final</label>
                           <input class="form-control" type="date" name="data_final" id="data_final">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col">
+                          <label for="id_clinica">Clinica</label>
+                          <select class="form-control" id="id_clinica">
+                            <option value="">Selecione</option>   
+                            @foreach ($clinicas as $clinica)
+                              <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
+                            @endforeach
+                          </select>
                         </div>
                       </div>
                   </div>
@@ -762,6 +784,17 @@
                           <input class="form-control" type="date" name="data_final" id="data_final">
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <div class="col">
+                          <label for="id_clinica">Clinica</label>
+                          <select class="form-control" id="id_clinica">
+                            <option value="">Selecione</option>   
+                            @foreach ($clinicas as $clinica)
+                              <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-primary alterar-status">Enviar</button>
@@ -769,12 +802,6 @@
               </form>
           </div>
         </div>
-      </div>   
-
-
-      
-        
-   
-
+      </div>
     </body>
 </html>
