@@ -57,7 +57,7 @@ class PDFController extends Controller {
 
                         }                       
 
-                        foreach ($convenios as $valor) {
+                        foreach ($convenios->get() as $valor) {
                             $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
                             $valor_total = str_replace("," , "" , $valor_total);   
                             $valor_total = str_replace("." , "" , $valor_total);   
@@ -80,7 +80,7 @@ class PDFController extends Controller {
                         
                         }                                    
                         
-                        foreach ($convenios as $valor) {
+                        foreach ($convenios->get() as $valor) {
                                 $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
                                 $valor_total = str_replace("," , "" , $valor_total);   
                                 $valor_total = str_replace("." , "" , $valor_total);   
@@ -92,11 +92,7 @@ class PDFController extends Controller {
                                                        
                     
                     }
-
-                   
-                    dd($valores_limpos);
                      
-
                     $valor = array_sum($valores_limpos);
 
                     $valor = substr_replace($valor, '.', -2, 0);
@@ -134,7 +130,7 @@ class PDFController extends Controller {
                             
                             }                                          
 
-                            foreach ($convenios as $valor) {
+                            foreach ($convenios->get() as $valor) {
                                 $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
                                 $valor_total = str_replace("," , "" , $valor_total);   
                                 $valor_total = str_replace("." , "" , $valor_total);   
@@ -157,7 +153,7 @@ class PDFController extends Controller {
                             }                                   
                                                     
 
-                            foreach ($convenios as $valor) {
+                            foreach ($convenios->get() as $valor) {
                                 $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
                                 $valor_total = str_replace("," , "" , $valor_total);   
                                 $valor_total = str_replace("." , "" , $valor_total);   
@@ -205,7 +201,7 @@ class PDFController extends Controller {
                         }           
                                                       
                         
-                        foreach ($convenios as $valor) {
+                        foreach ($convenios->get() as $valor) {
                             $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
                             $valor_total = str_replace("," , "" , $valor_total);   
                             $valor_total = str_replace("." , "" , $valor_total);   
@@ -230,7 +226,7 @@ class PDFController extends Controller {
                         }                                               
                                                        
 
-                        foreach ($convenios as $valor) {
+                        foreach ($convenios->get() as $valor) {
                             $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
                             $valor_total = str_replace("," , "" , $valor_total);   
                             $valor_total = str_replace("." , "" , $valor_total);   
@@ -276,7 +272,7 @@ class PDFController extends Controller {
                         }                                                
                                                            
 
-                        foreach ($convenios as $valor) {
+                        foreach ($convenios->get() as $valor) {
                             $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
                             $valor_total = str_replace("," , "" , $valor_total);   
                             $valor_total = str_replace("." , "" , $valor_total);   
@@ -300,7 +296,7 @@ class PDFController extends Controller {
                             }                                         
 
 
-                            foreach ($convenios as $valor) {
+                            foreach ($convenios->get() as $valor) {
                                 $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
                                 $valor_total = str_replace("," , "" , $valor_total);   
                                 $valor_total = str_replace("." , "" , $valor_total);   
