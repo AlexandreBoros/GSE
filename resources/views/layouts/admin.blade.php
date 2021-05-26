@@ -18,6 +18,8 @@
         <script src="{{asset('sbadmin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
         <script src="{{asset('sbadmin/js/sb-admin-2.min.js')}}"></script>
         <script src="{{asset('js/libs/sweetalert2.all.js')}}?v={{time()}}"></script>
+        <script src="{{asset('js/libs/jquery.mask.min.js')}}?v={{time()}}"></script>
+        <script src="{{asset('js/libs/jquery.maskmoney.js')}}?v={{time()}}"></script>
         <script src="{{asset('js/app/jquery.funcoes.admin.js')}}?v={{time()}}"></script>
         <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="{{asset('js/libs/bootstrap-datepicker.min.js')}}?v={{time()}}"></script>
@@ -391,7 +393,14 @@
           </div>
         </div>   
 
+        <script async>
+          $(document).ready(function() {
+            $("#cpf").mask("000.000.00-00"); 
+            $("#fone1").mask("(00)00000-0000");
 
+            $('#valor_nf').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+          });
+        </script>
         <!--Novo Admin Modal-->
         <div class="modal fade" id="convenioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
             <div class="modal-dialog" role="document">
