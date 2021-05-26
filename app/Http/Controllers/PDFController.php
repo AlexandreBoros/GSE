@@ -72,8 +72,8 @@ class PDFController extends Controller {
                                                 ->where("convenios.ativo", 1)
                                                 ->where("status_situacao", "1")
                                                 ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
-                                                ->orderBy('dt_cadastro','desc')
-                                                ->get();
+                                                ->orderBy('dt_cadastro','desc');
+                                              
                         
                         foreach ($convenios as $valor) {
                                 $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
@@ -81,10 +81,13 @@ class PDFController extends Controller {
                                 $valor_total = str_replace("." , "" , $valor_total);   
                                 array_push( $valores_limpos , $valor_total);
                         }             
-                          
-                                                        
+                                            
                                                    
+                        if($id_clinica > 0){
 
+                            $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
+
+                        }              
                                                        
                     
                     }
