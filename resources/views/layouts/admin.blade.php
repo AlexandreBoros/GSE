@@ -649,6 +649,16 @@
                             <input type="date" name="data_final" class="form-control" id="data_final">
                           </div>
                         </div>
+                        <div class="form-group row">
+                          <div class="col">
+                            <label for="data_final">Clinica</label>
+                            <select class="form-control" id="id_processo_status">
+                              @foreach ($clinicas as $clinica)
+                                   <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
+                              @endforeach
+                            </select>
+                          </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                       <button class="btn btn-primary alterar-status">Enviar</button>
