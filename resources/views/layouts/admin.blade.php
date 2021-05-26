@@ -696,8 +696,8 @@
                       </div>
                       <div class="form-group row">
                         <div class="col">
-                          <label for="id_clinica_analise">Clinica</label>
-                          <select class="form-control" name="id_clinica_analise">
+                          <label for="id_clinica">Clinica</label>
+                          <select class="form-control" name="id_clinica">
                             <option value="">Selecione</option>   
                             @foreach ($clinicas as $clinica)
                               <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
