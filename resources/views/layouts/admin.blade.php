@@ -384,6 +384,15 @@
                             <input class="form-control" type="text" id="salvar_nome_clinica">
                           </div>
                         </div>
+                        <div class="form-group row">
+                          <div class="col">
+                            <select class="form-control" id="clinica">
+                              @foreach ($clinicas as $clinica)
+                                  <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
+                                @endforeach
+                            </select>
+                          </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                       <button class="btn btn-primary salvar-clinica">Salvar</button>

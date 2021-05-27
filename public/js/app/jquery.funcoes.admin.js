@@ -390,6 +390,13 @@ $(document).ready(function() {
     });
 
 
+    $("div#usuario_clinica").on('click', 'button.salvar-clinica', function(e) {
+
+        alert('oiiiiii');
+
+    });
+
+                
  
 });
 
