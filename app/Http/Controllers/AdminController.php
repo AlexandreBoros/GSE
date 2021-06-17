@@ -18,9 +18,8 @@ use App\Models\processo_status;
 use App\Models\processo_pendencia;
 use App\Models\processo_arquivos;
 use App\Models\clinica;
-use App\Models\user;
-use App\Models\user_clinica;
-use App\Models\user_error;
+use App\User;
+
 
 
 class AdminController extends Controller {
@@ -467,7 +466,7 @@ class AdminController extends Controller {
 
     }
 
-    public function salvar_clinica_usuario(Request $request, user $users, user_clinica $user_clinicas){
+    public function salvar_clinica_usuario(Request $request, User $users, user_clinica $user_clinicas){
 
         if(Auth::check()){
        
