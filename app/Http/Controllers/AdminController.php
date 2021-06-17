@@ -485,7 +485,7 @@ class AdminController extends Controller {
                     if (!$users->save()) {
                         throw new Exception('Erro ao salvar usuario.');
                     }else{
-                        $user_clinicas->id_user = $user->id;
+                        $user_clinicas->id_user = $users->id;
                         $user_clinicas->id_clinica = $request->id_clinica;
 
                         if (!$user_clinicas->save()) {
