@@ -420,7 +420,7 @@ $(document).ready(function() {
                 }
                 alerta.then(function () {
                     if (retorno.recarrega == 'true') {
-                        window.location = URL_BASE+'app/admin/';
+                        window.location = URL_BASE+'home/';
                     }
                 });
             },
