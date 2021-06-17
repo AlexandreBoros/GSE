@@ -19,7 +19,7 @@ use App\Models\processo_pendencia;
 use App\Models\processo_arquivos;
 use App\Models\clinica;
 use App\User;
-
+use App\Models\user_clinica;
 
 
 class AdminController extends Controller {
