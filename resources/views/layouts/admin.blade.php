@@ -354,7 +354,7 @@
                         <div class="form-group row">
                           <div class="col">
                             <label for="data_inicial">Nome da Clinica</label>
-                            <input class="form-control" type="text" id="salvar_nome_clinica">
+                            <input class="form-control" type="text" id="nome_clinica">
                           </div>
                         </div>
                     </div>

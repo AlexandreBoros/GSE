@@ -81,8 +81,6 @@ class AdminController extends Controller {
 
             $processo_status = $processo_status->get();
 
-            //dd($processo_status);
-
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
@@ -416,6 +414,53 @@ class AdminController extends Controller {
     public function processo_pdf(Request $request){
 
         return view('app.admin.processo_pdf');
+
+    }
+
+
+    public function salvar_clinica(Request $request, clinica $clinicas){
+
+        if(Auth::check()){
+       
+            DB::beginTransaction();
+            try{ 
+
+                $clinica = $clinicas->where('nome_clinica', strtoupper($request->nome_clinica))->first();
+
+                if(!$clinica){
+               
+                    $clinicas->nome_clinica = strtoupper($request->nome_clinica);
+                            
+                    if (!$clinicas->save()) {
+                        throw new Exception('Erro ao salvar nova clinica.');
+                    }
+            
+                    DB::commit();
+
+                    return response()->json([
+                        'status' => 'sucesso',
+                        'recarrega' => 'true',
+                        'msg' => 'Clinica Adicionada com sucesso',
+                    ]);
+                }else{
+
+                    return response()->json([
+                        'status' => 'erro',
+                        'recarrega' => 'false',
+                        'msg' => 'Clinica com esse nome já existe',
+                    ]);
+
+                }
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+        }    
 
     }
 
