@@ -36,10 +36,6 @@ class HomeController extends Controller
 
             $user = Auth::user();
 
-            //dd($user->id_perfil);
-
-            
-
             switch ($user->id_perfil) {
                 case 1:
                     # Admin

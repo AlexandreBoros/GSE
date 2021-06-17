@@ -370,7 +370,7 @@
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Dados da Clinica</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Usuario da Clinica</h5>
                       <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                       </button>
@@ -380,13 +380,19 @@
                     <div class="modal-body">
                         <div class="form-group row">
                           <div class="col">
-                            <label for="data_inicial">Nome da Clinica</label>
-                            <input class="form-control" type="text" id="salvar_nome_clinica">
+                            <label for="data_inicial">Nome</label>
+                            <input class="form-control" type="text" id="nome_usuario_clinica">
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="col">
-                            <select class="form-control" id="clinica">
+                            <label for="data_inicial">Email</label>
+                            <input class="form-control" type="text" id="email_usuario_clinica">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col">
+                            <select class="form-control" id="id_clinica_usuario_clinica">
                               @foreach ($clinicas as $clinica)
                                   <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
                                 @endforeach
@@ -395,7 +401,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                      <button class="btn btn-primary salvar-clinica">Salvar</button>
+                      <button class="btn btn-primary salvar-clinica-usuario">Salvar</button>
                     </div>
                 </form>
             </div>

@@ -438,7 +438,49 @@ $(document).ready(function() {
 
     $("div#usuario_clinica").on('click', 'button.salvar-clinica-usuario', function(e) {
 
-        alert('oiiiiii');
+        e.preventDefault();
+
+        var nome_usuario_clinica = $('#nome_usuario_clinica').val();
+        var email_usuario_clinica = $('#email_usuario_clinica').val();
+        var id_clinica_usuario_clinica = $('#id_clinica_usuario_clinica').val();
+
+        var data_args = {
+            'nome_usuario_clinica' : nome_usuario_clinica,
+            'email_usuario_clinica' : email_usuario_clinica,
+            'id_clinica' : id_clinica_usuario_clinica,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: URL_BASE+'app/admin/salvar_clinica_usuario',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                switch (retorno.status){
+                    case 'erro':
+                        var alerta = swal("Erro!",retorno.msg,"error");
+                        break;
+                    case 'sucesso':
+                        var alerta = swal("Sucesso!",retorno.msg,"success");
+                        break;
+                }
+                alerta.then(function () {
+                    if (retorno.recarrega == 'true') {
+                        window.location = URL_BASE+'home/';
+                    }
+                });
+            },
+            error: function(ev, xhr, settings, error) {
+
+                console.log("erro " +ev);
+
+            }
+        });
+
+
 
     });
 

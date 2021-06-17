@@ -18,6 +18,8 @@ use App\Models\processo_status;
 use App\Models\processo_pendencia;
 use App\Models\processo_arquivos;
 use App\Models\clinica;
+use App\Models\user;
+use App\Models\user_clinica;
 
 
 class AdminController extends Controller {
@@ -448,6 +450,63 @@ class AdminController extends Controller {
                         'status' => 'erro',
                         'recarrega' => 'false',
                         'msg' => 'Clinica com esse nome já existe',
+                    ]);
+
+                }
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+        }    
+
+    }
+
+    public function salvar_clinica_usuario(Request $request, user $users, user_clinica $user_clinicas){
+
+        if(Auth::check()){
+       
+            DB::beginTransaction();
+            try{ 
+
+                $user = $users->where('email', strtoupper($request->email))->first();
+
+                if(!$user){
+
+                    $user->name = strtoupper($request->nome_usuario_clinica);
+                    $user->email = strtoupper($request->email_usuario_clinica);
+                    $user->senha = "$2y$10$wwXwjkJ6rwFD6KhUlz084eey/SnQLja0GtG7aa27efp9MnQ/uk.8q";
+                    $user->id_perfil = 2;
+                            
+                    if (!$user->save()) {
+                        throw new Exception('Erro ao salvar usuario.');
+                    }else{
+                        $user_clinicas->id_user = $user->id;
+                        $user_clinicas->id_clinica = $request->id_clinica;
+
+                        if (!$user_clinicas->save()) {
+                            throw new Exception('Erro ao salvar novo usuario clinica.');
+                        }
+                    }
+
+                    DB::commit();
+
+                    return response()->json([
+                        'status' => 'sucesso',
+                        'recarrega' => 'true',
+                        'msg' => 'Usuario Clinica Adicionada com sucesso',
+                    ]);
+
+                }else{
+
+                    return response()->json([
+                        'status' => 'erro',
+                        'recarrega' => 'false',
+                        'msg' => 'Usuario já exite com esse email',
                     ]);
 
                 }
