@@ -20,6 +20,7 @@ use App\Models\processo_arquivos;
 use App\Models\clinica;
 use App\Models\user;
 use App\Models\user_clinica;
+use App\Models\user_error;
 
 
 class AdminController extends Controller {
