@@ -381,18 +381,19 @@
                         <div class="form-group row">
                           <div class="col">
                             <label for="data_inicial">Nome</label>
-                            <input class="form-control" type="text" id="nome_usuario_clinica">
+                            <input class="form-control" type="text" id="nome_usuario_clinica" required>
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="col">
                             <label for="data_inicial">Email</label>
-                            <input class="form-control" type="text" id="email_usuario_clinica">
+                            <input class="form-control" type="email" id="email_usuario_clinica" required>
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="col">
-                            <select class="form-control" id="id_clinica_usuario_clinica">
+                            <label for="data_inicial">Selecione a clinica</label>
+                            <select class="form-control" id="id_clinica_usuario_clinica" required>
                               @foreach ($clinicas as $clinica)
                                   <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
                                 @endforeach
