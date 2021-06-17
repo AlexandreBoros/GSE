@@ -477,12 +477,12 @@ class AdminController extends Controller {
 
                 if(!$user){
 
-                    $user->name = strtoupper($request->nome_usuario_clinica);
-                    $user->email = strtoupper($request->email_usuario_clinica);
-                    $user->senha = "$2y$10$wwXwjkJ6rwFD6KhUlz084eey/SnQLja0GtG7aa27efp9MnQ/uk.8q";
-                    $user->id_perfil = 2;
+                    $users->name = strtoupper($request->nome_usuario_clinica);
+                    $users->email = strtoupper($request->email_usuario_clinica);
+                    $users->senha = "$2y$10$wwXwjkJ6rwFD6KhUlz084eey/SnQLja0GtG7aa27efp9MnQ/uk.8q";
+                    $users->id_perfil = 2;
                             
-                    if (!$user->save()) {
+                    if (!$users->save()) {
                         throw new Exception('Erro ao salvar usuario.');
                     }else{
                         $user_clinicas->id_user = $user->id;
