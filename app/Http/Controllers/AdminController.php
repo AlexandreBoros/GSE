@@ -479,7 +479,7 @@ class AdminController extends Controller {
 
                     $users->name = strtoupper($request->nome_usuario_clinica);
                     $users->email = strtoupper($request->email_usuario_clinica);
-                    $users->senha = "$2y$10$wwXwjkJ6rwFD6KhUlz084eey/SnQLja0GtG7aa27efp9MnQ/uk.8q";
+                    $users->senha = Hash::make("123456");
                     $users->id_perfil = 2;
                             
                     if (!$users->save()) {
