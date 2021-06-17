@@ -478,7 +478,7 @@ class AdminController extends Controller {
                 if(!$user){
 
                     $users->name = strtoupper($request->nome_usuario_clinica);
-                    $users->email = strtoupper($request->email_usuario_clinica);
+                    $users->email = strtolower($request->email_usuario_clinica);
                     $users->password = Hash::make("123456");
                     $users->id_perfil = 2;
                             
