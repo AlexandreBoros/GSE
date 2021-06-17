@@ -473,9 +473,9 @@ class AdminController extends Controller {
             DB::beginTransaction();
             try{ 
 
-                $user = $users->where('email', strtolower($request->email))->first();
+                $user = $users->where('email', strtolower($request->email))->count();
 
-                if(!$user){
+                if($user == 0){
 
                     $users->name = strtoupper($request->nome_usuario_clinica);
                     $users->email = strtolower($request->email_usuario_clinica);
