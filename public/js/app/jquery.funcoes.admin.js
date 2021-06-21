@@ -59,7 +59,8 @@ $(document).ready(function() {
                         var alerta = swal("Erro!",retorno.msg,"error");
                         break;
                     case 'sucesso':
-                        var alerta = swal("Sucesso!",retorno.msg,"success");
+                        window.location = URL_BASE+'home/';
+                        //var alerta = swal("Sucesso!",retorno.msg,"success");
                         break;
                 }
                 alerta.then(function () {
