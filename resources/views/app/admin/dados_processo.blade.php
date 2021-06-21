@@ -1,3 +1,8 @@
+<script async>
+  $(document).ready(function() {
+    $('.real').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+  });
+</script>
 <form class="user" name="form-alterar-processo">
     <input type="hidden" value="{{$request->id_propcesso}}" id="id_propcesso">
     <div class="form-group row">
@@ -70,13 +75,13 @@
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="valor_nf_processo" placeholder="VALOR NF" value="{{$convenio->valor_nf}}">
+          <input type="text" class="form-control real" id="valor_nf_processo" placeholder="VALOR NF" value="{{$convenio->valor_nf}}">
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="valor_pago_processo" placeholder="VALOR PAGO" value="{{$convenio->valor_pago}}">
+          <input type="text" class="form-control real" id="valor_pago_processo" placeholder="VALOR PAGO" value="{{$convenio->valor_pago}}">
       </div>
     </div>
     <div class="form-group row">

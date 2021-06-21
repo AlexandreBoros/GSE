@@ -3,7 +3,11 @@
 @section('titulo', 'GSE')
 
 @section('content')
-
+<script async>
+    $(document).ready(function() {
+      $('.real').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+    });
+</script>
 
 <style>
     .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
@@ -184,7 +188,11 @@
                             <td class="text-uppercase">{{$convenio->senha}}</td>
                             <td class="text-uppercase">{{$convenio->dt_cadastro}}</td>
                             <td class="text-uppercase">{{$convenio->protocolo}}</td>
-                            <td class="text-uppercase">{{$convenio->valor_nf}}</td>
+                            <td>
+                                <div class='real'>
+                                    {{$convenio->valor_nf}}
+                                </div>
+                            </td>
                             <td class="text-uppercase">{{$convenio->valor_pago}}</td>
                             <td class="text-uppercase">{{$convenio->dt_pagamento}}</td>
                             {{--<td class="text-uppercase">{{$convenio->porcentagem_gse}}</td>--}}
