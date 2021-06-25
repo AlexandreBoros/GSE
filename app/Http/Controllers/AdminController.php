@@ -474,7 +474,8 @@ class AdminController extends Controller {
             try{ 
 
                 $user = $users->where('email', strtolower($request->email))->count();
-
+                
+                dd($user);
                 if($user == 0){
 
                     $users->name = strtoupper($request->nome_usuario_clinica);
