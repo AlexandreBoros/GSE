@@ -196,14 +196,18 @@
             <div class="input-group">
               <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                 <label>Status:</label>
-                  <select class="form-control" id="id_processo_status">
-                    @foreach ($processo_status as $status)
-                         <option value="{{$status->id_processo_status }}">{{$status->nome_processo_status}}</option>
-                      @endforeach
-                  </select>
+                <select class="form-control" name="id_processo_status">
+                  @foreach ($processo_status as $status)
+                    <option value="{{$status->id_processo_status }}">{{$status->nome_processo_status}}</option>
+                  @endforeach
+                </select>
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
                 </div>
             </div>
-          </form>       
+          </form>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
