@@ -184,10 +184,19 @@ class HomeController extends Controller
                                            ->orderBy('dt_cadastro','desc')
                                            ->paginate(50,['*'],'todos_convenios_pag');
 
+                    
+
+
+                    if($request->nome_usuario){
+
+                        $convenios = $convenios->where("nome_paciente", 'like' , "%".$request->nome_usuario."%");
+
+                    }
+    
+    
                     $convenios->appends(Request::capture()->except('_token'))->render();
-    
-    
-    
+
+
                     $compact_args = [
                         'class' => $this,
                         'clinicas' => $clinicas,
