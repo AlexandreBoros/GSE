@@ -29,7 +29,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request, convenio $convenios, clinica $clinicas, user_clinica $users_clinicas)
+    public function index(Request $request, convenio $convenios, clinica $clinicas, user_clinica $users_clinicas, processo_status $processo_status)
     {
 
         if(Auth::check()){
@@ -202,7 +202,8 @@ class HomeController extends Controller
                     $compact_args = [
                         'class' => $this,
                         'clinicas' => $clinicas,
-                        'convenios' => $convenios
+                        'convenios' => $convenios,
+                        'processo_status' => $processo_status->get()
     
                     ];
     

@@ -192,6 +192,19 @@
             </div>
           </form>
 
+          <form action="{{route("home")}}" method="POST" class="d-none d-sm-inline-block form-inline mr-auto ml-md-2 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                <label>Status:</label>
+                  <select class="form-control" id="id_processo_status">
+                    @foreach ($processo_status as $status)
+                         <option value="{{$status->id_processo_status }}">{{$status->nome_processo_status}}</option>
+                      @endforeach
+                  </select>
+                </div>
+            </div>
+          </form>       
+
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
