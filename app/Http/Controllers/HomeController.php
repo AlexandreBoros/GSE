@@ -187,11 +187,13 @@ class HomeController extends Controller
                     
 
 
-                    if($request->nome_usuario){
+                    if ($request->filled('seacrh_nome')) {
+                        $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
+                    } 
 
-                        $convenios = $convenios->where("nome_paciente", 'like' , "%".$request->nome_usuario."%");
-
-                    }
+                    if ($request->filled('seacrh_convenio')) {
+                        $convenios = $convenios->where('tipo_convenio', 'like', '%'.$request->seacrh_convenio.'%');
+                    } 
     
     
                     $convenios->appends(Request::capture()->except('_token'))->render();
