@@ -527,13 +527,13 @@ class AdminController extends Controller {
 
         if(Auth::check()){
     
-            $clinicas = $clinicas->orderBy('nome_clinica','asc')->paginate(10,['*'],'todas_clinicas_pag');
-            $clinicas->appends(Request::capture()->except('_token'))->render();
+            $clinica = $clinicas->orderBy('nome_clinica','asc')->paginate(10,['*'],'todas_clinicas_pag');
+            $clinica->appends(Request::capture()->except('_token'))->render();
 
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
-                'clinicas' => $clinicas->get()
+                'clinicas' => $clinica->get()
             ];
     
     
