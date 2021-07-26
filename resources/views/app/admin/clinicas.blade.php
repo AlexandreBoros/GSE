@@ -112,7 +112,7 @@
                         <tr>
                             <td>{{$clinica->nome_clinica}}</td>
                             <td>
-                                @if($convenio->ativo == 1)
+                                @if($clinica->ativo == 1)
                                     <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#ativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Desativar Clinica" title="Desativar Clinica">
                                         <i class="fas fa-clipboard-list"></i>
                                     </a>
