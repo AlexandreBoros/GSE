@@ -523,4 +523,24 @@ class AdminController extends Controller {
 
     }
 
+    public function clinicas(Request $request, clinica $clinicas){
+
+        if(Auth::check()){
+    
+            $clinicas = $clinicas->orderBy('nome_clinica','asc')->paginate(10,['*'],'todas_clinicas_pag');
+            $clinicas->appends(Request::capture()->except('_token'))->render();
+
+            $compact_args = [
+                'request' => $request,
+                'class' => $this,
+                'clinicas' => $clinicas->get()
+            ];
+    
+    
+            return view('app.admin.clinicas', $compact_args);
+
+        }    
+
+    }
+
 }

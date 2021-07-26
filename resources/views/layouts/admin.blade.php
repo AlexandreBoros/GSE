@@ -86,7 +86,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             {{--<a class="collapse-item" href="{{route('app.admin.principal')}}">Home</a>--}}
-            <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Processos</a>
+            <a class="collapse-item" href="{{route('app.admin.index')}}">Processos</a>
+            <a class="collapse-item" href="{{route('app.admin.clinicas')}}">Clinicas</a>
             {{--<a class="collapse-item" href="{{route('app.admin.cliente')}}">Clientes</a>
             <a class="collapse-item" href="{{route('app.admin.plano')}}">Planos</a>
             <a class="collapse-item" href="{{route('app.admin.bares_categoria')}}">Categorias dos Bares</a>--}}

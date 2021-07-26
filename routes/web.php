@@ -56,6 +56,7 @@ Route::prefix('app')->group(function ()
             Route::post('salvar_clinica', 'AdminController@salvar_clinica')->name('app.admin.salvar_clinica');
             Route::post('salvar_clinica_usuario', 'AdminController@salvar_clinica_usuario')->name('app.admin.salvar_clinica_usuario');
 
+            Route::match(['get', 'post'], 'clinicas', 'AdminController@clinicas')->name('app.admin.clinicas');
         });
 
         Route::prefix('clinica')->group(function ()
