@@ -91,8 +91,6 @@
     </div>
 </div>--}}
 
-{{dd($clinicas)}}
-
 <div class="card shadow mb-4"><div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Clínicas</h6>
 </div>
@@ -108,7 +106,7 @@
             </thead>
             <tbody>               
                 @if (count($clinicas)>0)
-                    @foreach ($clinicas as $clinica)
+                    @foreach ($clinicas->get() as $clinica)
                         <tr>
                             <td>{{$clinica->nome_clinica}}</td>
                             <td>
