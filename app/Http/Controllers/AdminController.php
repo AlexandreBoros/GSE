@@ -533,7 +533,7 @@ class AdminController extends Controller {
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
-                'clinicas' => $clinica
+                'clinicas' => $clinica->get()
             ];
     
     
