@@ -495,7 +495,7 @@ $(document).ready(function() {
         };
 
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: URL_BASE+'app/admin/ativar_desativar_clinica',
             data: data_args,
             context: this,
