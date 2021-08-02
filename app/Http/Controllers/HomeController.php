@@ -250,6 +250,9 @@ class HomeController extends Controller
 
     public function clinica_desativada(){
 
+
+        Auth::logout();
+
         return view('clinica_desativada');
 
     }
