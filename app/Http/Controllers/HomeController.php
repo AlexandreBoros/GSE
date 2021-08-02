@@ -38,6 +38,8 @@ class HomeController extends Controller
 
             $usuario = $users_clinicas->where('id_user', $user->id);
 
+            dd($usuario);
+
             $clinica = $clinicas->where('id_clinica', $usuario->id_clinica);
 
             if($clinica->ativo == 0){
