@@ -109,7 +109,7 @@
             <tbody>               
                 @if (count($clinicas)>0)
                     @foreach ($clinicas as $clinica)
-                        <tr>
+                        {{--<tr>
                             <td>{{$clinica->nome_clinica}}</td>
                             <td>
                                 @if($clinica->ativo == 1)
@@ -122,7 +122,7 @@
                                     </a>
                                 @endif
                             </td>
-                        </tr>  
+                        </tr>--}}  
                     @endforeach
                 @else
                     <tr>
