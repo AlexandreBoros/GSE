@@ -39,7 +39,7 @@ class HomeController extends Controller
             $usuario = $users_clinicas->where('id_user', $user->id)->first();
 
             if($usuario != null){
-                $clinica = $clinicas->where('id_clinica', $usuario->id_clinica);
+                $clinica = $clinicas->where('id_clinica', $usuario->id_clinica)->first();
 
                 if($clinica->ativo == 0){
                     return view('clinica_desativada');
