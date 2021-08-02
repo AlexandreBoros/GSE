@@ -543,4 +543,13 @@ class AdminController extends Controller {
 
     }
 
+
+    public function ativar_desativar_clinica(Request $request, clinica $clinicas){
+
+        if(Auth::check()){
+
+        }
+
+    }    
+
 }

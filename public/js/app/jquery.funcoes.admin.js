@@ -481,12 +481,37 @@ $(document).ready(function() {
             }
         });
 
+    });
 
+
+    $("div#ativar_desativar_clinica").on('show.bs.modal', function(e) {
+
+        var id_clinica = $(e.relatedTarget).data('idclinica'); 
+
+        var data_args = {
+            'id_clinica' : id_clinica,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: URL_BASE+'app/admin/ativar_desativar_clinica',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                $(this).find('.modal-body form').html(retorno);
+            },
+            error: function(ev, xhr, settings, error) {
+
+            }
+        });
+         
 
     });
 
-                
- 
+
 });
 
 

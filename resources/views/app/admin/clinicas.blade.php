@@ -120,11 +120,11 @@
                             <td>{{$clinica->nome_clinica}}</td>
                             <td>
                                 @if($clinica->ativo == 1)
-                                    <a href="#" data-toggle="modal" data-target="#ativar_desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Desativar Clinica" title="Desativar Clinica">
+                                    <a href="#" data-toggle="modal" data-target="#ativar_desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" data-ativardesativar="1" alt="Desativar Clinica" title="Desativar Clinica">
                                        <i class="fas fa-clipboard-list"></i>
                                     </a>
                                 @else    
-                                    <a href="#" class="" data-toggle="modal" data-target="#ativar_desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Ativar Clinica" title="Ativar Clinica">
+                                    <a href="#" class="" data-toggle="modal" data-target="#ativar_desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" data-ativardesativar="0" alt="Ativar Clinica" title="Ativar Clinica">
                                         <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
