@@ -552,20 +552,67 @@ class AdminController extends Controller {
 
             if($request->ativar_deativar == 1){
                 $corpo = "<div class='alert alert-danger'>Desejá desativar a clinica $clinica->nome_clinica ?</div>"; 
+                $ativar_desativar = 1;
             }else{
-                $corpo = "<div class='alert alert-info'>Desejá ativar a clinica $clinica->nome_clinica ?</div>";
+                $corpo = "<div class='al-ert alert-info'>Desejá ativar a clinica $clinica->nome_clinica ?</div>";
+                $ativar_desativar = 0;
             }
 
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
-                'corpo' => $corpo
+                'corpo' => $corpo,
+                'ativar_desativar' => $ativar_desativar
             ];
     
             return view('app.admin.ativar_desativar_clinica', $compact_args);
 
         }
 
-    }    
+    }  
+    
+    
+    public function salvar_ativar_desativar_clinica(Request $request, clinica $clinica){
+
+        if(Auth::check()){
+       
+            DB::beginTransaction();
+            try{ 
+
+                $clinica = $clinicas->where("id_clinica", $request->id_clinica)->first();
+            
+                if($request->ativar_desativar == 1){
+                    $clinica->ativo = 0;
+                    $msg = "Clinica Destivada com sucesso";
+                }else{
+                    $clinica->ativo = 1;
+                    $msg = "Clinica Ativada com sucesso";
+                }
+                            
+                if (!$clinica->save()) {
+                    throw new Exception('Erro ao salvar ativar/desativar clinica.');
+                }
+
+                DB::commit();
+
+                return response()->json([
+                        'status' => 'sucesso',
+                        'recarrega' => 'true',
+                        'msg' => $msg
+                ]);
+
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+        }    
+
+    }
+
 
 }

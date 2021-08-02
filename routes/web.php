@@ -58,17 +58,14 @@ Route::prefix('app')->group(function ()
 
             Route::match(['get', 'post'], 'clinicas', 'AdminController@clinicas')->name('app.admin.clinicas');
             Route::get('ativar_desativar_clinica', 'AdminController@ativar_desativar_clinica')->name('app.admin.ativar_desativar_clinica');
+            Route::post('salvar_ativar_desativar_clinica', 'AdminController@salvar_ativar_desativar_clinica')->name('app.admin.salvar_ativar_desativar_clinica');
         });
 
         Route::prefix('clinica')->group(function ()
         {  
-
-
             Route::post('adicionar_pendecia','ClinicaController@adicionar_pendecia')->name('app.clinica.adicionar_pendecia');
             Route::post('lista_upload','ClinicaController@lista_upload')->name('app.clinica.lista_upload');
             Route::match(['get', 'post'], 'download/{id_processo_arquivo}','ClinicaController@download')->name('app.clinica.download');
-
-
         });
 
     });
