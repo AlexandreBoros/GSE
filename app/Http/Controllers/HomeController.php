@@ -42,6 +42,7 @@ class HomeController extends Controller
                 $clinica = $clinicas->where('id_clinica', $usuario->id_clinica)->first();
 
                 if($clinica->ativo == 0){
+                    Auth::logout(); 
                     return view('desativado');
                 }
             }
@@ -249,7 +250,6 @@ class HomeController extends Controller
     }
 
     public function clinica_desativada(){
-
 
         Auth::logout();
 
