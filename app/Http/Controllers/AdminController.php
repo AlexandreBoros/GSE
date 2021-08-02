@@ -572,7 +572,7 @@ class AdminController extends Controller {
     }  
     
     
-    public function salvar_ativar_desativar_clinica(Request $request, clinica $clinica){
+    public function salvar_ativar_desativar_clinica(Request $request, clinica $clinicas){
 
         if(Auth::check()){
        
