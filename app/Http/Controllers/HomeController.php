@@ -36,16 +36,14 @@ class HomeController extends Controller
 
             $user = Auth::user();
 
-            dd($user->id);
-
             $usuario = $users_clinicas->where('id_user', $user->id)->first();
 
-            dd($usuario);
+            if($usuario != null){
+                $clinica = $clinicas->where('id_clinica', $usuario->id_clinica);
 
-            $clinica = $clinicas->where('id_clinica', $usuario->id_clinica);
-
-            if($clinica->ativo == 0){
-                return view('clinica_desativada');
+                if($clinica->ativo == 0){
+                    return view('clinica_desativada');
+                }
             }
 
             switch ($user->id_perfil) {
