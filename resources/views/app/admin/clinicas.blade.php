@@ -111,16 +111,21 @@
             <tbody>               
                 @if (count($clinicas)>0)
                     @foreach ($clinicas as $clinica)
-                        <tr>
+                       @if($clinica->ativo == 1)
+                          @php $classe = 'ativado' @endphp   
+                       @else
+                          @php $classe = 'desativado' @endphp 
+                       @endif
+                        <tr class="{{$classe}}">
                             <td>{{$clinica->nome_clinica}}</td>
                             <td>
                                 @if($clinica->ativo == 1)
-                                    <a href="#" class="ativado" data-toggle="modal" data-target="#ativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Desativar Clinica" title="Desativar Clinica">
-                                        <i class="fas fa-clipboard-list"></i>
+                                    <a href="#" data-toggle="modal" data-target="#ativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Desativar Clinica" title="Desativar Clinica">
+                                       <i class="fas fa-clipboard-list"></i>
                                     </a>
                                 @else    
-                                    <a href="#" class="desativado" data-toggle="modal" data-target="#desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Ativar Clinica" title="Ativar Clinica">
-                                            <i class="fas fa-file-import"></i>
+                                    <a href="#" class="" data-toggle="modal" data-target="#desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Ativar Clinica" title="Ativar Clinica">
+                                        <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
                             </td>
