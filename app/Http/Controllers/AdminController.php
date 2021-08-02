@@ -548,6 +548,20 @@ class AdminController extends Controller {
 
         if(Auth::check()){
 
+            if($request->ativar_deativar == 1){
+                $corpo = "<div class='alert alert-danger'>Desejá desativar a clinica ?</div>"; 
+            }else{
+                $corpo = "<div class='alert alert-info'>Desejá ativar a clinica ?</div>";
+            }
+
+            $compact_args = [
+                'request' => $request,
+                'class' => $this,
+                'corpo' => $corpo
+            ];
+    
+            return view('app.admin.ativar_desativar_clinica', $compact_args);
+
         }
 
     }    

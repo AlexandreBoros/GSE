@@ -842,8 +842,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                  <form class="user" name="form-ativar-destivar-clinica">
-                  </form>
+                  <form class="user" name="form-ativar-destivar-clinica"></form>
                 </div>
                 <div class="modal-footer">
                   <button class="btn btn-primary ativar-desativar-clinica">Ativar/Desativar</button>

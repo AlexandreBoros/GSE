@@ -486,10 +486,12 @@ $(document).ready(function() {
 
     $("div#ativar_desativar_clinica").on('show.bs.modal', function(e) {
 
-        var id_clinica = $(e.relatedTarget).data('idclinica'); 
+        var id_clinica = $(e.relatedTarget).data('idclinica');
+        var ativar_deativar = $(e.relatedTarget).data('ativardesativar'); 
 
         var data_args = {
             'id_clinica' : id_clinica,
+            'ativar_deativar' : ativar_deativar,
         };
 
         $.ajax({
