@@ -548,10 +548,12 @@ class AdminController extends Controller {
 
         if(Auth::check()){
 
+            $clinica = $clinicas->where("id_clinica", $request->id_clinica)->first();
+
             if($request->ativar_deativar == 1){
-                $corpo = "<div class='alert alert-danger'>Desejá desativar a clinica ?</div>"; 
+                $corpo = "<div class='alert alert-danger'>Desejá desativar a clinica $clinica->nome_clinica ?</div>"; 
             }else{
-                $corpo = "<div class='alert alert-info'>Desejá ativar a clinica ?</div>";
+                $corpo = "<div class='alert alert-info'>Desejá ativar a clinica $clinica->nome_clinica ?</div>";
             }
 
             $compact_args = [

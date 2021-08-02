@@ -509,7 +509,11 @@ $(document).ready(function() {
 
             }
         });
-         
+    });
+
+    $("div#ativar_desativar_clinica").on('click', 'button.ativar-desativar-clinica', function(e) {
+
+        alert('oiiii');
 
     });
 
