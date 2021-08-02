@@ -4,6 +4,11 @@
 
 @section('content')
 
+<style>
+    .ativado { background-color: rgb(176, 222, 248); text-align: left; color: rgb(5, 0, 0)}
+    .desativado { background-color: #fd8b83; text-align: left; color: rgb(14, 13, 13)}
+</style>
+
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800 text-uppercase">Clínicas</h1>
@@ -96,7 +101,6 @@
 </div>
 <div class="card-body">
     <div class="table-responsive">
-        <!--<table id="table_admin" class="display" style="width:100%">-->
         <table id="table_alunos" class="table" style="width:100%">    
             <thead>
                 <tr>
@@ -111,11 +115,11 @@
                             <td>{{$clinica->nome_clinica}}</td>
                             <td>
                                 @if($clinica->ativo == 1)
-                                    <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#ativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Desativar Clinica" title="Desativar Clinica">
+                                    <a href="#" class="ativado" data-toggle="modal" data-target="#ativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Desativar Clinica" title="Desativar Clinica">
                                         <i class="fas fa-clipboard-list"></i>
                                     </a>
                                 @else    
-                                    <a href="#" class="lista_upload" data-toggle="modal" data-target="#desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Ativar Clinica" title="Ativar Clinica">
+                                    <a href="#" class="desativado" data-toggle="modal" data-target="#desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" alt="Ativar Clinica" title="Ativar Clinica">
                                             <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
