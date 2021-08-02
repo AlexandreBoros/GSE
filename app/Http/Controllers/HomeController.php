@@ -36,7 +36,7 @@ class HomeController extends Controller
 
             $user = Auth::user();
 
-            $usuario = $users_clinicas->where('id_user', $user->id);
+            $usuario = $users_clinicas->where('id_user', $user->id)->firts();
 
             dd($usuario);
 
