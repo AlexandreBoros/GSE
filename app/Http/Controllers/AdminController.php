@@ -554,7 +554,7 @@ class AdminController extends Controller {
                 $corpo = "<div class='alert alert-danger'>Desejá desativar a clinica $clinica->nome_clinica ?</div>"; 
                 $ativar_desativar = 1;
             }else{
-                $corpo = "<div class='al-ert alert-info'>Desejá ativar a clinica $clinica->nome_clinica ?</div>";
+                $corpo = "<div class='alert alert-info'>Desejá ativar a clinica $clinica->nome_clinica ?</div>";
                 $ativar_desativar = 0;
             }
 
