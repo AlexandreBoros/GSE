@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::match(['get', 'post'],'/home', 'HomeController@index')->name('home');
+Route::match(['get', 'post'],'/desativada', 'HomeController@clinica_desativada')->name('clinica_desativada');
 
 // Rotas do sistema com o prefixo "app"
 Route::prefix('app')->group(function ()

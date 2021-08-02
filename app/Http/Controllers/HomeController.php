@@ -36,6 +36,14 @@ class HomeController extends Controller
 
             $user = Auth::user();
 
+            $usuario = $users_clinicas->where('id_user', $user->id);
+
+            $clinica = $clinicas->where('id_clinica', $usuario->id_clinica);
+
+            if($clinica->ativo == 0){
+                return view('clinica_desativada');
+            }
+
             switch ($user->id_perfil) {
                 case 1:
                     # Admin
@@ -237,4 +245,11 @@ class HomeController extends Controller
         return view('welcome');
 
     }
+
+    public function clinica_desativada(){
+
+        return view('clinica_desativada');
+
+    }
+
 }
