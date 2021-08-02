@@ -151,6 +151,10 @@ class HomeController extends Controller
                         $convenios = $convenios->where('tipo_convenio', 'like', '%'.$request->seacrh_convenio.'%');
                     } 
 
+                    if ($request->filled('seacrh_status')) {
+                        $convenios = $convenios->where('status_situacao', $request->seacrh_status);
+                    } 
+
                                         
                     $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag');
                     $convenios->appends(Request::capture()->except('_token'))->render();
