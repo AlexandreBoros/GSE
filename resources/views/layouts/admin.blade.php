@@ -223,6 +223,7 @@
                   <option value="2">PENDENTE</option>
                   <option value="3">BAIXADO</option>
                   <option value="4">PAGO</option>
+                  <option value="5">UPLOAD ARQUIVO</option>
                 </select>  
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
