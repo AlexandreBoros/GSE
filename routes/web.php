@@ -65,6 +65,8 @@ Route::prefix('app')->group(function ()
         Route::prefix('clinica')->group(function ()
         {  
             Route::post('adicionar_pendecia','ClinicaController@adicionar_pendecia')->name('app.clinica.adicionar_pendecia');
+            Route::post('upload','ClinicaController@upload')->name('app.clinica.upload');
+            Route::post('salvar_upload','ClinicaController@salvar_upload')->name('app.clinica.salvar_upload');
             Route::post('lista_upload','ClinicaController@lista_upload')->name('app.clinica.lista_upload');
             Route::match(['get', 'post'], 'download/{id_processo_arquivo}','ClinicaController@download')->name('app.clinica.download');
         });

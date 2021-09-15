@@ -96,7 +96,8 @@
     .analise { background-color: rgb(253, 250, 239); text-align: left; color: rgb(5, 0, 0)}
     .pendente { background-color: #ff1d0d; text-align: left; color: white}
     .pago { background-color: #1cf082; text-align: left; color: white}
-    .baixado { background-color: #f5ef3d; text-align: left; color: white}
+    .baixado { background-color: #f5ef3d; text-align: left; color: rgb(110, 54, 230)}
+    .upload { background-color: #0e24ec; text-align: left; color: white}
 </style>
 
 
@@ -129,7 +130,9 @@
                         @elseif($convenio->status_situacao == 3)
                             <?php $classe = 'baixado' ?>     
                         @elseif($convenio->status_situacao == 4)
-                            <?php $classe = 'pago' ?>                                       
+                            <?php $classe = 'pago' ?>   
+                        @elseif($convenio->status_situacao == 5)
+                            <?php $classe = 'upload' ?>                                           
                         @endif 
                         <tr class="{{$classe}}">
                             <td>{{$convenio->nome_paciente}}</td>
@@ -142,6 +145,9 @@
                                 @if($convenio->status_situacao >= 2)
                                     <a href="#" class="adicionar_pendecia" data-toggle="modal" data-target="#adicionar_pendecia" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Adicionar Pendencias" title="Adicionar Pendencias">
                                         <i class="fas fa-clipboard-list"></i>
+                                    </a>
+                                    <a href="#" class="upload" data-toggle="modal" data-target="#upload" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Upload" title="Upload">
+                                        <i class="fas fa-upload"></i>
                                     </a>
                                     <a href="#" class="lista_upload" data-toggle="modal" data-target="#lista_upload" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Arquivos Upload" title="Arquivos Upload">
                                             <i class="fas fa-file-import"></i>

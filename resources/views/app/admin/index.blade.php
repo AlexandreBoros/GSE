@@ -9,6 +9,7 @@
     .pendente { background-color: #ff1d0d; text-align: left; color: white}
     .pago { background-color: #1cf082; text-align: left; color: white}
     .baixado { background-color: #f5ef3d; text-align: left; color: rgb(110, 54, 230)}
+    .upload { background-color: #0e24ec; text-align: left; color: white}
 </style>
 
 <!-- Page Heading -->
@@ -170,7 +171,9 @@
                         @elseif($convenio->status_situacao == 3)
                             <?php $classe = 'baixado' ?>     
                         @elseif($convenio->status_situacao == 4)
-                            <?php $classe = 'pago' ?>                                    
+                            <?php $classe = 'pago' ?>   
+                        @elseif($convenio->status_situacao == 5)
+                            <?php $classe = 'upload' ?>                                       
                         @endif 
                         <tr class="{{$classe}}">  
                             <td>{{$convenio->nome_clinica}}</td>
