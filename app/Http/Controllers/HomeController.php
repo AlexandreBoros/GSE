@@ -228,7 +228,26 @@ class HomeController extends Controller
     
     
                     return view('app.clinica.index', $compact_args);
-                    break;    
+                    break; 
+                    
+                case 3:
+                    #Colaborador
+
+                    //Listar todos os convenios ordenados por data
+                    $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                
+                                           ->where("convenios.ativo", 1);
+
+                     $compact_args = [
+                        'class' => $this,
+                        'processo_status' => $processo_status->get()
+    
+                    ];
+    
+    
+                    return view('app.colaborador.index', $compact_args);                       
+                    
+                    break; 
                 
                 default:
                     return view('home');

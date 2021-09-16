@@ -1,6 +1,6 @@
-@extends('layouts.clinica')
+@extends('layouts.colaborador')
 
-@section('titulo', 'GSE')
+@section('titulo', 'GSE COLABORADOR')
 
 @section('content')
 
@@ -112,6 +112,7 @@
                 <tr>
                     <th>NOME PACIENTE</th>
                     <th>CONVENIO</th>
+                    <th>TIPO ENVIO</th>
                     <th>DATA DO ENVIO</th>
                     <th>VALOR NF</th>
                     <th>SITUAÇÃO</th>
@@ -136,6 +137,7 @@
                         <tr class="{{$classe}}">
                             <td>{{$convenio->nome_paciente}}</td>
                             <td>{{$convenio->tipo_convenio}}</td>
+                            <td>{{$convenio->tipo_envio}}</td>
                             <td>{{$convenio->dt_cadastro}}</td>
                             <td>{{$convenio->valor_nf}}</td>
                             <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
