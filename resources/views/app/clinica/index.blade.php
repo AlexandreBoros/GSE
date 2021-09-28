@@ -114,6 +114,7 @@
                     <th>CONVENIO</th>
                     <th>DATA DO ENVIO</th>
                     <th>VALOR NF</th>
+                    <th>VALOR PAGO</th>
                     <th>SITUAÇÃO</th>
                     <th>AÇÕES</th>
                 </tr>
@@ -138,6 +139,7 @@
                             <td>{{$convenio->tipo_convenio}}</td>
                             <td>{{$convenio->dt_cadastro}}</td>
                             <td>{{$convenio->valor_nf}}</td>
+                            <td class="text-uppercase">R$ {{$convenio->valor_pago == '' ? '0,00' : $convenio->valor_pago}}</td>
                             <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
                             <td>
                                 @if($convenio->status_situacao >= 2)
