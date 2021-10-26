@@ -579,6 +579,47 @@ $(document).ready(function() {
         });
     });
 
+    $("div#ativar_desativar_usuario").on('click', 'button.ativar-desativar-usuario', function(e) {
+
+        e.preventDefault();
+        var id_usuario = $('#id_usuario_ativar_desativar').val();
+        var ativar_desativar = $('#ativar_desativar').val();
+        var data_args = {
+            'id_clinica' : id_clinica,
+            'ativar_desativar' : ativar_desativar,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: URL_BASE+'app/admin/salvar_ativar_desativar_usuario',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                switch (retorno.status){
+                    case 'erro':
+                        var alerta = swal("Erro!",retorno.msg,"error");
+                        break;
+                    case 'sucesso':
+                        var alerta = swal("Sucesso!",retorno.msg,"success");
+                        break;
+                }
+                alerta.then(function () {
+                    if (retorno.recarrega == 'true') {
+                        window.location = URL_BASE+'app/admin/clinicas';
+                    }
+                });
+            },
+            error: function(ev, xhr, settings, error) {
+
+                console.log("erro " +ev);
+
+            }
+        });
+    });
+
 });
 
 

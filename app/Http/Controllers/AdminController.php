@@ -664,6 +664,50 @@ class AdminController extends Controller {
 
     }  
 
+    public function salvar_ativar_desativar_usuario(Request $request, User $user){
+
+        if(Auth::check()){
+       
+            DB::beginTransaction();
+            try{ 
+
+                $user = $user->where("id", $request->id_user)->first();
+            
+                if($request->ativar_desativar == 1){
+                    $clinica->ativo = 0;
+                    $msg = "Usuario Destivado com sucesso";
+                }else{
+                    $clinica->ativo = 1;
+                    $msg = "Usuario Ativado com sucesso";
+                }
+                            
+                if (!$clinica->save()) {
+                    throw new Exception('Erro ao salvar ativar/desativar usuario.');
+                }
+
+                DB::commit();
+
+                return response()->json([
+                        'status' => 'sucesso',
+                        'recarrega' => 'true',
+                        'msg' => $msg
+                ]);
+
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+        }    
+
+    }
+    
+
+
 
 
 }
