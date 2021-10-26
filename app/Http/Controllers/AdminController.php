@@ -614,5 +614,26 @@ class AdminController extends Controller {
 
     }
 
+    public function relatorio_usuario(Request $request, User $user){
+
+        if(Auth::check()){
+    
+            $user = $user->orderBy('nome_clinica','asc')->paginate(10,['*'],'todas_clinicas_pag');
+            $user->appends(Request::capture()->except('_token'))->render();
+
+            $compact_args = [
+                'request' => $request,
+                'class' => $this,
+                'users' => $user
+            ];
+    
+    
+            return view('app.admin.relatorio_usuario', $compact_args);
+
+        }    
+
+    }
+
+
 
 }
