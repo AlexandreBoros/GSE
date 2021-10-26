@@ -47,6 +47,11 @@ class HomeController extends Controller
                 }
             }
 
+            if($user->ativo == 0){
+                Auth::logout(); 
+                return view('desativado');
+            }
+
             switch ($user->id_perfil) {
                 case 1:
                     # Admin

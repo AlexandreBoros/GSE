@@ -580,7 +580,6 @@ $(document).ready(function() {
     });
 
     $("div#ativar_desativar_usuario").on('click', 'button.ativar-desativar-usuario', function(e) {
-        alert("dssdfsd");
         //e.preventDefault();
         var id_user = $('#id_usuario_ativar_desativar').val();
         var ativar_desativar = $('#ativar_desativar').val();
