@@ -130,6 +130,9 @@
                                         <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
+                                <a href="#" class="" data-toggle="modal" data-target="#alterar_senha_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" alt="Alterar Senha" title="Alterar Senha">
+                                    <i class="fas fa-unlock"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

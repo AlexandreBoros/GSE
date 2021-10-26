@@ -64,6 +64,8 @@ Route::prefix('app')->group(function ()
             Route::match(['get', 'post'], 'relatorio_usuario', 'AdminController@relatorio_usuario')->name('app.admin.relatorio_usuario');
             Route::get('ativar_desativar_usuario', 'AdminController@ativar_desativar_usuario')->name('app.admin.ativar_desativar_usuario');
             Route::post('salvar_ativar_desativar_usuario', 'AdminController@salvar_ativar_desativar_usuario')->name('app.admin.salvar_ativar_desativar_usuario');
+
+            Route::get('alterar_senha_usuario', 'AdminController@alterar_senha_usuario')->name('app.admin.alterar_senha_usuario');
         });
 
         Route::prefix('clinica')->group(function ()

@@ -707,7 +707,23 @@ class AdminController extends Controller {
     }
     
 
+    public function alterar_senha_usuario(Request $request, User $user){
 
+        if(Auth::check()){
+
+            $user = $user->where("id", $request->id_user)->first();
+
+            $compact_args = [
+                'request' => $request,
+                'class' => $this,
+                'user' => $user
+            ];
+    
+            return view('app.admin.alterar_senha_usuario', $compact_args);
+
+        }
+
+    }  
 
 
 }

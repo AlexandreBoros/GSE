@@ -619,6 +619,31 @@ $(document).ready(function() {
         });
     });
 
+    $("div#alterar_senha_usuario").on('show.bs.modal', function(e) {
+
+        var id_user = $(e.relatedTarget).data('iduser');
+
+        var data_args = {
+            'id_user' : id_user
+        };
+
+        $.ajax({
+            type: "GET",
+            url: URL_BASE+'app/admin/alterar_senha_usuario',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                $(this).find('.modal-body form').html(retorno);
+            },
+            error: function(ev, xhr, settings, error) {
+
+            }
+        });
+    });
+
 });
 
 
