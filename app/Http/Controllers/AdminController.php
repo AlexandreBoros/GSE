@@ -637,6 +637,33 @@ class AdminController extends Controller {
 
     }
 
+    public function ativar_desativar_usuario(Request $request, User $user){
+
+        if(Auth::check()){
+
+            $user = $user->where("id", $request->id_user)->first();
+
+            if($request->ativar_deativar == 1){
+                $corpo = "<div class='alert alert-danger'>Desejá desativar o usuario $user->name ?</div>"; 
+                $ativar_desativar = 1;
+            }else{
+                $corpo = "<div class='alert alert-info'>Desejá ativar o usuario $user->name ?</div>";
+                $ativar_desativar = 0;
+            }
+
+            $compact_args = [
+                'request' => $request,
+                'class' => $this,
+                'corpo' => $corpo,
+                'ativar_desativar' => $ativar_desativar
+            ];
+    
+            return view('app.admin.ativar_desativar_usuario', $compact_args);
+
+        }
+
+    }  
+
 
 
 }

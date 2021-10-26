@@ -552,6 +552,33 @@ $(document).ready(function() {
         });
     });
 
+    $("div#ativar_desativar_usuario").on('show.bs.modal', function(e) {
+
+        var id_user = $(e.relatedTarget).data('iduser');
+        var ativar_deativar = $(e.relatedTarget).data('ativardesativar'); 
+
+        var data_args = {
+            'id_user' : id_user,
+            'ativar_deativar' : ativar_deativar,
+        };
+
+        $.ajax({
+            type: "GET",
+            url: URL_BASE+'app/admin/ativar_desativar_usuario',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                $(this).find('.modal-body form').html(retorno);
+            },
+            error: function(ev, xhr, settings, error) {
+
+            }
+        });
+    });
+
 });
 
 
