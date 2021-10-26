@@ -728,13 +728,13 @@ class AdminController extends Controller {
     public function salvar_alterar_senha_usuario(Request $request, User $user){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
             try{ 
 
                 $user = $user->where("id", $request->id_user)->first();
                 $user->password = Hash::make($request->senha);
-                if (!$users->save()) {
+                if (!$user->save()) {
                     throw new Exception('Erro ao salvar usuario.');
 
                 DB::commit();
@@ -745,7 +745,7 @@ class AdminController extends Controller {
                         'msg' => 'Senha alterada com sucesso'
                 ]);
 
-
+                
             }catch (Exception $e) {
                 DB::rollback();
                 return response()->json([
@@ -755,7 +755,6 @@ class AdminController extends Controller {
                 ]);
             }
         }    
-
     }
 
 
