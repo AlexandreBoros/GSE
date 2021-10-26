@@ -105,6 +105,7 @@
             <thead>
                 <tr>
                     <th>USUARIOS</th>
+                    <th>LOGIN</th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
@@ -118,6 +119,7 @@
                        @endif
                         <tr class="{{$classe}}">
                             <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
                             <td>
                                 @if($user->ativo == 1)
                                     <a href="#" data-toggle="modal" data-target="#ativar_desativar_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" data-ativardesativar="1" alt="Desativar Usuario" title="Desativar Usuario">
