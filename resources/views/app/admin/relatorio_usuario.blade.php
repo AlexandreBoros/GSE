@@ -125,14 +125,15 @@
                                     <a href="#" data-toggle="modal" data-target="#ativar_desativar_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" data-ativardesativar="1" alt="Desativar Usuario" title="Desativar Usuario">
                                        <i class="fas fa-clipboard-list"></i>
                                     </a>
+                                    <a href="#" class="" data-toggle="modal" data-target="#alterar_senha_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" alt="Alterar Senha" title="Alterar Senha">
+                                        <i class="fas fa-unlock"></i>
+                                    </a>
                                 @else    
                                     <a href="#" class="" data-toggle="modal" data-target="#ativar_desativar_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" data-ativardesativar="0" alt="Ativar Usuario" title="Ativar Usuario">
                                         <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
-                                <a href="#" class="" data-toggle="modal" data-target="#alterar_senha_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" alt="Alterar Senha" title="Alterar Senha">
-                                    <i class="fas fa-unlock"></i>
-                                </a>
+                                
                             </td>
                         </tr>
                     @endforeach
