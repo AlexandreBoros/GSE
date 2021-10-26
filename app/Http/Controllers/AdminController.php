@@ -674,14 +674,14 @@ class AdminController extends Controller {
                 $user = $user->where("id", $request->id_user)->first();
             
                 if($request->ativar_desativar == 1){
-                    $clinica->ativo = 0;
+                    $user->ativo = 0;
                     $msg = "Usuario Destivado com sucesso";
                 }else{
-                    $clinica->ativo = 1;
+                    $user->ativo = 1;
                     $msg = "Usuario Ativado com sucesso";
                 }
                             
-                if (!$clinica->save()) {
+                if (!$user->save()) {
                     throw new Exception('Erro ao salvar ativar/desativar usuario.');
                 }
 
