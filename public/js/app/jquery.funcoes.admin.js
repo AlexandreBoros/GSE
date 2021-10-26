@@ -651,12 +651,12 @@ $(document).ready(function() {
         var senha = $('#usuario_senha').val();
         var data_args = {
             'id_user' : id_user,
-            'senha' : senha,
+            'senha' : senha
         };
 
         $.ajax({
             type: "POST",
-            url: URL_BASE+'app/admin/salvar_ativar_desativar_usuario',
+            url: URL_BASE+'app/admin/salvar_alterar_senha_usuario',
             data: data_args,
             context: this,
             beforeSend: function() {
