@@ -732,7 +732,6 @@ class AdminController extends Controller {
             DB::beginTransaction();
             try{
 
-                dd($request->all());
                 $user = $user->where("id", $request->id_user)->first();
                 $user->password = Hash::make($request->senha);
                 if (!$user->save())

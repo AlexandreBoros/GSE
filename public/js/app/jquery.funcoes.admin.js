@@ -647,7 +647,7 @@ $(document).ready(function() {
 
     $("div#alterar_senha_usuario").on('click', 'button.alterar-senha-usuario', function(e) {
         //e.preventDefault();
-        var id_user = $('#id_usuario_ativar_desativar').val();
+        var id_user = $('#id_user').val();
         var senha = $('#usuario_senha').val();
         var data_args = {
             'id_user' : id_user,
