@@ -729,33 +729,17 @@ class AdminController extends Controller {
 
         if(Auth::check()){
 
-            DB::beginTransaction();
-            try{
+            $user = $user->where("id", $request->id_user)->first();
+            $user->password = Hash::make($request->senha);
+            if (!$user->save()) {
+                throw new Exception('Erro ao salvar usuario.');
 
-                $user = $user->where("id", $request->id_user)->first();
-                $user->password = Hash::make($request->senha);
-                if (!$user->save()) {
-                    throw new Exception('Erro ao salvar usuario.');
+            return response()->json([
+                'status' => 'sucesso',
+                'recarrega' => 'true',
+                'msg' => 'Senha alterada com sucesso'
+            ]);
 
-                DB::commit();
-
-                return response()->json([
-                        'status' => 'sucesso',
-                        'recarrega' => 'true',
-                        'msg' => 'Senha alterada com sucesso'
-                ]);
-
-
-            }catch (Exception $e) {
-                DB::rollback();
-                return response()->json([
-                    'status' => 'erro',
-                    'recarrega' => 'false',
-                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
-                ]);
-            } 
-
-            
         }    
     }
 
