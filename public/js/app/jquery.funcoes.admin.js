@@ -608,7 +608,7 @@ $(document).ready(function() {
                 }
                 alerta.then(function () {
                     if (retorno.recarrega == 'true') {
-                        window.location = URL_BASE+'app/admin/clinicas';
+                        window.location = URL_BASE+'app/admin/relatorio_usuario';
                     }
                 });
             },
