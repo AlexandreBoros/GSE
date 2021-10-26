@@ -97,7 +97,7 @@
 </div>--}}
 
 <div class="card shadow mb-4"><div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Clínicas</h6>
+    <h6 class="m-0 font-weight-bold text-primary">USUARIOS</h6>
 </div>
 <div class="card-body">
     <div class="table-responsive">
@@ -120,11 +120,11 @@
                             <td>{{$user->name}}</td>
                             <td>
                                 @if($user->ativo == 1)
-                                    <a href="#" data-toggle="modal" data-target="#ativar_desativar_usuario" href="javascript:void(0);" data-iduser="{{$user->id_clinica}}" data-ativardesativar="1" alt="Desativar Usuario" title="Desativar Usuario">
+                                    <a href="#" data-toggle="modal" data-target="#ativar_desativar_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" data-ativardesativar="1" alt="Desativar Usuario" title="Desativar Usuario">
                                        <i class="fas fa-clipboard-list"></i>
                                     </a>
                                 @else    
-                                    <a href="#" class="" data-toggle="modal" data-target="#ativar_desativar_usuario" href="javascript:void(0);" data-iduser="{{$user->id_clinica}}" data-ativardesativar="0" alt="Ativar Usuario" title="Ativar Usuario">
+                                    <a href="#" class="" data-toggle="modal" data-target="#ativar_desativar_usuario" href="javascript:void(0);" data-iduser="{{$user->id}}" data-ativardesativar="0" alt="Ativar Usuario" title="Ativar Usuario">
                                         <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
@@ -154,7 +154,7 @@
     <div class="row justify-content-md-center">
         <div class="row justify-content-md-center">
             <div align="center">
-                {{$users->fragment('clinica')->render()}}
+                {{$users->fragment('usuario')->render()}}
             </div>
         </div>
     </div>
