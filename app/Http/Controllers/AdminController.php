@@ -614,17 +614,20 @@ class AdminController extends Controller {
 
     }
 
-    public function relatorio_usuario(Request $request, User $user){
+    public function relatorio_usuario(Request $request, User $user , Clinica $clinicas){
 
         if(Auth::check()){
     
             $user = $user->orderBy('name','asc')->paginate(10,['*'],'todas_clinicas_pag');
             $user->appends(Request::capture()->except('_token'))->render();
 
+            $clinicas = $clinicas->get(); 
+
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
-                'users' => $user
+                'users' => $user,
+                'clinicas' => $clinicas,
             ];
     
     
