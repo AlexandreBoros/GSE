@@ -66,6 +66,7 @@ Route::prefix('app')->group(function ()
             Route::post('salvar_ativar_desativar_usuario', 'AdminController@salvar_ativar_desativar_usuario')->name('app.admin.salvar_ativar_desativar_usuario');
 
             Route::get('alterar_senha_usuario', 'AdminController@alterar_senha_usuario')->name('app.admin.alterar_senha_usuario');
+            Route::post('salvar_alterar_senha_usuario', 'AdminController@salvar_alterar_senha_usuario')->name('app.admin.salvar_alterar_senha_usuario');
         });
 
         Route::prefix('clinica')->group(function ()

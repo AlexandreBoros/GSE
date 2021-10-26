@@ -644,6 +644,47 @@ $(document).ready(function() {
         });
     });
 
+
+    $("div#alterar_senha_usuario").on('click', 'button.ativar-desativar-usuario', function(e) {
+        //e.preventDefault();
+        var id_user = $('#id_usuario_ativar_desativar').val();
+        var senha = $('#usuario_senha').val();
+        var data_args = {
+            'id_user' : id_user,
+            'senha' : senha,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: URL_BASE+'app/admin/salvar_ativar_desativar_usuario',
+            data: data_args,
+            context: this,
+            beforeSend: function() {
+
+            },
+            success: function(retorno) {
+                switch (retorno.status){
+                    case 'erro':
+                        var alerta = swal("Erro!",retorno.msg,"error");
+                        break;
+                    case 'sucesso':
+                        var alerta = swal("Sucesso!",retorno.msg,"success");
+                        break;
+                }
+                alerta.then(function () {
+                    if (retorno.recarrega == 'true') {
+                        window.location = URL_BASE+'app/admin/relatorio_usuario';
+                    }
+                });
+            },
+            error: function(ev, xhr, settings, error) {
+
+                console.log("erro " +ev);
+
+            }
+        });
+    });
+
 });
 
 
