@@ -115,11 +115,11 @@
       <hr class="sidebar-divider">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse3">
           <i class="fas fa-fw fa-user"></i>
           <span>Relatórios</span>
         </a>
-        <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item"  href="{{route('app.admin.relatorio_usuario')}}" alt="Lista Usuarios" title="Lista Usuario">Usuarios</a>
             {{--<a class="collapse-item" data-toggle="modal" data-target="#salvar_clinica" href="javascript:void(0);" alt="Nova Clinica" title="Nova Clinica">Clinicas</a>--}}
