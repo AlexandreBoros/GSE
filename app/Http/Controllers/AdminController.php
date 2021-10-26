@@ -618,7 +618,7 @@ class AdminController extends Controller {
 
         if(Auth::check()){
     
-            $user = $user->orderBy('nome_clinica','asc')->paginate(10,['*'],'todas_clinicas_pag');
+            $user = $user->orderBy('name','asc')->paginate(10,['*'],'todas_clinicas_pag');
             $user->appends(Request::capture()->except('_token'))->render();
 
             $compact_args = [
