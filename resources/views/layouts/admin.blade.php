@@ -201,7 +201,7 @@
                   @foreach ($clinicas as $item)
                      <option value="{{$item->id_clinica}}">{{$item->nome_clinica}}</option>
                   @endforeach
-                </select>  
+                </select>
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -221,7 +221,7 @@
                   <option value="MEDSERVICE">MEDSERVICE</option>
                   <option value="SEGURO UNIMED">SEGURO UNIMED</option>
                   <option value="SULAMERICA">SULAMERICA</option>
-                </select>  
+                </select>
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -241,7 +241,8 @@
                   <option value="3">BAIXADO</option>
                   <option value="4">PAGO</option>
                   <option value="5">UPLOAD ARQUIVO</option>
-                </select>  
+                  <option value="6">COBRANÇA</option>
+                </select>
                 <div class="input-group-append">
                   <button type="submit" class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -251,7 +252,7 @@
           </form>
 
 
-    
+
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -402,7 +403,7 @@
                 </form>
             </div>
           </div>
-        </div>   
+        </div>
 
         <div class="modal fade" id="usuario_clinica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -445,11 +446,11 @@
                 </form>
             </div>
           </div>
-        </div>   
+        </div>
 
         <script async>
           $(document).ready(function() {
-            $("#cpf").mask("000.000.000-00"); 
+            $("#cpf").mask("000.000.000-00");
             $("#fone1").mask("(00)00000-0000");
 
             $('#valor_nf').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
@@ -578,7 +579,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                      
+
                     </div>
                     <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
@@ -599,13 +600,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                            
+
                     </div>
                     <div class="modal-footer">
                       <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
                       <button class="btn btn-primary salvar_pendencia">Enviar</button>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -620,13 +621,13 @@
                       </button>
                   </div>
                   <div class="modal-body">
-                          
+
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
                     <button class="btn btn-primary upload-arquivo" onClick="document.getElementById('form_upload').submit();">Enviar</button>
                   </div>
-                  
+
               </div>
           </div>
         </div>
@@ -641,7 +642,7 @@
                       </button>
                   </div>
                   <div class="modal-body">
-                          
+
                   </div>
               </div>
           </div>
@@ -658,7 +659,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        
+
                     </div>
                     <div class="modal-footer">
                       <button class="btn btn-primary alterar_processo">Atualizar Processo</button>
@@ -717,7 +718,7 @@
                           <div class="col">
                             <label for="id_clinica">Clinica</label>
                             <select class="form-control" name="id_clinica">
-                              <option value="">Selecione</option>   
+                              <option value="">Selecione</option>
                               @foreach ($clinicas as $clinica)
                                 <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
                               @endforeach
@@ -762,7 +763,7 @@
                         <div class="col">
                           <label for="id_clinica">Clinica</label>
                           <select class="form-control" name="id_clinica">
-                            <option value="">Selecione</option>   
+                            <option value="">Selecione</option>
                             @foreach ($clinicas as $clinica)
                               <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
                             @endforeach
@@ -776,7 +777,7 @@
                 </form>
             </div>
         </div>
-      </div>  
+      </div>
 
       <div class="modal fade" id="relatorio_data_baixado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -807,7 +808,7 @@
                         <div class="col">
                           <label for="id_clinica">Clinica</label>
                           <select class="form-control" name="id_clinica">
-                            <option value="">Selecione</option>   
+                            <option value="">Selecione</option>
                             @foreach ($clinicas as $clinica)
                               <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
                             @endforeach
@@ -821,7 +822,7 @@
               </form>
           </div>
         </div>
-      </div>  
+      </div>
 
       <div class="modal fade" id="relatorio_data_pagos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -852,7 +853,7 @@
                         <div class="col">
                           <label for="id_clinica">Clinica</label>
                           <select class="form-control" name="id_clinica">
-                            <option value="">Selecione</option>   
+                            <option value="">Selecione</option>
                             @foreach ($clinicas as $clinica)
                               <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
                             @endforeach
@@ -884,10 +885,10 @@
                 <div class="modal-footer">
                   <button class="btn btn-primary ativar-desativar-clinica">Ativar/Desativar</button>
                 </div>
-                
+
             </div>
         </div>
-      </div>  
+      </div>
 
       <div class="modal fade" id="ativar_desativar_usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -906,7 +907,7 @@
                 </div>
             </div>
         </div>
-      </div>  
+      </div>
 
       <div class="modal fade" id="alterar_senha_usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -925,7 +926,7 @@
             </div>
           </div>
         </div>
-      </div>  
+      </div>
 
     </body>
 </html>
