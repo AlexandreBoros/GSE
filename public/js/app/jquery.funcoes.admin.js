@@ -75,7 +75,7 @@ $(document).ready(function() {
 
             }
         });
-         
+
         //alert('oiiii');
 
     });
@@ -83,7 +83,7 @@ $(document).ready(function() {
 
     $("div#alterar_status_processo").on('show.bs.modal', function(e) {
 
-        var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
+        var id_propcesso = $(e.relatedTarget).data('idpropcesso');
 
         var data_args = {
             'id_propcesso' : id_propcesso,
@@ -104,13 +104,13 @@ $(document).ready(function() {
 
             }
         });
-         
+
 
     });
 
 
     $("div#alterar_status_processo").on('click', 'button.alterar-status', function(e) {
-    
+
         e.preventDefault();
 
         var id_propcesso = $('#id_propcesso').val();
@@ -141,7 +141,8 @@ $(document).ready(function() {
                 }
                 alerta.then(function () {
                     if (retorno.recarrega == 'true') {
-                        window.location = URL_BASE+'home/';
+                        //window.location = URL_BASE+'home/';
+                        location.reload();
                     }
                 });
             },
@@ -151,12 +152,12 @@ $(document).ready(function() {
 
             }
         });
-    
+
     });
 
     $("div#adicionar_pendecia").on('show.bs.modal', function(e) {
 
-        var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
+        var id_propcesso = $(e.relatedTarget).data('idpropcesso');
 
         var data_args = {
             'id_propcesso' : id_propcesso,
@@ -177,13 +178,13 @@ $(document).ready(function() {
 
             }
         });
-         
+
 
     });
 
 
     $("div#adicionar_pendecia").on('click', 'button.salvar_pendencia', function(e) {
-    
+
         e.preventDefault();
 
         var id_propcesso = $('#id_propcesso').val();
@@ -214,7 +215,8 @@ $(document).ready(function() {
                 }
                 alerta.then(function () {
                     if (retorno.recarrega == 'true') {
-                        window.location = URL_BASE+'home/';
+                        //window.location = URL_BASE+'home/';
+                        location.reload();
                     }
                 });
             },
@@ -224,12 +226,12 @@ $(document).ready(function() {
 
             }
         });
-    
+
     });
 
     $("div#upload").on('show.bs.modal', function(e) {
 
-        var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
+        var id_propcesso = $(e.relatedTarget).data('idpropcesso');
 
         var data_args = {
             'id_propcesso' : id_propcesso,
@@ -250,13 +252,13 @@ $(document).ready(function() {
 
             }
         });
-         
+
 
     });
 
     $("div#lista_upload").on('show.bs.modal', function(e) {
 
-        var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
+        var id_propcesso = $(e.relatedTarget).data('idpropcesso');
 
         var data_args = {
             'id_propcesso' : id_propcesso,
@@ -277,14 +279,14 @@ $(document).ready(function() {
 
             }
         });
-         
+
 
     });
 
 
     $("div#alterar_processo").on('show.bs.modal', function(e) {
 
-        var id_propcesso = $(e.relatedTarget).data('idpropcesso'); 
+        var id_propcesso = $(e.relatedTarget).data('idpropcesso');
 
         var data_args = {
             'id_propcesso' : id_propcesso,
@@ -305,7 +307,7 @@ $(document).ready(function() {
 
             }
         });
-         
+
 
     });
 
@@ -319,7 +321,7 @@ $(document).ready(function() {
         var id_propcesso =  $('#id_propcesso').val();
 
 
-       
+
 
         var clinica = $('#id_clinica_processo').val();
         var nome_paciente = $('#nome_paciente_processo').val();
@@ -375,7 +377,8 @@ $(document).ready(function() {
                 }
                 alerta.then(function () {
                     if (retorno.recarrega == 'true') {
-                        window.location = URL_BASE+'home/';
+                        //window.location = URL_BASE+'home/';
+                        location.reload();
                     }
                 });
             },
@@ -385,7 +388,7 @@ $(document).ready(function() {
 
             }
         });
-         
+
         //alert('oiiii');
 
     });
@@ -487,7 +490,7 @@ $(document).ready(function() {
     $("div#ativar_desativar_clinica").on('show.bs.modal', function(e) {
 
         var id_clinica = $(e.relatedTarget).data('idclinica');
-        var ativar_deativar = $(e.relatedTarget).data('ativardesativar'); 
+        var ativar_deativar = $(e.relatedTarget).data('ativardesativar');
 
         var data_args = {
             'id_clinica' : id_clinica,
@@ -555,7 +558,7 @@ $(document).ready(function() {
     $("div#ativar_desativar_usuario").on('show.bs.modal', function(e) {
 
         var id_user = $(e.relatedTarget).data('iduser');
-        var ativar_deativar = $(e.relatedTarget).data('ativardesativar'); 
+        var ativar_deativar = $(e.relatedTarget).data('ativardesativar');
 
         var data_args = {
             'id_user' : id_user,
