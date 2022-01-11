@@ -254,7 +254,7 @@ class AdminController extends Controller {
 
                     DB::commit();
 
-                    return Request::url();
+                    return redirect()->route('home');
 
                 }catch (Exception $e) {
                     DB::rollback();
