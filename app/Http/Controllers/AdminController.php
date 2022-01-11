@@ -32,7 +32,7 @@ class AdminController extends Controller {
     public function salvar_convenio(Request $request, convenio $convenio){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
             try{
 
@@ -70,7 +70,7 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-       
+
         }
 
     }
@@ -78,7 +78,7 @@ class AdminController extends Controller {
 
     public function status_processo(Request $request, processo_status $processo_status){
 
-        
+
         if(Auth::check()){
 
             $processo_status = $processo_status->get();
@@ -88,22 +88,22 @@ class AdminController extends Controller {
                 'class' => $this,
                 'processo_status' => $processo_status
             ];
-    
-    
+
+
             return view('app.admin.status_processo', $compact_args);
 
         }
-        
+
     }
 
 
     public function alterar_status_processo(Request $request, convenio $convenio){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
-            try{ 
-                
+            try{
+
                 $convenio->where("id_convenio", $request->id_propcesso)
                          ->update(['status_situacao' => $request->id_processo_status]);
 
@@ -123,41 +123,41 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-        }    
+        }
 
     }
 
 
     public function adicionar_pendecia(Request $request, processo_pendencia $processo_pendencia){
 
-        
+
         if(Auth::check()){
 
             $processo_pendencia = $processo_pendencia->where('id_convenio', $request->id_propcesso)->first();
- 
+
             $compact_args = [
                 'request' => $request,
                 'class' => $this,
                 'texto' => $processo_pendencia ? $processo_pendencia->texto : ""
             ];
-    
+
             return view('app.admin.adicionar_pendecia', $compact_args);
 
         }
-        
+
     }
 
     public function salvar_pendecia(Request $request, processo_pendencia $processo_pendencia){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
-            try{ 
+            try{
 
                 $processo_pendencias = $processo_pendencia->where('id_convenio', $request->id_propcesso)->first();
 
                 if($processo_pendencias){
-               
+
                     $processo_pendencias->where("id_convenio", $request->id_propcesso)
                                         ->update(['texto' => $request->pendencia_texto]);
 
@@ -165,7 +165,7 @@ class AdminController extends Controller {
 
                     $processo_pendencia->id_convenio = $request->id_propcesso;
                     $processo_pendencia->texto = $request->pendencia_texto;
-                
+
 
                     if (!$processo_pendencia->save()) {
                         throw new Exception('Erro ao salvar novo texto da pendencia.');
@@ -188,7 +188,7 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-        }    
+        }
 
     }
 
@@ -217,8 +217,8 @@ class AdminController extends Controller {
 
             // Define o valor default para a variável que contém o nome da imagem
             $nameFile = null;
-            
-            if ($request->hasFile('image') && $request->file('image')->isValid()) {  
+
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
                 // Define um aleatório para o arquivo baseado no timestamps atual
                 $name = uniqid(date('HisYmd'));
@@ -235,35 +235,35 @@ class AdminController extends Controller {
                 $path = $request->file('image')->storeAs('public/upload_arquivos', $nameFile);
 
                 // Verifica se NÃO deu certo o upload (Redireciona de volta)
-                if (!$upload){                             
+                if (!$upload){
                     return redirect()->back()
                                     ->with('error', 'Falha ao fazer upload')
                                     ->withInput();
                 }
 
                 DB::beginTransaction();
-                try{ 
-            
+                try{
+
                     $processo_arquivos->id_convenio = $request->id_propcesso;
                     $processo_arquivos->path = $path;
                     $processo_arquivos->nome_real = $request->image->getClientOriginalName();
-                            
+
                     if (!$processo_arquivos->save()) {
                         throw new Exception('Erro ao salvar novo texto da pendencia.');
                     }
-            
+
                     DB::commit();
 
-                    return redirect()->route('home');
+                    return Request::url();
 
                 }catch (Exception $e) {
                     DB::rollback();
                     dd($e);
-                }     
+                }
             }
-    
-        }   
-                               
+
+        }
+
     }
 
     public function lista_upload(Request $request, processo_arquivos $processo_arquivos){
@@ -302,10 +302,10 @@ class AdminController extends Controller {
     public function dados_processo(Request $request, convenio $convenio, clinica $clinicas){
 
         if(Auth::check()){
-       
+
             $convenio = $convenio->where("id_convenio", $request->id_propcesso)->first();
 
-            $clinicas = $clinicas->get(); 
+            $clinicas = $clinicas->get();
 
             $compact_args = [
                 'request' => $request,
@@ -313,10 +313,10 @@ class AdminController extends Controller {
                 'convenio' => $convenio,
                 'clinicas' => $clinicas
             ];
-    
+
             return view('app.admin.dados_processo', $compact_args);
-                         
-        }    
+
+        }
 
     }
 
@@ -328,11 +328,11 @@ class AdminController extends Controller {
            //dd($request);
 
             DB::beginTransaction();
-            try{ 
-              
+            try{
+
                 $convenio = $convenio->where("id_convenio", $request->id_propcesso)
                                       ->update([
-                                                'id_clinica'          => $request->clinica, 
+                                                'id_clinica'          => $request->clinica,
                                                 'tipo_convenio'       => $request->convenio,
                                                 'tipo_plano'          => $request->plano,
                                                 'numero_carterinha'   => $request->numero_carterinha,
@@ -352,7 +352,7 @@ class AdminController extends Controller {
                     throw new Exception('Erro ao alterar processo.');
                 }
 
-            
+
                 DB::commit();
                 return response()->json([
                     'status' => 'sucesso',
@@ -368,22 +368,22 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-                         
-        }    
+
+        }
 
     }
 
 
     public function excluir_processo(Request $request, convenio $convenio){
 
-        
+
         if(Auth::check()){
 
             DB::beginTransaction();
-            try{ 
-              
+            try{
+
                 $convenio = $convenio->where("id_convenio", $request->id_processo)
-                                      ->update([     
+                                      ->update([
                                                    'ativo' =>  0
                                                ]);
 
@@ -392,7 +392,7 @@ class AdminController extends Controller {
                     throw new Exception('Erro ao alterar processo.');
                 }
 
-            
+
                 DB::commit();
                 return response()->json([
                     'status' => 'sucesso',
@@ -410,7 +410,7 @@ class AdminController extends Controller {
             }
 
         }
-        
+
     }
 
     public function processo_pdf(Request $request){
@@ -423,20 +423,20 @@ class AdminController extends Controller {
     public function salvar_clinica(Request $request, clinica $clinicas){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
-            try{ 
+            try{
 
                 $clinica = $clinicas->where('nome_clinica', strtoupper($request->nome_clinica))->first();
 
                 if(!$clinica){
-               
+
                     $clinicas->nome_clinica = strtoupper($request->nome_clinica);
-                            
+
                     if (!$clinicas->save()) {
                         throw new Exception('Erro ao salvar nova clinica.');
                     }
-            
+
                     DB::commit();
 
                     return response()->json([
@@ -462,26 +462,26 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-        }    
+        }
 
     }
 
     public function salvar_clinica_usuario(Request $request, User $users, user_clinica $user_clinicas){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
-            try{ 
+            try{
 
                 $user = $users->where('email', strtolower($request->email))->count();
-            
+
                 if($user == 0){
 
                     $users->name = strtoupper($request->nome_usuario_clinica);
                     $users->email = strtolower($request->email_usuario_clinica);
                     $users->password = Hash::make("123456");
                     $users->id_perfil = 2;
-                            
+
                     if (!$users->save()) {
                         throw new Exception('Erro ao salvar usuario.');
                     }else{
@@ -519,14 +519,14 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-        }    
+        }
 
     }
 
     public function clinicas(Request $request, clinica $clinicas){
 
         if(Auth::check()){
-    
+
             $clinica = $clinicas->orderBy('nome_clinica','asc')->paginate(10,['*'],'todas_clinicas_pag');
             $clinica->appends(Request::capture()->except('_token'))->render();
 
@@ -535,11 +535,11 @@ class AdminController extends Controller {
                 'class' => $this,
                 'clinicas' => $clinica
             ];
-    
-    
+
+
             return view('app.admin.clinicas', $compact_args);
 
-        }    
+        }
 
     }
 
@@ -551,7 +551,7 @@ class AdminController extends Controller {
             $clinica = $clinicas->where("id_clinica", $request->id_clinica)->first();
 
             if($request->ativar_deativar == 1){
-                $corpo = "<div class='alert alert-danger'>Desejá desativar a clinica $clinica->nome_clinica ?</div>"; 
+                $corpo = "<div class='alert alert-danger'>Desejá desativar a clinica $clinica->nome_clinica ?</div>";
                 $ativar_desativar = 1;
             }else{
                 $corpo = "<div class='alert alert-info'>Desejá ativar a clinica $clinica->nome_clinica ?</div>";
@@ -564,23 +564,23 @@ class AdminController extends Controller {
                 'corpo' => $corpo,
                 'ativar_desativar' => $ativar_desativar
             ];
-    
+
             return view('app.admin.ativar_desativar_clinica', $compact_args);
 
         }
 
-    }  
-    
-    
+    }
+
+
     public function salvar_ativar_desativar_clinica(Request $request, clinica $clinicas){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
-            try{ 
+            try{
 
                 $clinica = $clinicas->where("id_clinica", $request->id_clinica)->first();
-            
+
                 if($request->ativar_desativar == 1){
                     $clinica->ativo = 0;
                     $msg = "Clinica Destivada com sucesso";
@@ -588,7 +588,7 @@ class AdminController extends Controller {
                     $clinica->ativo = 1;
                     $msg = "Clinica Ativada com sucesso";
                 }
-                            
+
                 if (!$clinica->save()) {
                     throw new Exception('Erro ao salvar ativar/desativar clinica.');
                 }
@@ -610,18 +610,18 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-        }    
+        }
 
     }
 
     public function relatorio_usuario(Request $request, User $user , Clinica $clinicas){
 
         if(Auth::check()){
-    
+
             $user = $user->orderBy('name','asc')->paginate(10,['*'],'todas_clinicas_pag');
             $user->appends(Request::capture()->except('_token'))->render();
 
-            $clinicas = $clinicas->get(); 
+            $clinicas = $clinicas->get();
 
             $compact_args = [
                 'request' => $request,
@@ -629,11 +629,11 @@ class AdminController extends Controller {
                 'users' => $user,
                 'clinicas' => $clinicas,
             ];
-    
-    
+
+
             return view('app.admin.relatorio_usuario', $compact_args);
 
-        }    
+        }
 
     }
 
@@ -644,7 +644,7 @@ class AdminController extends Controller {
             $user = $user->where("id", $request->id_user)->first();
 
             if($request->ativar_deativar == 1){
-                $corpo = "<div class='alert alert-danger'>Desejá desativar o usuario $user->name ?</div>"; 
+                $corpo = "<div class='alert alert-danger'>Desejá desativar o usuario $user->name ?</div>";
                 $ativar_desativar = 1;
             }else{
                 $corpo = "<div class='alert alert-info'>Desejá ativar o usuario $user->name ?</div>";
@@ -657,22 +657,22 @@ class AdminController extends Controller {
                 'corpo' => $corpo,
                 'ativar_desativar' => $ativar_desativar
             ];
-    
+
             return view('app.admin.ativar_desativar_usuario', $compact_args);
 
         }
 
-    }  
+    }
 
     public function salvar_ativar_desativar_usuario(Request $request, User $user){
 
         if(Auth::check()){
-       
+
             DB::beginTransaction();
-            try{ 
+            try{
 
                 $user = $user->where("id", $request->id_user)->first();
-            
+
                 if($request->ativar_desativar == 1){
                     $user->ativo = 0;
                     $msg = "Usuario Destivado com sucesso";
@@ -680,7 +680,7 @@ class AdminController extends Controller {
                     $user->ativo = 1;
                     $msg = "Usuario Ativado com sucesso";
                 }
-                            
+
                 if (!$user->save()) {
                     throw new Exception('Erro ao salvar ativar/desativar usuario.');
                 }
@@ -702,10 +702,10 @@ class AdminController extends Controller {
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
             }
-        }    
+        }
 
     }
-    
+
 
     public function alterar_senha_usuario(Request $request, User $user){
 
@@ -718,12 +718,12 @@ class AdminController extends Controller {
                 'class' => $this,
                 'user' => $user
             ];
-    
+
             return view('app.admin.alterar_senha_usuario', $compact_args);
 
         }
 
-    }  
+    }
 
     public function salvar_alterar_senha_usuario(Request $request, User $user){
 
@@ -753,8 +753,8 @@ class AdminController extends Controller {
                     'recarrega' => 'false',
                     'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
                 ]);
-            } 
-        }    
+            }
+        }
     }
 
 
