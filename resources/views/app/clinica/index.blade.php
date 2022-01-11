@@ -98,6 +98,7 @@
     .pago { background-color: #1cf082; text-align: left; color: white}
     .baixado { background-color: #f5ef3d; text-align: left; color: rgb(110, 54, 230)}
     .upload { background-color: #0e24ec; text-align: left; color: white}
+    .cobranca { background-color: rgb(240, 73, 8); text-align: left; color: white}
 </style>
 
 
@@ -107,7 +108,7 @@
 <div class="card-body">
     <div class="table-responsive">
         <!--<table id="table_admin" class="display" style="width:100%">-->
-        <table id="table_alunos" class="table" style="width:100%">    
+        <table id="table_alunos" class="table" style="width:100%">
             <thead>
                 <tr>
                     <th>NOME PACIENTE</th>
@@ -119,21 +120,23 @@
                     <th>AÇÕES</th>
                 </tr>
             </thead>
-            <tbody>               
+            <tbody>
                 @if (count($convenios)>0)
                     <?php $classe = "" ?>
                     @foreach ($convenios as $convenio)
                         @if($convenio->status_situacao == 1)
                             <?php $classe = 'analise' ?>
                         @elseif($convenio->status_situacao == 2)
-                            <?php $classe = 'pendente' ?> 
+                            <?php $classe = 'pendente' ?>
                         @elseif($convenio->status_situacao == 3)
-                            <?php $classe = 'baixado' ?>     
+                            <?php $classe = 'baixado' ?>
                         @elseif($convenio->status_situacao == 4)
-                            <?php $classe = 'pago' ?>   
+                            <?php $classe = 'pago' ?>
                         @elseif($convenio->status_situacao == 5)
-                            <?php $classe = 'upload' ?>                                           
-                        @endif 
+                            <?php $classe = 'upload' ?>
+                        @elseif($convenio->status_situacao == 6)
+                            <?php $classe = 'cobranca' ?>
+                        @endif
                         <tr class="{{$classe}}">
                             <td>{{$convenio->nome_paciente}}</td>
                             <td>{{$convenio->tipo_convenio}}</td>
@@ -154,7 +157,7 @@
                                     </a>
                                 @endif
                             </td>
-                        </tr>  
+                        </tr>
                     @endforeach
                 @else
                     <tr>
@@ -183,7 +186,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 
