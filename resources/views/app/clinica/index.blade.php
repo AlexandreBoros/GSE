@@ -98,7 +98,7 @@
     .pago { background-color: #1cf082; text-align: left; color: white}
     .baixado { background-color: #f5ef3d; text-align: left; color: rgb(110, 54, 230)}
     .upload { background-color: #0e24ec; text-align: left; color: white}
-    .cobranca { background-color: rgb(240, 73, 8); text-align: left; color: white}
+    .cobranca { background-color: darkgray; text-align: left; color: white}
 </style>
 
 
