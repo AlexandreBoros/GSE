@@ -758,7 +758,7 @@ class AdminController extends Controller {
     }
 
 
-    public function deletar_clinica(Request $request, clinica $clinicas, user_clinica $user_clinicas, User $user, convenio $convenios){
+    public function deletar_clinica(Request $request, clinica $clinicas, user_clinica $user_clinicas, User $users, convenio $convenios){
 
 
         if(Auth::check()){
@@ -768,7 +768,7 @@ class AdminController extends Controller {
 
                 $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica)->get();
                 foreach ($user_clinicas as $user_clinica) {
-                    $user = $user->where('id', $user_clinica->id_user)->get();
+                    $user = $users->where('id', $user_clinica->id_user)->get();
                     $user->delete();
                 }
 
