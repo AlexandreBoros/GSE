@@ -768,24 +768,15 @@ class AdminController extends Controller {
 
 
                 $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica);
-                dd($user_clinicas);
-
-                $convenio = $convenio->where("id_convenio", $request->id_processo)
-                                      ->update([
-                                                   'ativo' =>  0
-                                               ]);
-
-
-                if (!$convenio) {
-                    throw new Exception('Erro ao alterar processo.');
+                foreach ($user_clinicas as $user_clinica) {
+                    # code...
                 }
 
-
-                DB::commit();
+                //DB::commit();
                 return response()->json([
                     'status' => 'sucesso',
                     'recarrega' => 'true',
-                    'msg' => 'Processo desativado com sucesso.',
+                    'msg' => $user_clinicas
                 ]);
 
             }catch (Exception $e) {
