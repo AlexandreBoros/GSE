@@ -767,7 +767,7 @@ class AdminController extends Controller {
             try{
 
 
-                $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica);
+                $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica)->get();
                 dd($user_clinicas);
                 foreach ($user_clinicas as $user_clinicas) {
                     # code...
