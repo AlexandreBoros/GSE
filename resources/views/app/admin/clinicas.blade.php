@@ -101,20 +101,20 @@
 </div>
 <div class="card-body">
     <div class="table-responsive">
-        <table id="table_alunos" class="table" style="width:100%">    
+        <table id="table_alunos" class="table" style="width:100%">
             <thead>
                 <tr>
                     <th>CLINICA</th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
-            <tbody>               
+            <tbody>
                 @if (count($clinicas)>0)
                     @foreach ($clinicas as $clinica)
                        @if($clinica->ativo == 1)
-                          @php $classe = 'ativado' @endphp   
+                          @php $classe = 'ativado' @endphp
                        @else
-                          @php $classe = 'desativado' @endphp 
+                          @php $classe = 'desativado' @endphp
                        @endif
                         <tr class="{{$classe}}">
                             <td>{{$clinica->nome_clinica}}</td>
@@ -123,11 +123,14 @@
                                     <a href="#" data-toggle="modal" data-target="#ativar_desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" data-ativardesativar="1" alt="Desativar Clinica" title="Desativar Clinica">
                                        <i class="fas fa-clipboard-list"></i>
                                     </a>
-                                @else    
+                                @else
                                     <a href="#" class="" data-toggle="modal" data-target="#ativar_desativar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}" data-ativardesativar="0" alt="Ativar Clinica" title="Ativar Clinica">
                                         <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
+                                <a href="#" class="ml-1" data-toggle="modal" data-target="#deletar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}"  alt="Deletar Clinica" title="Deletar Clinica">
+                                    <i class="fas fa-file-import"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -158,7 +161,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 
