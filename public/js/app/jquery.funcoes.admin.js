@@ -761,7 +761,7 @@ function deletar_clinica(id_clinica,nome_clinica){
             $.ajax({
                 type: "POST",
                 url: URL_BASE+'app/admin/deletar_clinica',
-                data: 'id_clinica='+id_processo,
+                data: 'id_clinica='+id_clinica,
                 context: this,
                 beforeSend: function () {
 
