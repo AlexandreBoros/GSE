@@ -128,7 +128,7 @@
                                         <i class="fas fa-file-import"></i>
                                     </a>
                                 @endif
-                                <a href="#" class="ml-1" data-toggle="modal" data-target="#deletar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}"  alt="Deletar Clinica" title="Deletar Clinica">
+                                <a href="#" class="ml-1"  href="javascript:void(0);" onclick="deletar_clinica('{{$clinica->id_clinica}}','{{$clinica->nome_clinica}}')"  alt="Deletar Clinica" title="Deletar Clinica">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

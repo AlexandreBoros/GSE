@@ -24,7 +24,7 @@ Route::match(['get', 'post'],'/desativada', 'HomeController@clinica_desativada')
 
 // Rotas do sistema com o prefixo "app"
 Route::prefix('app')->group(function ()
-{ 
+{
 
     Route::get('sair','HomeController@sair')->name('app.sair');
 
@@ -34,10 +34,10 @@ Route::prefix('app')->group(function ()
 
         Route::post('generate-pdf','PDFController@generate_pdf')->name('app.generate-pdf');
         Route::post('generate-pdf-clinica','PDFController@generate_pdf_clinica')->name('app.generate-pdf-clinica');
-        
-        
+
+
         Route::prefix('admin')->group(function ()
-        { 
+        {
             Route::match(['get', 'post'], '/', 'AdminController@index')->name('app.admin.index');
             Route::post('salvar_convenio','AdminController@salvar_convenio')->name('app.admin.salvar_convenio');
             Route::post('status_processo','AdminController@status_processo')->name('app.admin.status_processo');
@@ -51,6 +51,7 @@ Route::prefix('app')->group(function ()
             Route::post('dados_processo', 'AdminController@dados_processo')->name('app.admin.dados_processo');
             Route::post('atualizar_processo', 'AdminController@atualizar_processo')->name('app.admin.atualizar_processo');
             Route::post('excluir_processo', 'AdminController@excluir_processo')->name('app.admin.excluir_processo');
+            Route::post('deletar_clinica', 'AdminController@deletar_clinica')->name('app.admin.deletar_clinica');
 
             Route::match(['get', 'post'], 'processo_pdf', 'AdminController@processo_pdf')->name('app.admin.processo_pdf');
 
@@ -70,7 +71,7 @@ Route::prefix('app')->group(function ()
         });
 
         Route::prefix('clinica')->group(function ()
-        {  
+        {
             Route::post('adicionar_pendecia','ClinicaController@adicionar_pendecia')->name('app.clinica.adicionar_pendecia');
             Route::post('upload','ClinicaController@upload')->name('app.clinica.upload');
             Route::post('salvar_upload','ClinicaController@salvar_upload')->name('app.clinica.salvar_upload');

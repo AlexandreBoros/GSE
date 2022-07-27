@@ -758,4 +758,48 @@ class AdminController extends Controller {
     }
 
 
+    public function deletar_clinica(Request $request, clinica $clinicas, user_clinica $user_clinicas){
+
+
+        if(Auth::check()){
+
+            DB::beginTransaction();
+            try{
+
+
+                $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica);
+                dd($user_clinicas);
+
+                $convenio = $convenio->where("id_convenio", $request->id_processo)
+                                      ->update([
+                                                   'ativo' =>  0
+                                               ]);
+
+
+                if (!$convenio) {
+                    throw new Exception('Erro ao alterar processo.');
+                }
+
+
+                DB::commit();
+                return response()->json([
+                    'status' => 'sucesso',
+                    'recarrega' => 'true',
+                    'msg' => 'Processo desativado com sucesso.',
+                ]);
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+
+        }
+
+    }
+
+
 }

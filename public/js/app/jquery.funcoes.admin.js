@@ -688,9 +688,9 @@ $(document).ready(function() {
         });
     });
 
+
+
 });
-
-
 
 function excluir_processo(id_processo,protocolo){
 
@@ -710,6 +710,58 @@ function excluir_processo(id_processo,protocolo){
                 type: "POST",
                 url: URL_BASE+'app/admin/excluir_processo',
                 data: 'id_processo='+id_processo,
+                context: this,
+                beforeSend: function () {
+
+                },
+                success: function (retorno) {
+                    switch (retorno.status) {
+                        case 'erro':
+                            var alerta = swal("Erro!",retorno.message,"error");
+                            break;
+                        case 'sucesso':
+                            var alerta = swal("Sucesso!",retorno.message,"success");
+                            break;
+                        case 'alerta':
+                            var alerta = swal("Ops!",retorno.message,"warning");
+                            break;
+                        default:
+                            var alerta = swal("Ops!", 'O servidor não retornou um status.', "warning");
+                            break;
+                    }
+                    alerta.then(function(){
+                        if (retorno.recarrega=='true') {
+                            location.reload();
+                        }
+                    });
+
+                },
+                error: function(ev, xhr, settings, error) {
+
+                }
+            });
+        }
+    });
+}
+
+function deletar_clinica(id_clinica,nome_clinica){
+
+    swal({
+        title: 'Deletar Clinica',
+        text: 'Tem certeza que deseja deletar a clínica' + nome_clinica + " ? ",
+        type: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Não',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim',
+        showLoaderOnConfirm: true,
+    }).then(function(retorno) {
+        if (retorno.value == true ) {
+            $.ajax({
+                type: "POST",
+                url: URL_BASE+'app/admin/deletar_clinica',
+                data: 'id_clinica='+id_processo,
                 context: this,
                 beforeSend: function () {
 
