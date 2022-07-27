@@ -768,12 +768,18 @@ class AdminController extends Controller {
 
                 $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica)->get();
                 foreach ($user_clinicas as $user_clinica) {
-                   $user->where('id', $user_clinica->id_user)->delete();
+                    $user = $user->where('id', $user_clinica->id_user);
+                    $user->delete();
                 }
 
-                $user_clinicas->where('id_clinica', $request->id_clinica)->delete();
-                $convenios = $convenios->where('id_clinica', $request->id_clinica)->delete();
-                $clinica = $clinicas->where('id_clinica' , $request->id_clinica)->delete();
+                $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica);
+                $user_clinicas->delete();
+
+                $convenios = $convenios->where('id_clinica', $request->id_clinica);
+                $convenios->delete();
+
+                $clinica = $clinicas->where('id_clinica' , $request->id_clinica);
+                $clinica->delete();
 
                 DB::commit();
                 return response()->json([
