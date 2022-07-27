@@ -768,7 +768,8 @@ class AdminController extends Controller {
 
 
                 $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica);
-                foreach ($user_clinicas as $user_clinica) {
+                dd($user_clinicas);
+                foreach ($user_clinicas as $user_clinicas) {
                     # code...
                 }
 
@@ -776,7 +777,7 @@ class AdminController extends Controller {
                 return response()->json([
                     'status' => 'sucesso',
                     'recarrega' => 'true',
-                    'msg' => $user_clinicas
+                    'msg' => 'Processo desativado com sucesso.',
                 ]);
 
             }catch (Exception $e) {
