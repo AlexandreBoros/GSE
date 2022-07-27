@@ -772,7 +772,6 @@ class AdminController extends Controller {
                     $user->delete();
                 }
 
-                $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica)->get();
                 foreach ($user_clinicas as $user_clinica) {
                     $user_cli = $user_clinica->where('id_clinica', $request->id_clinica)->first();
                     $user_cli->delete();
