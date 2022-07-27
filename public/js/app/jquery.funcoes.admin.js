@@ -748,7 +748,7 @@ function deletar_clinica(id_clinica,nome_clinica){
 
     swal({
         title: 'Deletar Clinica',
-        text: 'Tem certeza que deseja deletar a clínica' + nome_clinica + " ? ",
+        text: 'Tem certeza que deseja deletar a clínica ' + nome_clinica + " ? ",
         type: 'warning',
         showCancelButton: true,
         cancelButtonText: 'Não',
