@@ -129,7 +129,7 @@
                                     </a>
                                 @endif
                                 <a href="#" class="ml-1" data-toggle="modal" data-target="#deletar_clinica" href="javascript:void(0);" data-idclinica="{{$clinica->id_clinica}}"  alt="Deletar Clinica" title="Deletar Clinica">
-                                    <i class="fa-solid fa-trash-can"></i>
+                                    <i class="fas fa-trash-can"></i>
                                 </a>
                             </td>
                         </tr>
