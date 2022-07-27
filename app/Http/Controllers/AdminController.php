@@ -758,7 +758,7 @@ class AdminController extends Controller {
     }
 
 
-    public function deletar_clinica(Request $request, clinica $clinicas, user_clinica $user_clinicas){
+    public function deletar_clinica(Request $request, clinica $clinicas, user_clinica $user_clinicas, User $user, convenio $convenios){
 
 
         if(Auth::check()){
@@ -766,18 +766,20 @@ class AdminController extends Controller {
             DB::beginTransaction();
             try{
 
-
                 $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica)->get();
-                dd($user_clinicas);
-                foreach ($user_clinicas as $user_clinicas) {
-                    # code...
+                foreach ($user_clinicas as $user_clinica) {
+                   $user->where('id_user', $user_clinica->id_user)->delete();
                 }
 
-                //DB::commit();
+                $user_clinicas->where('id_clinica', $request->id_clinica)->delete();
+                $convenios = $convenios->where('id_clinica', $request->id_clinica)->delete();
+                $clinica = $clinicas->where('id_clinica' , $request->id_clinica)->delete();
+
+                DB::commit();
                 return response()->json([
                     'status' => 'sucesso',
                     'recarrega' => 'true',
-                    'msg' => 'Processo desativado com sucesso.',
+                    'msg' => 'Clinica deletada com sucesso.',
                 ]);
 
             }catch (Exception $e) {
