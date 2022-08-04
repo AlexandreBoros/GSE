@@ -558,6 +558,20 @@
                                   <input type="text" class="form-control" id="porcentagem_gse" placeholder="% GSE">
                               </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <select class="form-control" name="liberacao">
+                                      <option>SELECIONE A LIBERAÇÃO</option>
+                                      <option value="OP">OP</option>
+                                      <option value="CC">CC</option>
+                                    </select>
+                                  </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <textarea rows="5" class="form-control" name="obs" placeholder="OBS"></textarea>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div class="modal-footer">
