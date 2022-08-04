@@ -97,7 +97,7 @@
     <div class="form-group row">
         <div class="col">
             <select class="form-control" name="liberacao">
-              <option value="{{$convenio->liberacao}}">{{$convenio->tipo_envio}}</option>
+              <option value="{{$convenio->liberacao}}">{{$convenio->liberacao ?? "LIBERAÇÃO"}}</option>
               <option value="OP">OP</option>
               <option value="CC">CC</option>
             </select>
