@@ -336,6 +336,8 @@ $(document).ready(function() {
         var senha = $('#senha_processo').val();
         var cpf = $('#cpf_processo').val();
         var tipo_envio = $('#tipo_envio_processo').val();
+        var liberacao = $('#liberacao').val();
+        var obs = $('#obs').val();
 
 
         var data_args = {
@@ -352,7 +354,9 @@ $(document).ready(function() {
             'senha' : senha,
             'cpf' : cpf,
             'tipo_envio' : tipo_envio,
-            'id_propcesso' : id_propcesso
+            'id_propcesso' : id_propcesso,
+            'liberacao' : liberacao,
+            'obs' : obs
         };
 
        //alert(JSON.stringify(data_args));

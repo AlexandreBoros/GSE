@@ -96,7 +96,7 @@
     </div>
     <div class="form-group row">
         <div class="col">
-            <select class="form-control" name="liberacao">
+            <select class="form-control" id="liberacao">
               <option value="{{$convenio->liberacao}}">{{$convenio->liberacao ?? "LIBERAÇÃO"}}</option>
               <option value="OP">OP</option>
               <option value="CC">CC</option>
@@ -105,7 +105,7 @@
     </div>
     <div class="form-group row">
         <div class="col">
-            <textarea rows="5" class="form-control" name="obs" placeholder="OBS">{{$convenio->obs}}</textarea>
+            <textarea rows="5" class="form-control" id="obs" placeholder="OBS">{{$convenio->obs}}</textarea>
         </div>
     </div>
 </form>
