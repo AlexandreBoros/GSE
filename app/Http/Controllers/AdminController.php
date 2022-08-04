@@ -50,6 +50,8 @@ class AdminController extends Controller {
                 $convenio->porcentagem_gse = $request->porcentagem_gse;
                 $convenio->senha = $request->senha;
                 $convenio->tipo_envio = $request->tipo_envio;
+                $convenio->liberacao = $request->liberacao;
+                $convenio->obs = $request->obs;
 
                 if (!$convenio->save()) {
                     throw new Exception('Erro ao salvar novo convenio.');
@@ -324,9 +326,6 @@ class AdminController extends Controller {
 
         if(Auth::check()){
 
-
-           //dd($request);
-
             DB::beginTransaction();
             try{
 
@@ -344,7 +343,9 @@ class AdminController extends Controller {
                                                 'valor_pago'          => $request->valor_pago,
                                                 'porcentagem_gse'     => $request->porcentagem_gse,
                                                 'senha'               => $request->senha,
-                                                'tipo_envio'          => $request->tipo_envio
+                                                'tipo_envio'          => $request->tipo_envio,
+                                                'liberacao'           => $request->liberacao,
+                                                'obs'                 => $request->obs
                                      ]);
 
 

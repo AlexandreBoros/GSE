@@ -94,4 +94,18 @@
           <input type="text" class="form-control" id="porcentagem_gse_processo" placeholder="% GSE" value="{{$convenio->porcentagem_gse}}">
       </div>
     </div>
+    <div class="form-group row">
+        <div class="col">
+            <select class="form-control" name="liberacao">
+              <option value="{{$convenio->liberacao}}">{{$convenio->tipo_envio}}</option>
+              <option value="OP">OP</option>
+              <option value="CC">CC</option>
+            </select>
+          </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <textarea rows="5" class="form-control" name="obs" placeholder="OBS">{{$convenio->obs}}</textarea>
+        </div>
+    </div>
 </form>
