@@ -26,6 +26,8 @@ $(document).ready(function() {
         var senha = $('#senha').val();
         var cpf = $('#cpf').val();
         var tipo_envio = $('#tipo_envio').val();
+        var liberacao = $('#liberacao').val();
+        var obs = $('#obs').val();
 
 
         var data_args = {
@@ -41,7 +43,9 @@ $(document).ready(function() {
             'porcentagem_gse' : porcentagem_gse,
             'senha' : senha,
             'cpf' : cpf,
-            'tipo_envio' : tipo_envio
+            'tipo_envio' : tipo_envio,
+            'liberacao' : liberacao,
+            'obs' : obs
         };
 
 
