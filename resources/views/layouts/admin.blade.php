@@ -186,7 +186,7 @@
                 <span class="text">Clinicas</span>
             </a>
 
-            <a class="collapse-item"  data-toggle="modal" data-target="#usuario_clinica" href="javascript:void(0);" alt="Nova Usuario" title="Nova Usuario">
+            <a class="ml-1 btn btn-primary btn-icon-split"  data-toggle="modal" data-target="#usuario_clinica" href="javascript:void(0);" alt="Nova Usuario" title="Nova Usuario">
                 <span class="icon text-white-50">
                 <i class="fas fa-flag"></i>
                 </span>
