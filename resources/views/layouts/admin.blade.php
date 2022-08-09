@@ -186,11 +186,25 @@
                 <span class="text">Clinicas</span>
             </a>
 
+            <a href="{{route('app.admin.relatorio_usuario')}}" class="ml-1 btn btn-primary btn-icon-split">
+                <span class="icon text-white-50">
+                <i class="fas fa-flag"></i>
+                </span>
+                <span class="text">Usuarios</span>
+            </a>
+
             <a class="ml-1 btn btn-primary btn-icon-split"  data-toggle="modal" data-target="#usuario_clinica" href="javascript:void(0);" alt="Nova Usuario" title="Nova Usuario">
                 <span class="icon text-white-50">
                 <i class="fas fa-flag"></i>
                 </span>
                 <span class="text">Novo Usuario</span>
+            </a>
+
+            <a class="ml-1 btn btn-primary btn-icon-split"  data-toggle="modal" data-target="#salvar_clinica" href="javascript:void(0);" alt="Nova Clinica" title="Nova Clinica">
+                <span class="icon text-white-50">
+                <i class="fas fa-flag"></i>
+                </span>
+                <span class="text">Nova Clinica</span>
             </a>
 
         </nav>
