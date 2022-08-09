@@ -48,6 +48,20 @@
         <!-- Page Wrapper -->
   <div id="wrapper">
 
+    <a href="{{route('app.admin.principal')}}" class="btn btn-primary btn-icon-split">
+        <span class="icon text-white-50">
+          <i class="fas fa-flag"></i>
+        </span>
+        <span class="text">Processos</span>
+    </a>
+
+    <a href="{{route('app.admin.clinicas')}}" class="ml-1 btn btn-primary btn-icon-split">
+        <span class="icon text-white-50">
+          <i class="fas fa-flag"></i>
+        </span>
+        <span class="text">Clinicas</span>
+    </a>
+
     <!-- Sidebar -->
     {{--<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -139,10 +153,10 @@
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Manter:</h6>
-            <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Categorias</a>
+            <a class="collapse-item" href="{{--route('app.admin.lista_admin')">Categorias</a>
           </div>
         </div>
-      </li>-->
+      </li>
 
       <!-- Divider -->
       {{--<hr class="sidebar-divider">
