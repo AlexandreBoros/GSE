@@ -147,7 +147,6 @@
                     <th>CLINICA</th>
                     <th>NOME</th>
                     <th>CONVENIO</th>
-                    <th>LIBERAÇÃO</th>
                     <th>SITUAÇÃO</th>
                     {{--<th>Nº CARTEIRINHA</th>--}}
                     <th>CPF</th>
@@ -157,6 +156,7 @@
                     <th>VALOR NF</th>
                     <th>VALOR PAGO</th>
                     <th>DATA PAGAMENTO</th>
+                    <th>LIBERAÇÃO</th>
                     {{--<th>% GSE</th>--}}
                     <th>AÇÕES</th>
                 </tr>
@@ -182,7 +182,6 @@
                             <td>{{$convenio->nome_clinica}}</td>
                             <td>{{$convenio->nome_paciente}}</td>
                             <td>{{$convenio->tipo_convenio}}</td>
-                            <td>{{$convenio->liberacao}}</td>
                             <td class="text-uppercase">{{$convenio->nome_processo_status}}</td>
                             {{--<td class="text-uppercase">{{$convenio->numero_carterinha}}</td>--}}
                             <td class="text-uppercase">{{$convenio->cpf}}</td>
@@ -192,6 +191,7 @@
                             <td>R$ {{$convenio->valor_nf == '' ? '0,00' : $convenio->valor_nf}}</td>
                             <td class="text-uppercase">R$ {{$convenio->valor_pago == '' ? '0,00' : $convenio->valor_pago}}</td>
                             <td class="text-uppercase">{{$convenio->dt_pagamento}}</td>
+                            <td>{{$convenio->liberacao}}</td>
                             {{--<td class="text-uppercase">{{$convenio->porcentagem_gse}}</td>--}}
                             <td>
                                 <a href="#" class="alterar_status_processo" data-toggle="modal" data-target="#alterar_status_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Situação do Processo" title="Alterar Situação do Processo">
