@@ -64,7 +64,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{--route('app.admin.principal')--}}">
+        <a class="nav-link" href="{{--route('app.admin.principal')">
           {{--<i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -170,20 +170,23 @@
       <!-- Main Content -->
       <div id="content">
 
-        <a href="{{route('home')}}" class="btn btn-primary btn-icon-split">
-            <span class="icon text-white-50">
-              <i class="fas fa-flag"></i>
-            </span>
-            <span class="text">Processos</span>
-        </a>
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-        <a href="{{route('app.admin.clinicas')}}" class="ml-1 btn btn-primary btn-icon-split">
-            <span class="icon text-white-50">
-              <i class="fas fa-flag"></i>
-            </span>
-            <span class="text">Clinicas</span>
-        </a>
+            <a href="{{route('home')}}" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50">
+                <i class="fas fa-flag"></i>
+                </span>
+                <span class="text">Processos</span>
+            </a>
 
+            <a href="{{route('app.admin.clinicas')}}" class="ml-1 btn btn-primary btn-icon-split">
+                <span class="icon text-white-50">
+                <i class="fas fa-flag"></i>
+                </span>
+                <span class="text">Clinicas</span>
+            </a>
+
+        </nav>
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
