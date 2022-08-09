@@ -49,7 +49,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    {{--<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -65,7 +65,7 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
         <a class="nav-link" href="{{--route('app.admin.principal')--}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          {{--<i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
 
@@ -86,12 +86,12 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             {{--<a class="collapse-item" href="{{route('app.admin.principal')}}">Home</a>--}}
-            <a class="collapse-item" href="{{route('home')}}">Processos</a>
+            {{--<a class="collapse-item" href="{{route('home')}}">Processos</a>
             <a class="collapse-item" href="{{route('app.admin.clinicas')}}">Clinicas</a>
             {{--<a class="collapse-item" href="{{route('app.admin.cliente')}}">Clientes</a>
             <a class="collapse-item" href="{{route('app.admin.plano')}}">Planos</a>
             <a class="collapse-item" href="{{route('app.admin.bares_categoria')}}">Categorias dos Bares</a>--}}
-          </div>
+          {{--</div>
         </div>
       </li>
 
@@ -122,7 +122,7 @@
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item"  href="{{route('app.admin.relatorio_usuario')}}" alt="Lista Usuarios" title="Lista Usuario">Usuarios</a>
-            {{--<a class="collapse-item" data-toggle="modal" data-target="#salvar_clinica" href="javascript:void(0);" alt="Nova Clinica" title="Nova Clinica">Clinicas</a>--}}
+            {{--<a class="collapse-item" data-toggle="modal" data-target="#salvar_clinica" href="javascript:void(0);" alt="Nova Clinica" title="Nova Clinica">Clinicas</a>
           </div>
         </div>
       </li>
@@ -158,10 +158,10 @@
             <a class="collapse-item" href="{{--route('app.admin.lista_admin')">Todos</a>
           </div>
         </div>
-      </li>--}}
+      </li>
 
 
-    </ul>
+    </ul>--}}
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
