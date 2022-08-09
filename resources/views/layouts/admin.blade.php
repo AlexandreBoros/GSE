@@ -48,20 +48,6 @@
         <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <a href="{{route('home')}}" class="btn btn-primary btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-flag"></i>
-        </span>
-        <span class="text">Processos</span>
-    </a>
-
-    <a href="{{route('app.admin.clinicas')}}" class="ml-1 btn btn-primary btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-flag"></i>
-        </span>
-        <span class="text">Clinicas</span>
-    </a>
-
     <!-- Sidebar -->
     {{--<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -183,6 +169,20 @@
 
       <!-- Main Content -->
       <div id="content">
+
+        <a href="{{route('home')}}" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+              <i class="fas fa-flag"></i>
+            </span>
+            <span class="text">Processos</span>
+        </a>
+
+        <a href="{{route('app.admin.clinicas')}}" class="ml-1 btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+              <i class="fas fa-flag"></i>
+            </span>
+            <span class="text">Clinicas</span>
+        </a>
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
