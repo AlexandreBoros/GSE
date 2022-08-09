@@ -48,7 +48,7 @@
         <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <a href="{{route('app.admin.principal')}}" class="btn btn-primary btn-icon-split">
+    <a href="{{route('home')}}" class="btn btn-primary btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-flag"></i>
         </span>
