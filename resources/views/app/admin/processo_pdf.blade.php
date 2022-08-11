@@ -69,10 +69,11 @@
                 <th>VALOR NF</th>
                 <th>VALOR PAGO</th>
                 <th>DATA PAGAMENTO</th>
+                <th>LIBERAÇÃO</th>
             </tr>
             @if (count($convenios)>0)
                 @foreach ($convenios as $convenio)
-                    <tr> 
+                    <tr>
                         <td>{{$convenio->nome_clinica}}</td>
                         <td>{{$convenio->nome_paciente}}</td>
                         <td>{{$convenio->tipo_convenio}}</td>
@@ -83,7 +84,8 @@
                         <td>{{$convenio->valor_nf}}</td>
                         <td>{{$convenio->valor_pago}}</td>
                         <td>{{$convenio->dt_pagamento}}</td>
-                    </tr>  
+                        <td>{{$convenio->liberacao}}</td>
+                    </tr>
                 @endforeach
             @else
                 <div class="alert alert-danger">
@@ -92,10 +94,10 @@
                         Nenhum Processo foi encontrado.
                     </div>
                 </div>
-            @endif    
+            @endif
         </table>
     </body>
 </html>
 
-    
+
 
