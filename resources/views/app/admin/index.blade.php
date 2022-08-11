@@ -45,7 +45,7 @@
                 </div>
                 <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="btn btn-secondary btn-sm text-gray-900">R$ {{$valor_analise}}</div>
+                      <div class="btn btn-light btn-sm text-gray-900">R$ {{$valor_analise}}</div>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Cobranças</div>
+                        <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Cobranças</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-secondary btn-sm">
                             {{$procesos_cobranca->count()}}
                         </div>
