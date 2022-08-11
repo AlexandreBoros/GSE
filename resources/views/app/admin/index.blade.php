@@ -25,18 +25,18 @@
 <!-- Pending Requests Card Example -->
 <div class="row">
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-secondary shadow h-100 py-2">
+        <div class="card border-left-light shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Analise</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-secondary btn-sm">
+                            <div class="text-xs font-weight-bold text-gray-900 text-uppercase mb-1">Analise</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-900 btn btn-light btn-sm">
                                 {{$procesos_analise->count()}}
                             </div>
                     </div>
                     <div class="col-auto">
                         <a href="#" class="relatorio_data_analise" data-toggle="modal" data-target="#relatorio_data_analise" href="javascript:void(0);" alt="Relatorio por Data dos processos em Analise" title="Relatorio por Data dos processos em Analise">
-                            <div class="btn btn-secondary btn-sm"  style="margin-top: 22px">
+                            <div class="btn btn-light btn-sm text-gray-900"  style="margin-top: 22px">
                                     Relatório
                             </div>
                         </a>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="btn btn-secondary btn-sm">R$ {{$valor_analise}}</div>
+                      <div class="btn btn-secondary btn-sm text-gray-900">R$ {{$valor_analise}}</div>
                     </div>
                 </div>
             </div>
@@ -132,6 +132,34 @@
             </div>
         </div>
     </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-secondary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Cobranças</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-secondary btn-sm">
+                            {{$procesos_cobranca->count()}}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <a href="#" class="relatorio_data_cobrancas" data-toggle="modal" data-target="#relatorio_data_cobrancas" href="javascript:void(0);" alt="Relatorio por Data dos processos em cobranças" title="Relatorio por Data dos processos em cobranças">
+                            <div class="btn btn-secondary btn-sm"  style="margin-top: 22px">
+                                Relatório
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-secondary btn-sm">R$ {{$valor_cobranca}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 

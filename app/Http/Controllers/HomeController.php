@@ -42,13 +42,13 @@ class HomeController extends Controller
                 $clinica = $clinicas->where('id_clinica', $usuario->id_clinica)->first();
 
                 if($clinica->ativo == 0){
-                    Auth::logout(); 
+                    Auth::logout();
                     return view('desativado');
                 }
             }
 
             if($user->ativo == 0){
-                Auth::logout(); 
+                Auth::logout();
                 return view('desativado');
             }
 
@@ -63,13 +63,13 @@ class HomeController extends Controller
 
 
                     foreach ($procesos_analise->get() as $valor) {
-                        $valor_total_analise = str_replace("R$" , "" , $valor->valor_nf);   
-                        $valor_total_analise = str_replace("," , "" , $valor_total_analise);   
-                        $valor_total_analise = str_replace("." , "" , $valor_total_analise);   
+                        $valor_total_analise = str_replace("R$" , "" , $valor->valor_nf);
+                        $valor_total_analise = str_replace("," , "" , $valor_total_analise);
+                        $valor_total_analise = str_replace("." , "" , $valor_total_analise);
                         array_push($valores_limpos_analise , $valor_total_analise);
-                    }     
+                    }
 
-                    
+
                     $valor_analise = array_sum($valores_limpos_analise);
                     $valor_analise = substr_replace($valor_analise, '.', -2, 0);
                     $valor_analise = number_format($valor_analise,2,",",".");
@@ -78,19 +78,19 @@ class HomeController extends Controller
                     $procesos_pedente = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "2");
 
-                    
+
                     $valor_total_pedente = 0;
                     $valores_limpos_pedente = [];
 
 
                     foreach ($procesos_pedente->get() as $valor) {
-                        $valor_total_pedente = str_replace("R$" , "" , $valor->valor_nf);   
-                        $valor_total_pedente = str_replace("," , "" , $valor_total_pedente);   
-                        $valor_total_pedente = str_replace("." , "" , $valor_total_pedente);   
+                        $valor_total_pedente = str_replace("R$" , "" , $valor->valor_nf);
+                        $valor_total_pedente = str_replace("," , "" , $valor_total_pedente);
+                        $valor_total_pedente = str_replace("." , "" , $valor_total_pedente);
                         array_push($valores_limpos_pedente , $valor_total_pedente);
-                    }     
+                    }
 
-                                                            
+
                     $valor_pedente = array_sum($valores_limpos_pedente);
                     $valor_pedente = substr_replace($valor_pedente, '.', -2, 0);
                     $valor_pedente = number_format($valor_pedente,2,",",".");
@@ -98,23 +98,22 @@ class HomeController extends Controller
                     $procesos_baixado = $convenios->where("convenios.ativo", 1)
                                                   ->where("status_situacao", "3");
 
-                      
+
                     $valor_total_baixado = 0;
                     $valores_limpos_baixado = [];
-                              
-                              
+
+
                     foreach ($procesos_baixado->get() as $valor) {
-                        $valor_total_baixado = str_replace("R$" , "" , $valor->valor_pago);   
-                        $valor_total_baixado = str_replace("," , "" , $valor_total_baixado);   
-                        $valor_total_baixado = str_replace("." , "" , $valor_total_baixado);   
+                        $valor_total_baixado = str_replace("R$" , "" , $valor->valor_pago);
+                        $valor_total_baixado = str_replace("," , "" , $valor_total_baixado);
+                        $valor_total_baixado = str_replace("." , "" , $valor_total_baixado);
                         array_push($valores_limpos_baixado , $valor_total_baixado);
-                    }     
-                              
-                                                                                          
+                    }
+
+
                     $valor_baixado = array_sum($valores_limpos_baixado);
                     $valor_baixado = substr_replace($valor_baixado, '.', -2, 0);
                     $valor_baixado = number_format($valor_baixado,2,",",".");
-                                                            
 
 
                     $procesos_pago = $convenios->where("convenios.ativo", 1)
@@ -122,19 +121,41 @@ class HomeController extends Controller
 
                     $valor_total_pago = 0;
                     $valores_limpos_pago = [];
-                                                          
-                                                          
+
+
                     foreach ($procesos_pago->get() as $valor) {
-                        $valor_total_pago = str_replace("R$" , "" , $valor->valor_pago);   
-                        $valor_total_pago = str_replace("," , "" , $valor_total_pago);   
-                        $valor_total_pago = str_replace("." , "" , $valor_total_pago);   
+                        $valor_total_pago = str_replace("R$" , "" , $valor->valor_pago);
+                        $valor_total_pago = str_replace("," , "" , $valor_total_pago);
+                        $valor_total_pago = str_replace("." , "" , $valor_total_pago);
                         array_push($valores_limpos_pago , $valor_total_pago);
-                    }     
-                                                          
-                                                                                                                      
+                    }
+
+
                     $valor_pago = array_sum($valores_limpos_pago);
                     $valor_pago = substr_replace($valor_pago, '.', -2, 0);
-                    $valor_pago = number_format($valor_pago,2,",",".");                            
+                    $valor_pago = number_format($valor_pago,2,",",".");
+
+
+                    //Relatorio de cobrança
+                    $procesos_cobranca = $convenios->where("convenios.ativo", 1)
+                                                   ->where("status_situacao", "6");
+
+
+                    $valor_total_cobrança = 0;
+                    $valores_limpos_cobranca = [];
+
+
+                    foreach ($procesos_cobranca->get() as $valor) {
+                        $valor_total_cobranca = str_replace("R$" , "" , $valor->valor_pago);
+                        $valor_total_cobranca = str_replace("," , "" , $valor_total_cobranca);
+                        $valor_total_cobranca = str_replace("." , "" , $valor_total_cobranca);
+                        array_push($valores_limpos_cobranca , $valor_total_cobranca);
+                    }
+
+
+                    $valor_cobranca = array_sum($valores_limpos_cobranca);
+                    $valor_cobranca = substr_replace($valor_cobranca, '.', -2, 0);
+                    $valor_cobranca = number_format($valor_cobranca,2,",",".");
 
 
                     //Listar todos os convenios ordenados por data
@@ -145,28 +166,28 @@ class HomeController extends Controller
 
                     if ($request->filled('seacrh_nome')) {
                         $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
-                    } 
-                    
-                    
+                    }
+
+
                     if ($request->filled('seacrh_clinica')) {
                         $convenios = $convenios->where('clinicas.id_clinica', $request->seacrh_clinica);
-                    } 
+                    }
 
                     if ($request->filled('seacrh_convenio')) {
                         $convenios = $convenios->where('tipo_convenio', 'like', '%'.$request->seacrh_convenio.'%');
-                    } 
+                    }
 
                     if ($request->filled('seacrh_status')) {
                         $convenios = $convenios->where('status_situacao', $request->seacrh_status);
-                    } 
+                    }
 
-                                        
+
                     $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag');
                     $convenios->appends(Request::capture()->except('_token'))->render();
 
-                    $clinicas = $clinicas->get(); 
+                    $clinicas = $clinicas->get();
 
-                    
+
                     $compact_args = [
                         'class' => $this,
                         'clinicas' => $clinicas,
@@ -179,6 +200,8 @@ class HomeController extends Controller
                         'valor_baixado' => $valor_baixado,
                         'procesos_pago' => $procesos_pago,
                         'valor_pago' => $valor_pago,
+                        'procesos_cobranca' => $procesos_cobranca,
+                        'valor_cobranca' => $valor_cobranca,
 
                     ];
 
@@ -189,36 +212,36 @@ class HomeController extends Controller
                 case 2:
                     # Clinica
 
-                    //Pegar a clinica 
-                    $users_clinicas = $users_clinicas->where("id_user", $user->id)->first(); 
+                    //Pegar a clinica
+                    $users_clinicas = $users_clinicas->where("id_user", $user->id)->first();
 
 
-                    $clinicas = $clinicas->where("id_clinica", $users_clinicas->id_clinica)->first(); 
+                    $clinicas = $clinicas->where("id_clinica", $users_clinicas->id_clinica)->first();
 
                     //dd($users_clinicas);
-    
+
                     //Listar todos os convenios ordenados por data
                     $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                            ->where("id_clinica",'=', $users_clinicas->id_clinica)
                                            ->where("convenios.ativo", 1);
-                                         
 
-                    
+
+
 
 
                     if ($request->filled('seacrh_nome')) {
                         $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
-                    } 
+                    }
 
                     if ($request->filled('seacrh_convenio')) {
                         $convenios = $convenios->where('tipo_convenio', 'like', '%'.$request->seacrh_convenio.'%');
-                    } 
+                    }
 
                     if ($request->filled('id_processo_status')) {
                         $convenios = $convenios->where('status_situacao', $request->id_processo_status);
-                    } 
-    
-    
+                    }
+
+
                     $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag');
                     $convenios->appends(Request::capture()->except('_token'))->render();
 
@@ -228,42 +251,42 @@ class HomeController extends Controller
                         'clinicas' => $clinicas,
                         'convenios' => $convenios,
                         'processo_status' => $processo_status->get()
-    
+
                     ];
-    
-    
+
+
                     return view('app.clinica.index', $compact_args);
-                    break; 
-                    
+                    break;
+
                 case 3:
                     #Colaborador
 
                     //Listar todos os convenios ordenados por data
                     $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-                                
+
                                            ->where("convenios.ativo", 1);
 
                      $compact_args = [
                         'class' => $this,
                         'processo_status' => $processo_status->get()
-    
+
                     ];
-    
-    
-                    return view('app.colaborador.index', $compact_args);                       
-                    
-                    break; 
-                
+
+
+                    return view('app.colaborador.index', $compact_args);
+
+                    break;
+
                 default:
                     return view('home');
                     break;
             }
-            
+
 
         }else{
 
             return view('home');
-            
+
         }
 
     }
@@ -272,7 +295,7 @@ class HomeController extends Controller
     public function sair(){
 
         Auth::logout();
-        
+
         return view('welcome');
 
     }
