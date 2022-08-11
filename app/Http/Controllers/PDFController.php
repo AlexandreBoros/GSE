@@ -33,9 +33,9 @@ class PDFController extends Controller {
 
         if(Auth::check()){
 
-            $dt_inicial = $request->data_inicial; 
-            $dt_final   = $request->data_final; 
-            $id_clinica = $request->id_clinica; 
+            $dt_inicial = $request->data_inicial;
+            $dt_final   = $request->data_final;
+            $id_clinica = $request->id_clinica;
 
             $valor_total = 0;
             $valores_limpos = [];
@@ -49,50 +49,50 @@ class PDFController extends Controller {
                                                 ->where("convenios.ativo", 1)
                                                 ->where("status_situacao", "1")
                                                 ->orderBy('dt_cadastro','desc');
-                                                
+
 
                         if($id_clinica > 0){
 
                             $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
 
-                        }                       
+                        }
 
                         foreach ($convenios->get() as $valor) {
-                            $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
-                            $valor_total = str_replace("," , "" , $valor_total);   
-                            $valor_total = str_replace("." , "" , $valor_total);   
+                            $valor_total = str_replace("R$" , "" , $valor->valor_nf);
+                            $valor_total = str_replace("," , "" , $valor_total);
+                            $valor_total = str_replace("." , "" , $valor_total);
                             array_push( $valores_limpos , $valor_total);
-                        }                        
+                        }
 
-                                            
+
                     }else{
-                    
+
                         $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                 ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                 ->where("convenios.ativo", 1)
                                                 ->where("status_situacao", "1")
                                                 ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
                                                 ->orderBy('dt_cadastro','desc');
-                                           
+
                         if($id_clinica > 0){
 
                             $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
-                        
-                        }                                    
-                        
+
+                        }
+
                         foreach ($convenios->get() as $valor) {
-                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
-                                $valor_total = str_replace("," , "" , $valor_total);   
-                                $valor_total = str_replace("." , "" , $valor_total);   
+                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);
+                                $valor_total = str_replace("," , "" , $valor_total);
+                                $valor_total = str_replace("." , "" , $valor_total);
                                 array_push( $valores_limpos , $valor_total);
-                        }             
-                                            
-                                                   
-                          
-                                                       
-                    
+                        }
+
+
+
+
+
                     }
-                     
+
                     $valor = array_sum($valores_limpos);
 
                     $valor = substr_replace($valor, '.', -2, 0);
@@ -105,19 +105,19 @@ class PDFController extends Controller {
                         'titulo1'   => 'DADOS DOS PROCESSOS EM ANALISES',
                         'valor_total'   => $valor
                     ];
-        
+
                     $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
 
                     $nome = "processo_analise".$dt_inicial.".pdf";
-            
+
                     return $pdf->download($nome);
 
                     break;
 
-                
+
                 case 2:
                         if(empty($dt_inicial) || empty($dt_final)){
-    
+
                             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                     ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                     ->where("convenios.ativo", 1)
@@ -127,18 +127,18 @@ class PDFController extends Controller {
                             if($id_clinica > 0){
 
                                 $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
-                            
-                            }                                          
+
+                            }
 
                             foreach ($convenios->get() as $valor) {
-                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
-                                $valor_total = str_replace("," , "" , $valor_total);   
-                                $valor_total = str_replace("." , "" , $valor_total);   
+                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);
+                                $valor_total = str_replace("," , "" , $valor_total);
+                                $valor_total = str_replace("." , "" , $valor_total);
                                 array_push( $valores_limpos , $valor_total);
-                            }                                     
-            
+                            }
+
                         }else{
-                        
+
                             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                     ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                     ->where("convenios.ativo", 1)
@@ -149,24 +149,24 @@ class PDFController extends Controller {
                             if($id_clinica > 0){
 
                                 $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
-                                                    
-                            }                                   
-                                                    
+
+                            }
+
 
                             foreach ($convenios->get() as $valor) {
-                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);   
-                                $valor_total = str_replace("," , "" , $valor_total);   
-                                $valor_total = str_replace("." , "" , $valor_total);   
+                                $valor_total = str_replace("R$" , "" , $valor->valor_nf);
+                                $valor_total = str_replace("," , "" , $valor_total);
+                                $valor_total = str_replace("." , "" , $valor_total);
                                 array_push( $valores_limpos , $valor_total);
-                            }                          
-                        
+                            }
+
                         }
 
-                        
+
                         $valor = array_sum($valores_limpos);
 
                         $valor = substr_replace($valor, '.', -2, 0);
-    
+
                         $valor = number_format($valor,2,",",".");
 
                         $data = [
@@ -175,19 +175,19 @@ class PDFController extends Controller {
                             'titulo1'   => 'DADOS DOS PROCESSOS PENDENTES',
                             'valor_total'   => $valor
                         ];
-            
+
                         $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
 
                         $nome = "processo_pendente".$dt_inicial.".pdf";
-            
+
                         return $pdf->download($nome);
-    
-                        break;    
+
+                        break;
 
 
                 case 3:
                     if(empty($dt_inicial) || empty($dt_final)){
-        
+
                         $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                         ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                         ->where("convenios.ativo", 1)
@@ -197,21 +197,21 @@ class PDFController extends Controller {
                         if($id_clinica > 0){
 
                             $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
-                                                        
-                        }           
-                                                      
-                        
+
+                        }
+
+
                         foreach ($convenios->get() as $valor) {
-                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
-                            $valor_total = str_replace("," , "" , $valor_total);   
-                            $valor_total = str_replace("." , "" , $valor_total);   
+                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);
+                            $valor_total = str_replace("," , "" , $valor_total);
+                            $valor_total = str_replace("." , "" , $valor_total);
                             array_push( $valores_limpos , $valor_total);
-                        }  
+                        }
 
 
-                
+
                     }else{
-                            
+
                         $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                         ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                         ->where("convenios.ativo", 1)
@@ -222,43 +222,43 @@ class PDFController extends Controller {
                         if($id_clinica > 0){
 
                             $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
-                                                        
-                        }                                               
-                                                       
+
+                        }
+
 
                         foreach ($convenios->get() as $valor) {
-                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
-                            $valor_total = str_replace("," , "" , $valor_total);   
-                            $valor_total = str_replace("." , "" , $valor_total);   
+                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);
+                            $valor_total = str_replace("," , "" , $valor_total);
+                            $valor_total = str_replace("." , "" , $valor_total);
                             array_push( $valores_limpos , $valor_total);
-                        }                      
-                            
+                        }
+
                      }
 
                     $valor = array_sum($valores_limpos);
 
                     $valor = substr_replace($valor, '.', -2, 0);
- 
+
                     $valor = number_format($valor,2,",",".");
-        
+
                     $data = [
                         'convenios' => $convenios->get(),
                         'titulo'    => 'Relatório Processos Baixados',
                         'titulo1'   => 'DADOS DOS PROCESSOS BAIXADOS',
                         'valor_total'   => $valor
                     ];
-                
+
                     $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
-    
+
                     $nome = "processo_baixados".$dt_inicial.".pdf";
-                
+
                     return $pdf->download($nome);
-        
-                    break;      
-                    
+
+                    break;
+
                 case 4:
                     if(empty($dt_inicial) || empty($dt_final)){
-            
+
                         $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                             ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                             ->where("convenios.ativo", 1)
@@ -268,19 +268,19 @@ class PDFController extends Controller {
                         if($id_clinica > 0){
 
                             $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
-                                                                                            
-                        }                                                
-                                                           
+
+                        }
+
 
                         foreach ($convenios->get() as $valor) {
-                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
-                            $valor_total = str_replace("," , "" , $valor_total);   
-                            $valor_total = str_replace("." , "" , $valor_total);   
+                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);
+                            $valor_total = str_replace("," , "" , $valor_total);
+                            $valor_total = str_replace("." , "" , $valor_total);
                             array_push( $valores_limpos , $valor_total);
-                        }                                              
-                    
+                        }
+
                     }else{
-                                
+
                             $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                                             ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
                                                             ->where("convenios.ativo", 1)
@@ -292,39 +292,109 @@ class PDFController extends Controller {
                             if($id_clinica > 0){
 
                                 $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
-                                                        
-                            }                                         
+
+                            }
 
 
                             foreach ($convenios->get() as $valor) {
-                                $valor_total = str_replace("R$" , "" , $valor->valor_pago);   
-                                $valor_total = str_replace("," , "" , $valor_total);   
-                                $valor_total = str_replace("." , "" , $valor_total);   
+                                $valor_total = str_replace("R$" , "" , $valor->valor_pago);
+                                $valor_total = str_replace("," , "" , $valor_total);
+                                $valor_total = str_replace("." , "" , $valor_total);
                                 array_push( $valores_limpos , $valor_total);
-                            }                          
-                                
+                            }
+
                         }
 
                         $valor = array_sum($valores_limpos);
 
                         $valor = substr_replace($valor, '.', -2, 0);
- 
+
                         $valor = number_format($valor,2,",",".");
-            
+
                         $data = [
                             'convenios' => $convenios->get(),
                             'titulo'    => 'Relatório Processos Pagos',
                             'titulo1'   => 'DADOS DOS PROCESSOS PAGOS',
                             'valor_total'   => $valor
                         ];
-                    
+
                         $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
-        
+
                         $nome = "processo_pagos".$dt_inicial.".pdf";
-                    
+
                         return $pdf->download($nome);
-            
-                        break;                 
+
+                        break;
+
+                case 6:
+                    if(empty($dt_inicial) || empty($dt_final)){
+
+                        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                              ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                              ->where("convenios.ativo", 1)
+                                              ->where("status_situacao", 6)
+                                              ->orderBy('dt_cadastro','desc');
+
+                        if($id_clinica > 0){
+
+                            $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
+
+                        }
+
+
+                        foreach ($convenios->get() as $valor) {
+                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);
+                            $valor_total = str_replace("," , "" , $valor_total);
+                            $valor_total = str_replace("." , "" , $valor_total);
+                            array_push( $valores_limpos , $valor_total);
+                        }
+
+                    }else{
+
+                        $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
+                                              ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                              ->where("convenios.ativo", 1)
+                                              ->where("status_situacao", 6)
+                                              ->whereBetween('dt_cadastro', [$dt_inicial, $dt_final])
+                                              ->orderBy('dt_cadastro','desc');
+
+
+                        if($id_clinica > 0){
+
+                            $convenios = $convenios->where("clinicas.id_clinica", $id_clinica);
+
+                        }
+
+
+                        foreach ($convenios->get() as $valor) {
+                            $valor_total = str_replace("R$" , "" , $valor->valor_pago);
+                            $valor_total = str_replace("," , "" , $valor_total);
+                            $valor_total = str_replace("." , "" , $valor_total);
+                            array_push( $valores_limpos , $valor_total);
+                        }
+
+                    }
+
+                    $valor = array_sum($valores_limpos);
+
+                    $valor = substr_replace($valor, '.', -2, 0);
+
+                    $valor = number_format($valor,2,",",".");
+
+                    $data = [
+                        'convenios' => $convenios->get(),
+                        'titulo'    => 'Relatório Processos em Cobranças',
+                        'titulo1'   => 'DADOS DOS PROCESSOS EM COBRANÇAS',
+                        'valor_total'   => $valor
+                    ];
+
+                    $pdf = PDF::loadView('app.admin.processo_pdf',  $data);
+
+                    $nome = "processo_cobrancas".$dt_inicial.".pdf";
+
+                    return $pdf->download($nome);
+
+                    break;
 
                 default:
                     # code...
