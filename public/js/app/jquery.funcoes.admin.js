@@ -22,7 +22,7 @@ $(document).ready(function() {
         var valor_nf = $('#valor_nf').val();
         var valor_pago = $('#valor_pago').val();
         var dt_pagqamento = $('#dt_pagqamento').val();
-        var porcentagem_gse = $('#porcentagem_gse').val();
+        var tel_paciente = $('#tel_paciente').val();
         var senha = $('#senha').val();
         var cpf = $('#cpf').val();
         var tipo_envio = $('#tipo_envio').val();
@@ -40,7 +40,7 @@ $(document).ready(function() {
             'valor_nf' : valor_nf,
             'valor_pago' : valor_pago,
             'dt_pagqamento' : dt_pagqamento,
-            'porcentagem_gse' : porcentagem_gse,
+            'tel_paciente' : tel_paciente,
             'senha' : senha,
             'cpf' : cpf,
             'tipo_envio' : tipo_envio,
@@ -336,7 +336,7 @@ $(document).ready(function() {
         var valor_nf = $('#valor_nf_processo').val();
         var valor_pago = $('#valor_pago_processo').val();
         var dt_pagqamento = $('#dt_pagqamento_processo').val();
-        var porcentagem_gse = $('#porcentagem_gse_processo').val();
+        var tel_paciente_processo = $('#tel_paciente_processo').val();
         var senha = $('#senha_processo').val();
         var cpf = $('#cpf_processo').val();
         var tipo_envio = $('#tipo_envio_processo').val();
@@ -354,7 +354,7 @@ $(document).ready(function() {
             'valor_nf' : valor_nf,
             'valor_pago' : valor_pago,
             'dt_pagqamento' : dt_pagqamento,
-            'porcentagem_gse' : porcentagem_gse,
+            'tel_paciente' : tel_paciente_processo,
             'senha' : senha,
             'cpf' : cpf,
             'tipo_envio' : tipo_envio,

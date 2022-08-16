@@ -70,6 +70,7 @@
                 <th>VALOR PAGO</th>
                 <th>DATA PAGAMENTO</th>
                 <th>LIBERAÇÃO</th>
+                <th>TELEFONE</th>
             </tr>
             @if (count($convenios)>0)
                 @foreach ($convenios as $convenio)
@@ -85,6 +86,7 @@
                         <td>{{$convenio->valor_pago}}</td>
                         <td>{{$convenio->dt_pagamento}}</td>
                         <td>{{$convenio->liberacao}}</td>
+                        <td>{{$convenio->tel_paciente}}</td>
                     </tr>
                 @endforeach
             @else

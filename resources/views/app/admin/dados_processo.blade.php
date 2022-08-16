@@ -91,7 +91,7 @@
     </div>
     <div class="form-group row">
       <div class="col">
-          <input type="text" class="form-control" id="porcentagem_gse_processo" placeholder="% GSE" value="{{$convenio->porcentagem_gse}}">
+          <input type="text" class="form-control" id="tel_paciente_processo" placeholder="TELEFONE PACIENTE" value="{{$convenio->tel_paciente}}">
       </div>
     </div>
     <div class="form-group row">

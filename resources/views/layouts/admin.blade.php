@@ -593,7 +593,7 @@
                             </div>
                             <div class="form-group row">
                               <div class="col">
-                                  <input type="text" class="form-control" id="porcentagem_gse" placeholder="% GSE">
+                                  <input type="text" class="form-control" id="tel_paciente" placeholder="TELEFONE DO PACIENTE">
                               </div>
                             </div>
                             <div class="form-group row">

@@ -47,7 +47,7 @@ class AdminController extends Controller {
                 $convenio->valor_nf = $request->valor_nf;
                 $convenio->valor_pago = $request->valor_pago;
                 $convenio->dt_pagamento = $request->dt_pagqamento;
-                $convenio->porcentagem_gse = $request->porcentagem_gse;
+                $convenio->tel_paciente = $request->tel_paciente;
                 $convenio->senha = $request->senha;
                 $convenio->tipo_envio = $request->tipo_envio;
                 $convenio->liberacao = $request->liberacao;
@@ -341,7 +341,7 @@ class AdminController extends Controller {
                                                 'valor_nf'            => $request->valor_nf,
                                                 'dt_pagamento'        => $request->dt_pagqamento,
                                                 'valor_pago'          => $request->valor_pago,
-                                                'porcentagem_gse'     => $request->porcentagem_gse,
+                                                'tel_paciente'     => $request->tel_paciente,
                                                 'senha'               => $request->senha,
                                                 'tipo_envio'          => $request->tipo_envio,
                                                 'liberacao'           => $request->liberacao,
