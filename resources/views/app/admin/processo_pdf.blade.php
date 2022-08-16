@@ -65,7 +65,7 @@
                 <th>CPF</th>
                 <th>SENHA</th>
                 <th>DATA</th>
-                <th>PROTOCOLO</th>
+                {{--<th>PROTOCOLO</th>--}}
                 <th>VALOR NF</th>
                 <th>VALOR PAGO</th>
                 <th>DATA PAGAMENTO</th>
@@ -82,7 +82,7 @@
                         <td>{{$convenio->cpf}}</td>
                         <td>{{$convenio->senha}}</td>
                         <td>{{$convenio->dt_cadastro}}</td>
-                        <td>{{$convenio->protocolo}}</td>
+                        {{--<td>{{$convenio->protocolo}}</td>--}}
                         <td>{{$convenio->valor_nf}}</td>
                         <td>{{$convenio->valor_pago}}</td>
                         <td>{{$convenio->dt_pagamento}}</td>
