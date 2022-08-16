@@ -62,8 +62,8 @@
                 <th>CLINICA</th>
                 <th>NOME</th>
                 <th>CONVENIO</th>
-                <th>CPF</th>
-                <th>SENHA</th>
+                {{--<th>CPF</th>
+                <th>SENHA</th>--}}
                 <th>DATA</th>
                 {{--<th>PROTOCOLO</th>--}}
                 <th>VALOR NF</th>
@@ -79,8 +79,8 @@
                         <td>{{$convenio->nome_clinica}}</td>
                         <td>{{$convenio->nome_paciente}}</td>
                         <td>{{$convenio->tipo_convenio}}</td>
-                        <td>{{$convenio->cpf}}</td>
-                        <td>{{$convenio->senha}}</td>
+                        {{--<td>{{$convenio->cpf}}</td>
+                        <td>{{$convenio->senha}}</td>--}}
                         <td>{{$convenio->dt_cadastro}}</td>
                         {{--<td>{{$convenio->protocolo}}</td>--}}
                         <td>{{$convenio->valor_nf}}</td>
