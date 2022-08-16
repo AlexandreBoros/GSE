@@ -27,6 +27,7 @@ $(document).ready(function() {
         var cpf = $('#cpf').val();
         var tipo_envio = $('#tipo_envio').val();
         var liberacao = $('#liberacao').val();
+        var pix = $('#pix').val();
         var obs = $('#obs').val();
 
 
@@ -45,6 +46,7 @@ $(document).ready(function() {
             'cpf' : cpf,
             'tipo_envio' : tipo_envio,
             'liberacao' : liberacao,
+            'pix' : pix,
             'obs' : obs
         };
 
@@ -334,7 +336,7 @@ $(document).ready(function() {
         var valor_pago = $('#valor_pago_processo').val();
         var dt_pagqamento = $('#dt_pagqamento_processo').val();
         var tel_paciente_processo = $('#tel_paciente_processo').val();
-        var pix = $('#pix').val();
+        var pix = $('#pix_processo').val();
         var senha = $('#senha_processo').val();
         var cpf = $('#cpf_processo').val();
         var tipo_envio = $('#tipo_envio_processo').val();

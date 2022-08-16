@@ -96,7 +96,7 @@
     </div>
     <div class="form-group row">
         <div class="col">
-            <input type="text" class="form-control" id="pix" placeholder="PIX" value="{{$convenio->pix}}">
+            <input type="text" class="form-control" id="pix_processo" placeholder="PIX" value="{{$convenio->pix}}">
         </div>
       </div>
     <div class="form-group row">
