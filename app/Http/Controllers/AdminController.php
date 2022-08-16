@@ -329,7 +329,7 @@ class AdminController extends Controller {
 
             DB::beginTransaction();
             try{
-
+                dd($request->all());
                 $convenio = $convenio->where("id_convenio", $request->id_propcesso)
                                       ->update([
                                                 'id_clinica'          => $request->clinica,

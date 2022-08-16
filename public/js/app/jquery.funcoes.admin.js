@@ -324,9 +324,6 @@ $(document).ready(function() {
 
         var id_propcesso =  $('#id_propcesso').val();
 
-
-
-
         var clinica = $('#id_clinica_processo').val();
         var nome_paciente = $('#nome_paciente_processo').val();
         var convenio = $('#convenio_processo').val();
