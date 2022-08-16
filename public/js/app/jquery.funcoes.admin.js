@@ -337,6 +337,7 @@ $(document).ready(function() {
         var valor_pago = $('#valor_pago_processo').val();
         var dt_pagqamento = $('#dt_pagqamento_processo').val();
         var tel_paciente_processo = $('#tel_paciente_processo').val();
+        var pix = $('#pix').val();
         var senha = $('#senha_processo').val();
         var cpf = $('#cpf_processo').val();
         var tipo_envio = $('#tipo_envio_processo').val();
@@ -355,6 +356,7 @@ $(document).ready(function() {
             'valor_pago' : valor_pago,
             'dt_pagqamento' : dt_pagqamento,
             'tel_paciente' : tel_paciente_processo,
+            'pix' : pix,
             'senha' : senha,
             'cpf' : cpf,
             'tipo_envio' : tipo_envio,

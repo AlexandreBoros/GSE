@@ -69,8 +69,9 @@
                 <th>VALOR NF</th>
                 <th>VALOR PAGO</th>
                 <th>DATA PAGAMENTO</th>
-                <th>LIBERAÇÃO</th>
-                <th>TELEFONE</th>
+                <th>LIB</th>
+                <th>TEL</th>
+                <th>PIX</th>
             </tr>
             @if (count($convenios)>0)
                 @foreach ($convenios as $convenio)
@@ -87,6 +88,7 @@
                         <td>{{$convenio->dt_pagamento}}</td>
                         <td>{{$convenio->liberacao}}</td>
                         <td>{{$convenio->tel_paciente}}</td>
+                        <td>{{$convenio->pix}}</td>
                     </tr>
                 @endforeach
             @else

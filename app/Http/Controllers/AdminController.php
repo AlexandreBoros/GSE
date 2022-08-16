@@ -51,6 +51,7 @@ class AdminController extends Controller {
                 $convenio->senha = $request->senha;
                 $convenio->tipo_envio = $request->tipo_envio;
                 $convenio->liberacao = $request->liberacao;
+                $convenio->pix = $request->pix;
                 $convenio->obs = $request->obs;
 
                 if (!$convenio->save()) {
@@ -341,7 +342,8 @@ class AdminController extends Controller {
                                                 'valor_nf'            => $request->valor_nf,
                                                 'dt_pagamento'        => $request->dt_pagqamento,
                                                 'valor_pago'          => $request->valor_pago,
-                                                'tel_paciente'     => $request->tel_paciente,
+                                                'tel_paciente'        => $request->tel_paciente,
+                                                'pix'                 => $request->pix,
                                                 'senha'               => $request->senha,
                                                 'tipo_envio'          => $request->tipo_envio,
                                                 'liberacao'           => $request->liberacao,

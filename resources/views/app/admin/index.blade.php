@@ -184,8 +184,9 @@
                     <th>VALOR NF</th>
                     <th>VALOR PAGO</th>
                     <th>DATA PAGAMENTO</th>
-                    <th>LIBERAÇÃO</th>
+                    <th>LIB</th>
                     <th>TELEFONE</th>
+                    <th>PIX</th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
@@ -221,6 +222,7 @@
                             <td class="text-uppercase">{{$convenio->dt_pagamento}}</td>
                             <td>{{$convenio->liberacao}}</td>
                             <td class="text-uppercase">{{$convenio->tel_paciente}}</td>
+                            <td>{{$convenio->pix}}</td>
                             <td>
                                 <a href="#" class="alterar_status_processo" data-toggle="modal" data-target="#alterar_status_processo" href="javascript:void(0);" data-idpropcesso="{{$convenio->id_convenio}}" alt="Alterar Situação do Processo" title="Alterar Situação do Processo">
                                     <i class="fas fa-toggle-on"></i>

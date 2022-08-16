@@ -598,6 +598,11 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col">
+                                    <input type="text" class="form-control" id="pix" placeholder="TELEFONE DO PACIENTE">
+                                </div>
+                              </div>
+                            <div class="form-group row">
+                                <div class="col">
                                     <select class="form-control" name="liberacao">
                                       <option>SELECIONE A LIBERAÇÃO</option>
                                       <option value="OP">OP</option>
