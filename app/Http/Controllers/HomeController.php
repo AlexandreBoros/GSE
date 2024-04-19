@@ -263,7 +263,6 @@ class HomeController extends Controller
 
                     //Listar todos os convenios ordenados por data
                     $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
-
                                            ->where("convenios.ativo", 1);
 
                      $compact_args = [
@@ -280,6 +279,30 @@ class HomeController extends Controller
                 default:
                     return view('home');
                     break;
+                    
+                /*case 4:
+                    #Super clinica
+                    //Listar todos os convenios ordenados por data
+                    $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")->where("convenios.ativo", 1);
+                    
+                    $users_clinicas = $users_clinicas->where("id_user", $user->id)->first();
+                    $clinicas = $clinicas->where("id_clinica", $users_clinicas->id_clinica)->first();
+
+                     $compact_args = [
+                        'class' => $this,
+                        'clinicas' => $clinicas,
+                        'processo_status' => $processo_status->get()
+
+                    ];
+
+
+                    return view('app.super_clinicas.index', $compact_args);
+
+                    break;
+
+                default:
+                    return view('home');
+                    break; */   
             }
 
 

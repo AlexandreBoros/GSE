@@ -44,7 +44,7 @@
     </head>
     <body>
         <div id="header">
-            <table border="0" cellpadding="0" cellspacing="0">
+            {{--<table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td>
                         <img src="../public/img/logo.png" alt="{{env('APP_NAME')}}" width="150px" />
@@ -53,7 +53,7 @@
                         {{$titulo}}
                     </td>
                 </tr>
-            </table>
+            </table>--}}
         </div>
         <h3 align="center">{{$titulo1}}</h3>
         <h3 align="center">VALOR TOTAL R$ {{$valor_total}}</h3>
@@ -81,7 +81,7 @@
                         <td>{{$convenio->tipo_convenio}}</td>
                         {{--<td>{{$convenio->cpf}}</td>
                         <td>{{$convenio->senha}}</td>--}}
-                        <td>{{$convenio->dt_cadastro}}</td>
+                        <td>{{Carbon\Carbon::parse($convenio->dt_cadastro)->format('d/m/Y H:i:s')}}</td>
                         {{--<td>{{$convenio->protocolo}}</td>--}}
                         <td>{{$convenio->valor_nf}}</td>
                         <td>{{$convenio->valor_pago}}</td>

@@ -21,6 +21,9 @@ use App\Models\processo_arquivos;
 use App\Models\clinica;
 use App\Models\user_clinica;
 
+use App\Exports\RelatorioCobrancaExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class PDFController extends Controller {
 
@@ -327,7 +330,7 @@ class PDFController extends Controller {
                         break;
 
                 case 6:
-                    if(empty($dt_inicial) || empty($dt_final)){
+                    /*if(empty($dt_inicial) || empty($dt_final)){
 
                         $convenios = $convenio->join("clinicas","clinicas.id_clinica","convenios.id_clinica")
                                               ->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
@@ -392,7 +395,11 @@ class PDFController extends Controller {
 
                     $nome = "processo_cobrancas".$dt_inicial.".pdf";
 
-                    return $pdf->download($nome);
+                    return $pdf->download($nome);*/
+
+                    $nome = "processo_cobrancas".$dt_inicial.".pdf";
+
+                    return Excel::download(new RelatorioCobrancaExport($request), "$nome.xlsx");
 
                     break;
 

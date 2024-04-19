@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class convenio extends Model {
 
-    protected $table = 'gse.convenios';
+    protected $table = 'u249304309_gse.convenios';
     protected $primaryKey = 'id_convenio';
     public $timestamps = false;
     protected $guarded  = array();

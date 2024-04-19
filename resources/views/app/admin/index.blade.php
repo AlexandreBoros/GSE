@@ -215,7 +215,7 @@
                             {{--<td class="text-uppercase">{{$convenio->numero_carterinha}}</td>--}}
                             <td class="text-uppercase">{{$convenio->cpf}}</td>
                             <td class="text-uppercase">{{$convenio->senha}}</td>
-                            <td class="text-uppercase">{{$convenio->dt_cadastro}}</td>
+                            <td class="text-uppercase">{{Carbon\Carbon::parse($convenio->dt_cadastro)->format('d/m/Y H:i:s')}}</td>
                             <td class="text-uppercase">{{$convenio->protocolo}}</td>
                             <td>R$ {{$convenio->valor_nf == '' ? '0,00' : $convenio->valor_nf}}</td>
                             <td class="text-uppercase">R$ {{$convenio->valor_pago == '' ? '0,00' : $convenio->valor_pago}}</td>

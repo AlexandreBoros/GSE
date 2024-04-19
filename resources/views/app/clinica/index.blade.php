@@ -105,6 +105,149 @@
 <div class="card shadow mb-4"><div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Processos</h6>
 </div>
+
+
+{{--<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-light shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-gray-900 text-uppercase mb-1">Analise</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-900 btn btn-light btn-sm">
+                                {{$procesos_analise->count()}}
+                            </div>
+                    </div>
+                    <div class="col-auto">
+                        <a href="#" class="relatorio_data_analise" data-toggle="modal" data-target="#relatorio_data_analise" href="javascript:void(0);" alt="Relatorio por Data dos processos em Analise" title="Relatorio por Data dos processos em Analise">
+                            <div class="btn btn-light btn-sm text-gray-900"  style="margin-top: 22px">
+                                    Relatório
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-light btn-sm text-gray-900">R$ {{$valor_analise}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pendentes</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-danger btn-sm">
+                            {{$procesos_pedente->count()}}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <a href="#" class="relatorio_data_pendente" data-toggle="modal" data-target="#relatorio_data_pendente" href="javascript:void(0);" alt="Relatorio por Data dos processos Pendentes" title="Relatorio por Data dos processos Pendentes">
+                            <div class="btn btn-danger btn-sm"  style="margin-top: 22px">
+                                Relatório
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-danger btn-sm">R$ {{$valor_pedente}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Baixados</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-warning btn-sm">
+                            {{$procesos_baixado->count()}}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <a href="#" class="relatorio_data_baixado" data-toggle="modal" data-target="#relatorio_data_baixado" href="javascript:void(0);" alt="Relatorio por Data dos processos Pendentes" title="Relatorio por Data dos processos Pendentes">
+                            <div class="btn btn-warning btn-sm"  style="margin-top: 22px">
+                                Relatório
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-warning btn-sm">R$ {{$valor_baixado}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pagos</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-success btn-sm">
+                            {{$procesos_pago->count()}}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <a href="#" class="relatorio_data_pagos" data-toggle="modal" data-target="#relatorio_data_pagos" href="javascript:void(0);" alt="Relatorio por Data dos processos Pendentes" title="Relatorio por Data dos processos Pendentes">
+                            <div class="btn btn-success btn-sm"  style="margin-top: 22px">
+                                Relatório
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-success btn-sm">R$ {{$valor_pago}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-secondary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">Cobranças</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-100 btn btn-secondary btn-sm">
+                            {{$procesos_cobranca->count()}}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <a href="#" class="relatorio_data_cobrancas" data-toggle="modal" data-target="#relatorio_data_cobrancas" href="javascript:void(0);" alt="Relatorio por Data dos processos em cobranças" title="Relatorio por Data dos processos em cobranças">
+                            <div class="btn btn-secondary btn-sm"  style="margin-top: 22px">
+                                Relatório
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="btn btn-secondary btn-sm">R$ {{$valor_cobranca}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>--}}
+
+
 <div class="card-body">
     <div class="table-responsive">
         <!--<table id="table_admin" class="display" style="width:100%">-->

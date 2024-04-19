@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class user_clinica extends Model {
 
-    protected $table = 'gse.users_clinicas';
+    protected $table = 'u249304309_gse.users_clinicas';
     protected $primaryKey = 'id_user_clinica';
     public $timestamps = false;
     protected $guarded  = array();

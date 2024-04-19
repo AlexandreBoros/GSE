@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class processo_pendencia extends Model {
 
-    protected $table = 'gse.processo_pendencia';
+    protected $table = 'u249304309_gse.processo_pendencia';
     protected $primaryKey = 'id_processo_pendencia';
     public $timestamps = false;
     protected $guarded  = array();
