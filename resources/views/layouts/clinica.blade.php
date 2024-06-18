@@ -63,7 +63,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{--route('app.admin.principal')--}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard {{$clinicas->nome_clinica}}</span></a>
+          <span>{{$clinicas->nome_clinica}}</span></a>
       </li>
 
       <!-- Divider -->
@@ -82,8 +82,10 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manter:</h6>
-            {{--<a class="collapse-item" href="{{route('app.admin.principal')}}">Home</a>--}}
+            <h6 class="collapse-header">Menu:</h6>
+            @if(Auth::user()->id_perfil == 4)
+                <a class="collapse-item" href="{{route('app.clinica_admin.dashboard')}}">Dashborad</a>
+            @endif
             <a class="collapse-item" href="{{--route('app.admin.lista_admin')--}}">Processos</a>
             {{--<a class="collapse-item" href="{{route('app.admin.cliente')}}">Clientes</a>
             <a class="collapse-item" href="{{route('app.admin.plano')}}">Planos</a>
@@ -304,6 +306,7 @@
             </li>
 
           </ul>
+          
 
         </nav>
         <!-- End of Topbar -->
@@ -401,22 +404,12 @@
                     </div>
                     <div class="modal-body">
                         <form class="user">
-                            <div class="form-group row">
-                                <div class="col">
-                                  <select class="form-control" id="clinica">
-                                    <option value="">SELECIONE A CLINICA</option>
-                                      {{--@foreach ($clinicas as $clinica)
-                                         <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
-                                      @endforeach--}}
-                                  </select>
-                                </div>
+                          <div class="form-group row">
+                            <div class="col">
+                              <input type="text" class="form-control" id="nome_paciente" placeholder="NOME PACIENTE">
                             </div>
-                            <div class="form-group row">
-                              <div class="col">
-                                  <input type="text" class="form-control" id="nome_paciente" placeholder="NOME PACIENTE">
-                              </div>
-                            </div>
-                            <div class="form-group row">
+                          </div>
+                          <div class="form-group row">
                               <div class="col">
                                 <select class="form-control" id="convenio">
                                   <option>SELECIONE O CONVENIO</option>
@@ -452,6 +445,11 @@
                             </div>
                             <div class="form-group row">
                               <div class="col">
+                                  <input type="text" class="form-control" id="senha" placeholder="SENHA">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col">
                                 <select class="form-control" id="tipo_envio">
                                   <option>SELECIONE O TIPO DE ENVIO</option>
                                   <option value="REEMBOLSO">REEMBOLSO</option>
@@ -460,7 +458,7 @@
                                 </select>
                               </div>
                             </div>
-                            <!--<div class="form-group row">
+                            <div class="form-group row">
                               <div class="col">
                                   <input type="text" class="form-control" id="protocolo" placeholder="PROTOCOLO">
                               </div>
@@ -469,13 +467,48 @@
                               <div class="col">
                                   <input type="text" class="form-control" id="valor_nf" placeholder="VALOR NF">
                               </div>
-                            </div>-->
-                        </form>
+                            </div>
+
+                            <div class="form-group row">
+                              <div class="col">
+                                  <input type="text" class="form-control" id="valor_pago" placeholder="VALOR PAGO">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col">
+                                  <input type="text" class="form-control" id="dt_pagqamento" placeholder="DATA PAGAMENTO">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col">
+                                  <input type="text" class="form-control" id="tel_paciente" placeholder="TELEFONE DO PACIENTE">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="pix" placeholder="TELEFONE DO PACIENTE">
+                                </div>
+                              </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <select class="form-control" name="liberacao">
+                                      <option>SELECIONE A LIBERAÇÃO</option>
+                                      <option value="OP">OP</option>
+                                      <option value="CC">CC</option>
+                                    </select>
+                                  </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <textarea rows="5" class="form-control" name="obs" placeholder="OBS"></textarea>
+                                </div>
+                            </div>
+                      </form>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
                         <button class="btn btn-primary enviar-convenio">Enviar</button>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>
@@ -592,6 +625,90 @@
                     <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Reset</button>
                             <button class="btn btn-primary" onclick="salvar_plano()">Enviar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Novo Colaborador-->
+        <div class="modal fade" id="colobaradorModal" tabindex="-1" role="dialog" aria-labelledby="colobaradorModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Novo Colaborador</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="user" name="form-nova-plano">
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input type="text" class="form-control form-control-user" id="nome" placeholder="Nome Completo">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input type="email" class="form-control form-control-user" id="email" placeholder="E-mail">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input type="password" class="form-control form-control-user" id="senha" placeholder="Senha">
+                                </div>
+                            </div>
+                            <fieldset>
+                                <legend>Permissões</legend>
+                                @foreach ($permissoes as $permisao)
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="{{$permisao->id_premissions}}" id="{{$permisao->nome_premissions}}">
+                                      <label class="form-check-label" for="{{$permisao->nome_premissions}}">
+                                      {{$permisao->nome_premissions}}
+                                      </label>
+                                    </div>
+                                @endforeach
+                                {{--<div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="analise" id="analise">
+                                  <label class="form-check-label" for="analise">
+                                   Analise
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="pendente" id="pendente">
+                                  <label class="form-check-label" for="pendente">
+                                    Pendente
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="baixado" id="baixado">
+                                  <label class="form-check-label" for="baixado">
+                                    Baixado
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="pago" id="pago">
+                                  <label class="form-check-label" for="pago">
+                                    Pago
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="upload" id="upload">
+                                  <label class="form-check-label" for="upload">
+                                    Upload
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="cobranca" id="cobranca">
+                                  <label class="form-check-label" for="cobranca">
+                                    Cobrança
+                                  </label>
+                                </div>--}}
+                            </fieldset>    
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" onclick="salvar_plano()">Enviar</button>
                     </div>
                     </div>
                 </div>

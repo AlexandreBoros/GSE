@@ -16,16 +16,102 @@ use App\Models\convenio;
 use App\Models\processo_status;
 use App\Models\processo_pendencia;
 use App\Models\processo_arquivos;
+use App\Models\permissions
+;
 
 
 
-
-class ClinicaController extends Controller {
+class ClinicaAdminController extends Controller {
 
     public function __construct() {
 
 
     }
+
+    public function index(Request $request){
+
+        if(Auth::check()){
+
+
+            $compact_args = [
+                               'request' => $request,
+                               'class' => $this
+                            ];
+     
+             return view('app.clinica_admin.index', $compact_args);
+ 
+         }
+
+
+    }
+
+    
+    
+    public function dashboard(Request $request){
+
+        
+        if(Auth::check()){
+
+
+           $compact_args = [
+                              'request' => $request,
+                              'class' => $this
+                           ];
+    
+            return view('app.clinica_admin.dashboard', $compact_args);
+
+        }
+        
+    }
+    
+    
+    public function salvar_convenio(Request $request, convenio $convenio){
+
+        if(Auth::check()){
+
+            DB::beginTransaction();
+            try{
+
+                $convenio->id_clinica = $request->clinica;
+                $convenio->nome_paciente = $request->nome_paciente;
+                $convenio->tipo_convenio = $request->convenio;
+                $convenio->tipo_plano = $request->plano;
+                $convenio->numero_carterinha = $request->numero_carterinha;
+                $convenio->cpf = $request->cpf;
+                $convenio->dt_cadastro = Carbon::now();
+                $convenio->protocolo = $request->protocolo;
+                $convenio->valor_nf = $request->valor_nf;
+                $convenio->valor_pago = $request->valor_pago;
+                $convenio->dt_pagamento = $request->dt_pagqamento;
+                $convenio->tel_paciente = $request->tel_paciente;
+                $convenio->senha = $request->senha;
+                $convenio->tipo_envio = $request->tipo_envio;
+                $convenio->liberacao = $request->liberacao;
+                $convenio->pix = $request->pix;
+                $convenio->obs = $request->obs;
+
+                if (!$convenio->save()) {
+                    throw new Exception('Erro ao salvar novo convenio.');
+                }
+
+                DB::commit();
+                return response()->json([
+                    'status' => 'sucesso',
+                    'recarrega' => 'true',
+                    'msg' => 'Convenio foi inserido com sucesso.',
+                ]);
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descri��o: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+
+        }
+    }    
 
     public function adicionar_pendecia(Request $request, processo_pendencia $processo_pendencia){
 
@@ -40,7 +126,7 @@ class ClinicaController extends Controller {
                 'texto' => $processo_pendencia ? $processo_pendencia->texto : ""
             ];
     
-            return view('app.clinica.adicionar_pendecia', $compact_args);
+            return view('app.clinica_admin.adicionar_pendecia', $compact_args);
 
         }
         
@@ -55,7 +141,7 @@ class ClinicaController extends Controller {
                 'class' => $this
             ];
 
-            return view('app.clinica.upload', $compact_args);
+            return view('app.clinica_admin.upload', $compact_args);
 
         }
 
@@ -68,15 +154,15 @@ class ClinicaController extends Controller {
 
         if(Auth::check()){
 
-            // Define o valor default para a variável que contém o nome da imagem
+            // Define o valor default para a vari�vel que cont�m o nome da imagem
             $nameFile = null;
             
             if ($request->hasFile('image') && $request->file('image')->isValid()) {  
 
-                // Define um aleatório para o arquivo baseado no timestamps atual
+                // Define um aleat�rio para o arquivo baseado no timestamps atual
                 $name = uniqid(date('HisYmd'));
 
-                // Recupera a extensão do arquivo
+                // Recupera a extens�o do arquivo
                 $extension = $request->image->extension();
 
                 // Define finalmente o nome
@@ -87,7 +173,7 @@ class ClinicaController extends Controller {
                 // Se tiver funcionado o arquivo foi armazenado em storage/app/public/categories/nomedinamicoarquivo.extensao
                 $path = $request->file('image')->storeAs('public/upload_arquivos', $nameFile);
 
-                // Verifica se NÃO deu certo o upload (Redireciona de volta)
+                // Verifica se N�O deu certo o upload (Redireciona de volta)
                 if (!$upload){                             
                     return redirect()->back()
                                     ->with('error', 'Falha ao fazer upload')
@@ -134,7 +220,7 @@ class ClinicaController extends Controller {
                 'processo_arquivos' => $processo_arquivos,
             ];
 
-            return view('app.clinica.lista_upload', $compact_args);
+            return view('app.clinica_admin.lista_upload', $compact_args);
 
         }
 

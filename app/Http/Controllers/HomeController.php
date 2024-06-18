@@ -9,6 +9,7 @@ use App\Models\convenio;
 use App\Models\clinica;
 use App\Models\user_clinica;
 use App\Models\processo_status;
+use App\Models\permissions;
 
 
 
@@ -29,7 +30,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request, convenio $convenios, clinica $clinicas, user_clinica $users_clinicas, processo_status $processo_status)
+    public function index(Request $request, convenio $convenios, clinica $clinicas, user_clinica $users_clinicas, processo_status $processo_status, permissions $permissions)
     {
 
         if(Auth::check()){
@@ -37,6 +38,8 @@ class HomeController extends Controller
             $user = Auth::user();
 
             $usuario = $users_clinicas->where('id_user', $user->id)->first();
+
+            $permissoes = $permissions->get();
 
             if($usuario != null){
                 $clinica = $clinicas->where('id_clinica', $usuario->id_clinica)->first();
@@ -202,6 +205,7 @@ class HomeController extends Controller
                         'valor_pago' => $valor_pago,
                         'procesos_cobranca' => $procesos_cobranca,
                         'valor_cobranca' => $valor_cobranca,
+                        'permissoes' => $permissoes,
 
                     ];
 
@@ -250,7 +254,8 @@ class HomeController extends Controller
                         'class' => $this,
                         'clinicas' => $clinicas,
                         'convenios' => $convenios,
-                        'processo_status' => $processo_status->get()
+                        'processo_status' => $processo_status->get(),
+                        'permissoes' => $permissoes
 
                     ];
 
@@ -280,29 +285,58 @@ class HomeController extends Controller
                     return view('home');
                     break;
                     
-                /*case 4:
-                    #Super clinica
-                    //Listar todos os convenios ordenados por data
-                    $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")->where("convenios.ativo", 1);
+                 case 4:
+                    # clinica-Admin
                     
+                    //Pegar a clinica
                     $users_clinicas = $users_clinicas->where("id_user", $user->id)->first();
+                    
+                    //dd($users_clinicas);
+
                     $clinicas = $clinicas->where("id_clinica", $users_clinicas->id_clinica)->first();
 
-                     $compact_args = [
+                    //dd($users_clinicas);
+
+                    //Listar todos os convenios ordenados por data
+                    $convenios = $convenios->join("processo_status","processo_status.id_processo_status","=","convenios.status_situacao")
+                                           ->where("id_clinica",'=', $users_clinicas->id_clinica)
+                                           ->where("convenios.ativo", 1);
+
+
+
+
+
+                    if ($request->filled('seacrh_nome')) {
+                        $convenios = $convenios->where('nome_paciente', 'like', '%'.$request->seacrh_nome.'%');
+                    }
+
+                    if ($request->filled('seacrh_convenio')) {
+                        $convenios = $convenios->where('tipo_convenio', 'like', '%'.$request->seacrh_convenio.'%');
+                    }
+
+                    if ($request->filled('id_processo_status')) {
+                        $convenios = $convenios->where('status_situacao', $request->id_processo_status);
+                    }
+
+
+                    $convenios =  $convenios->orderBy('dt_cadastro','desc')->paginate(50,['*'],'todos_convenios_pag');
+                    $convenios->appends(Request::capture()->except('_token'))->render();
+
+
+                    $compact_args = [
                         'class' => $this,
                         'clinicas' => $clinicas,
-                        'processo_status' => $processo_status->get()
+                        'convenios' => $convenios,
+                        'processo_status' => $processo_status->get(),
+                        'permissoes' => $permissoes
 
                     ];
 
 
-                    return view('app.super_clinicas.index', $compact_args);
-
-                    break;
-
-                default:
-                    return view('home');
-                    break; */   
+                    
+                    
+                    return view('app.clinica_admin.index', $compact_args);
+                break;
             }
 
 
