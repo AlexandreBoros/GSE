@@ -708,7 +708,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" onclick="salvar_plano()">Enviar</button>
+                        <button class="btn btn-primary" class="salvar_usuarios_colaborador">Enviar</button>
                     </div>
                     </div>
                 </div>

@@ -812,5 +812,58 @@ class AdminController extends Controller {
 
     }
 
+    public function salvarClinicasColaboradores(Request $request, clinica $clinicas, user_clinica $user_clinicas, User $users){
+
+        if(Auth::check()){
+
+            DB::beginTransaction();
+            try{
+
+                $user_clinicas = $user_clinicas->where('id_clinica', $request->id_clinica_colaboradores)->first(); 
+
+                $user =  $users->where("id", $user_clinicas->id_user)
+                               ->update([
+                                        'id_perfil' =>  4
+                                        ]);
+
+                $clinica =  $clinicas->where("id_clinica",  $request->id_clinica_colaboradores)
+                                     ->update([
+                                               'id_perfil' =>  4
+                                              ]);
+                
+              
+                if (!$clinica) {
+                    throw new Exception('Erro ao adicionar perfil da clinica.');
+                }
+                                                
+
+
+                if (!$user) {
+                    throw new Exception('Erro ao adicionar colaboradores.');
+                }
+
+
+                DB::commit();
+                return response()->json([
+                    'status' => 'sucesso',
+                    'recarrega' => 'true',
+                    'msg' => 'Colaborador adicionado com sucesso.',
+                ]);
+
+            }catch (Exception $e) {
+                DB::rollback();
+                return response()->json([
+                    'status' => 'erro',
+                    'recarrega' => 'false',
+                    'msg' => 'Por favor, tente novamente mais tarde.' . (env('APP_ENV')!='production'? ' Descrição: '.$e->getMessage().' - Linha: '.$e->getLine() : '')
+                ]);
+            }
+            
+        }
+
+    }
+
+
+
 
 }

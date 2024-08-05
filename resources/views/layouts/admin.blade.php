@@ -207,6 +207,13 @@
                 <span class="text">Nova Clinica</span>
             </a>
 
+            <a class="ml-1 btn btn-primary btn-icon-split"  data-toggle="modal" data-target="#clinica_colaboradores" href="javascript:void(0);" alt="Nova Clinica" title="Nova Clinica">
+                <span class="icon text-white-50">
+                <i class="fas fa-flag"></i>
+                </span>
+                <span class="text">Clinica + Colaboradores</span>
+            </a>
+
         </nav>
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -1025,6 +1032,37 @@
             </div>
             <div class="modal-footer">
               <button class="btn btn-primary alterar-senha-usuario">Alterar Senha</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="clinica_colaboradores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Clinica + ColobaradoresS</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form class="user" name="form-clinica-colaboraores">
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="id_clinica_colaboradores">Clinica</label>
+                        <select class="form-control" name="id_clinica_colaboradores" id="id_clinica_colaboradores">
+                          <option value="">Selecione</option>
+                          @foreach ($clinicas as $clinica)
+                            <option value="{{$clinica->id_clinica}}">{{$clinica->nome_clinica}}</option>
+                          @endforeach
+                        </select>
+                    </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary clinica-colaboradores">Adicionar</button>
             </div>
           </div>
         </div>
